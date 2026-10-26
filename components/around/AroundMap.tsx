@@ -27,6 +27,7 @@ export function AroundMap({ lat, lon, name, anchorExact, places, compact = false
     (async () => {
       try {
         const ml = await import("maplibre-gl");
+        ml.setWorkerUrl("/maplibre/maplibre-gl-worker.mjs");
         if (cancelled || !el.current) return;
         const m = new ml.Map({ container: el.current, style: STYLE_URL, center: [lon, lat], zoom: 14, attributionControl: { compact: true }, cooperativeGestures: true });
         m.addControl(new ml.NavigationControl({ showCompass: false }), "top-right");

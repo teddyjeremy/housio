@@ -13,7 +13,8 @@
     "e2e": "playwright test",
     "panoramas": "python3 scripts/build-panoramas.py",
     "pois": "python3 scripts/fetch-pois.py",
-    "seed:sql": "node scripts/build-seed.mjs"
+    "seed:sql": "node scripts/build-seed.mjs",
+    "prebuild": "node -e \"require('fs').mkdirSync('public/maplibre',{recursive:true});require('fs').copyFileSync('node_modules/maplibre-gl/dist/maplibre-gl-worker.mjs','public/maplibre/maplibre-gl-worker.mjs')\""
   },
   "dependencies": {
     "@hookform/resolvers": "^6.0.0",

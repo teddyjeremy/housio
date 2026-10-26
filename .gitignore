@@ -47,3 +47,4 @@ next-env.d.ts
 /public/assets/_raw/
 .cache/
 __pycache__/
+public/maplibre/
