@@ -1,7 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { existsSync, readFileSync } from "node:fs";
 import { LISTINGS, LAYOUTS } from "../../data/listings.mjs";
-import { buildScene, modelSize } from "@/components/explore/roomPlan";
+import panos from "@/data/panoramas.json";
+import { roomForSpace, spaceForRoom, tourRooms } from "@/lib/tour";
+import type { Asset } from "@/types";
 
 describe("demo listings", () => {
   it("has exactly the required neighbourhood distribution", () => {
@@ -12,34 +14,32 @@ describe("demo listings", () => {
   });
 });
 
-describe("room builder", () => {
-  it("keeps furniture footprints inside their rooms", () => {
-    for (const [name, layout] of Object.entries(LAYOUTS as Record<string, { name: string; kind: string; x: number; z: number; w: number; d: number; features?: Record<string, unknown> }[]>)) {
-      const spaces = layout.map((s, i) => ({ id: `${name}-${i}`, name: s.name, kind: s.kind, x: s.x, z: s.z, width: s.w, depth: s.d, features: s.features }));
-      const scene = buildScene(spaces);
-      expect(scene.placements.length).toBeGreaterThan(3);
-      for (const p of scene.placements) {
-        const room = spaces.find((s) => s.id === p.spaceId)!;
-        const [sx, , sz] = p.size ?? modelSize(p.model);
-        const half = Math.max(sx, sz) / 2 * Math.SQRT1_2;
-        expect(p.x, `${p.key} ${p.model}`).toBeGreaterThanOrEqual(room.x + Math.min(half, 0.05) - 0.05);
-        expect(p.x).toBeLessThanOrEqual(room.x + room.width + 0.05);
-        expect(p.z).toBeGreaterThanOrEqual(room.z - 0.05);
-        expect(p.z).toBeLessThanOrEqual(room.z + room.depth + 0.05);
-      }
+describe("room panoramas", () => {
+  it("are CC0, exist on disk in full and preview sizes, and cover every listing", () => {
+    for (const p of panos.panoramas) {
+      expect(p.licence, p.id).toBe("CC0-1.0");
+      expect(p.page_url).toMatch(/^https:\/\/polyhaven\.com\/a\//);
+      expect(existsSync(`public${p.file}`)).toBe(true);
+      expect(existsSync(`public${p.low}`)).toBe(true);
+      expect(p.low_bytes).toBeLessThan(200_000);
+    }
+    const ids = new Set(panos.panoramas.map((p) => p.id));
+    for (const l of LISTINGS) {
+      const tour = (panos.tours as Record<string, { room: string; panorama: string }[]>)[l.slug];
+      expect(tour?.length, l.slug).toBeGreaterThanOrEqual(2);
+      for (const r of tour) expect(ids.has(r.panorama)).toBe(true);
+      for (const s of (panos.stills as Record<string, { file: string }[]>)[l.slug]) expect(existsSync(`public${s.file}`)).toBe(true);
     }
   });
-});
 
-describe("asset manifest", () => {
-  it("lists only CC0 assets whose files exist", () => {
-    const m = JSON.parse(readFileSync("data/asset-manifest.json", "utf8"));
-    expect(m.assets.length).toBeGreaterThan(20);
-    for (const a of m.assets) {
-      expect(a.licence, a.id).toBe("CC0-1.0");
-      expect(a.page_url).toMatch(/^https:\/\//);
-      const files = a.file ? [a.file] : (a.files ?? []).map((f: { file: string } | string) => (typeof f === "string" ? f : f.file));
-      for (const f of files) expect(existsSync(`public${f}`), f).toBe(true);
-    }
+  it("maps floor-plan rooms to tour rooms and back", () => {
+    const assets = panos.tours["kilimani-family-apartment"].map((r, i) => ({ id: `a${i}`, kind: "panorama", url: panos.panoramas.find((p) => p.id === r.panorama)!.file, caption: r.room } as Asset));
+    const rooms = tourRooms(assets);
+    expect(rooms.map((r) => r.kind)).toEqual(["living", "kitchen", "bedroom", "bathroom"]);
+    expect(rooms[0].low).toMatch(/-low\.webp$/);
+    const spaces = (LAYOUTS.two_bed as { name: string; kind: string }[]).map((s, i) => ({ id: `s${i}`, name: s.name, kind: s.kind }));
+    const bath = spaces.find((s) => s.kind === "bathroom")!;
+    expect(rooms[roomForSpace(rooms, bath)].kind).toBe("bathroom");
+    expect(spaces.find((s) => s.id === spaceForRoom(spaces, rooms[2]))!.kind).toBe("bedroom");
   });
 });
