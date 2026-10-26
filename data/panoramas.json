@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T10:49:45+00:00",
+ "generated_at": "2026-10-26T11:01:02+00:00",
  "panoramas": [
   {
    "id": "cayley_interior",
@@ -139,7 +139,7 @@
   },
   {
    "id": "studio_country_hall",
-   "kind": "kitchen",
+   "kind": "dining",
    "yaw": 0,
    "name": "Studio Country Hall",
    "source": "Poly Haven",
@@ -561,7 +561,7 @@
     "panorama": "lythwood_lounge"
    },
    {
-    "room": "Kitchen",
+    "room": "Dining room",
     "panorama": "studio_country_hall"
    },
    {
@@ -709,7 +709,7 @@
    },
    {
     "file": "/stills/karen-garden-cottage-2.jpg",
-    "room": "Kitchen",
+    "room": "Dining room",
     "panorama": "studio_country_hall"
    },
    {

@@ -38,7 +38,7 @@ select ${q(L.slug)}, id, ${q(L.name)}, ${q(L.type)}, ${q(L.hood)}, ${q(L.summary
 select id, ${q(u.code)}, ${q(u.name)}, ${q(u.type)}, ${u.guests}, ${q(u.bedrooms)}, ${q(u.bathrooms)}, ${j(u.sleeping)}, ${q(u.area)}, false, ${u.rate}, ${u.weekly}, ${u.monthly}, ${u.cleaning}, ${u.deposit}, ${u.min}, ${u.max ?? 180}, ${q(L.style)} from app.properties where slug = ${q(L.slug)};`);
     const uref = `(select u.id from app.units u join app.properties p on p.id = u.property_id where p.slug = ${q(L.slug)} and u.code = ${q(u.code)})`;
     if (u.layout) {
-      LAYOUTS[u.layout].forEach((s, i) => {
+      LAYOUTS[u.layout].filter((s) => !(u.omit ?? []).includes(s.kind)).forEach((s, i) => {
         out.push(`insert into app.spaces(unit_id, name, kind, sort, plan_x, plan_z, width_m, depth_m, dimensions_verified, features) values (${uref}, ${q(s.name)}, ${q(s.kind)}, ${i}, ${s.x}, ${s.z}, ${s.w}, ${s.d}, false, ${j(s.features ?? Object.fromEntries(Object.entries(s).filter(([k]) => ["bed", "ensuite", "kitchenette", "desk"].includes(k))))});`);
       });
     } else {

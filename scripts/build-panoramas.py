@@ -21,7 +21,7 @@ RAW = os.environ.get("RAW_DIR", ".cache/panos")
 POLYHAVEN = {
     "cayley_interior": ("living", 240), "lythwood_lounge": ("living", 60), "reading_room": ("living", 60),
     "combination_room": ("living", 300), "anniversary_lounge": ("living", 120), "brown_photostudio_02": ("living", 225),
-    "brown_photostudio_04": ("studio", 120), "kiara_interior": ("kitchen", 180), "studio_country_hall": ("kitchen", 0),
+    "brown_photostudio_04": ("studio", 120), "kiara_interior": ("kitchen", 180), "studio_country_hall": ("dining", 0),
     "hotel_room": ("bedroom", 120), "relax_inn_seaview_suite": ("bedroom", 60), "lythwood_room": ("bedroom", 180),
     "glasshouse_interior": ("bedroom", 240), "en_suite": ("bathroom", 180), "modern_bathroom": ("bathroom", 0), "bathroom": ("bathroom", 300),
 }
@@ -48,7 +48,7 @@ TOURS = {
     "westlands-parkside-residences": [("Living room", "wm_eso_suite_lounge"), ("Bedroom", "wm_tololo_hotel_room"), ("Bathroom", "wm_motel_one_bathroom")],
     "kilimani-arboretum-studio": [("Studio", "brown_photostudio_04"), ("Bathroom", "en_suite")],
     "kilimani-family-apartment": [("Living room", "wm_eso_guesthouse_living"), ("Kitchen and lounge", "kiara_interior"), ("Main bedroom", "hotel_room"), ("Bathroom", "modern_bathroom")],
-    "karen-garden-cottage": [("Lounge", "lythwood_lounge"), ("Kitchen", "studio_country_hall"), ("Bedroom", "lythwood_room"), ("Bathroom", "bathroom")],
+    "karen-garden-cottage": [("Lounge", "lythwood_lounge"), ("Dining room", "studio_country_hall"), ("Bedroom", "lythwood_room"), ("Bathroom", "bathroom")],
     "kitisuru-ridge-suite": [("Living room", "reading_room"), ("Garden-view bedroom", "glasshouse_interior")],
     "kitisuru-extended-stay-house": [("Dining room", "wm_eso_guesthouse_dining"), ("Kitchen", "wm_eso_guesthouse_kitchen"), ("Bedroom", "wm_pachon_dormitory_room")],
     "south-b-business-studio": [("Studio", "wm_pachon_hotel_room"), ("Bathroom", "wm_bathroom_dass")],

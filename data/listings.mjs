@@ -76,7 +76,7 @@ export const LISTINGS = [
     policy: "strict", stay: ["short", "long"], style: "garden",
     unit: { code: "KR-HS-01", name: "Entire three-bedroom home", type: "house", guests: 6, bedrooms: 3, bathrooms: 2, area: 165,
       sleeping: [{ room: "Main bedroom", beds: "1 king bed" }, { room: "Second bedroom", beds: "1 double bed" }, { room: "Third bedroom", beds: "2 single beds" }],
-      rate: 22000, weekly: 15, monthly: 30, cleaning: 4000, deposit: 30000, min: 3, layout: "three_bed" },
+      rate: 22000, weekly: 15, monthly: 30, cleaning: 4000, deposit: 30000, min: 3, layout: "three_bed", omit: ["kitchen"] },
     amenities: A(["wifi", "workspace", "kitchen_full", "washer", "parking", "step_free", "garden", "backup_power", "security", "hot_water", "family", "long_stay"], ["elevator", "pool", "ac"], ["gym"]) },
   { slug: "kitisuru-ridge-suite", name: "Ridgeview Suite Kitisuru", hood: "kitisuru", type: "suite",
     summary: "A calm one-bedroom suite on a residential ridge, with a private balcony.",
