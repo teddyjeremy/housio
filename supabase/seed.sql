@@ -148,7 +148,7 @@ insert into app.assets(property_id, kind, trust_label, url, caption, source, lic
  ((select id from app.properties where slug = 'kilimani-family-apartment'), 'photo', 'sample_photo', '/stills/kilimani-family-apartment-1.jpg', 'Living room', 'Poly Haven', 'CC0-1.0', 0),
  ((select id from app.properties where slug = 'kilimani-family-apartment'), 'photo', 'sample_photo', '/stills/kilimani-family-apartment-2.jpg', 'Kitchen and lounge', 'Poly Haven', 'CC0-1.0', 1),
  ((select id from app.properties where slug = 'kilimani-family-apartment'), 'photo', 'sample_photo', '/stills/kilimani-family-apartment-3.jpg', 'Main bedroom', 'Poly Haven', 'CC0-1.0', 2),
- ((select id from app.properties where slug = 'kilimani-family-apartment'), 'panorama', 'sample_photo', '/panos/wooden_lounge.webp', 'Living room', 'Poly Haven', 'CC0-1.0', 10),
+ ((select id from app.properties where slug = 'kilimani-family-apartment'), 'panorama', 'sample_photo', '/panos/acg_indoor_001.webp', 'Living room', 'Poly Haven', 'CC0-1.0', 10),
  ((select id from app.properties where slug = 'kilimani-family-apartment'), 'panorama', 'sample_photo', '/panos/kiara_interior.webp', 'Kitchen and lounge', 'Poly Haven', 'CC0-1.0', 11),
  ((select id from app.properties where slug = 'kilimani-family-apartment'), 'panorama', 'sample_photo', '/panos/hotel_room.webp', 'Main bedroom', 'Poly Haven', 'CC0-1.0', 12),
  ((select id from app.properties where slug = 'kilimani-family-apartment'), 'panorama', 'sample_photo', '/panos/modern_bathroom.webp', 'Bathroom', 'Poly Haven', 'CC0-1.0', 13);

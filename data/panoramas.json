@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T11:12:01+00:00",
+ "generated_at": "2026-10-26T11:55:36+00:00",
  "panoramas": [
   {
    "id": "cayley_interior",
@@ -257,23 +257,6 @@
    "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/bathroom.jpg"
   },
   {
-   "id": "wooden_lounge",
-   "kind": "living",
-   "yaw": 180,
-   "name": "Wooden Lounge",
-   "source": "Poly Haven",
-   "page_url": "https://polyhaven.com/a/wooden_lounge",
-   "creator": "Greg Zaal",
-   "licence": "CC0-1.0",
-   "licence_url": "https://polyhaven.com/license",
-   "attribution_required": false,
-   "file": "/panos/wooden_lounge.webp",
-   "low": "/panos/wooden_lounge-low.webp",
-   "bytes": 363968,
-   "low_bytes": 28316,
-   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/wooden_lounge.jpg"
-  },
-  {
    "id": "blinds",
    "kind": "kitchen",
    "yaw": 90,
@@ -510,6 +493,23 @@
    "bytes": 749870,
    "low_bytes": 32930,
    "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Cerro_Pach%C3%B3n_Dormitory_Room_360_Panorama_%28Pano360_Room_Pachon_Hotel1-CC%29.jpg/3840px-Cerro_Pach%C3%B3n_Dormitory_Room_360_Panorama_%28Pano360_Room_Pachon_Hotel1-CC%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "id": "acg_indoor_001",
+   "kind": "living",
+   "yaw": 300,
+   "name": "Indoor Environment HDRI 001",
+   "source": "ambientCG",
+   "page_url": "https://ambientcg.com/view?id=IndoorEnvironmentHDRI001",
+   "creator": "Lennart Demes",
+   "licence": "CC0-1.0",
+   "licence_url": "https://docs.ambientcg.com/license/",
+   "attribution_required": false,
+   "file": "/panos/acg_indoor_001.webp",
+   "low": "/panos/acg_indoor_001-low.webp",
+   "bytes": 278138,
+   "low_bytes": 16870,
+   "original": "https://ambientcg.com/get?file=IndoorEnvironmentHDRI001_4K.zip"
   }
  ],
  "tours": {
@@ -540,7 +540,7 @@
   "kilimani-family-apartment": [
    {
     "room": "Living room",
-    "panorama": "wooden_lounge"
+    "panorama": "acg_indoor_001"
    },
    {
     "room": "Kitchen and lounge",
@@ -688,7 +688,7 @@
    {
     "file": "/stills/kilimani-family-apartment-1.jpg",
     "room": "Living room",
-    "panorama": "wooden_lounge"
+    "panorama": "acg_indoor_001"
    },
    {
     "file": "/stills/kilimani-family-apartment-2.jpg",

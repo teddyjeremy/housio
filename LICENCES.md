@@ -3,7 +3,7 @@
 ## Room panoramas and photos
 
 Each room panorama is used by exactly one listing. Sources: Poly Haven indoor HDRIs (CC0, Poly Haven's tonemapped JPGs)
-and equirectangular interiors from Wikimedia Commons (public domain, CC BY 2.0, CC BY 4.0 or CC BY-SA 4.0).
+ambientCG HDRIs (CC0) and equirectangular interiors from Wikimedia Commons (public domain, CC BY 2.0, CC BY 4.0 or CC BY-SA 4.0).
 `scripts/build-panoramas.py` resizes each to a 4096×2048 WebP plus a 1024×512 preview, and crops listing photos in
 `public/stills` from the same images. These are modified (resized and cropped) versions. Images derived from CC BY-SA
 works are shared under CC BY-SA 4.0. The full record is in `data/panoramas.json` and on the site's Credits page (`/licences`).
@@ -25,7 +25,6 @@ works are shared under CC BY-SA 4.0. The full record is in `data/panoramas.json`
 | en_suite | En Suite | bathroom | [Poly Haven](https://polyhaven.com/a/en_suite) | Greg Zaal | CC0-1.0 |
 | modern_bathroom | Modern Bathroom | bathroom | [Poly Haven](https://polyhaven.com/a/modern_bathroom) | Adrian Kubasa | CC0-1.0 |
 | bathroom | Bathroom | bathroom | [Poly Haven](https://polyhaven.com/a/bathroom) | Greg Zaal | CC0-1.0 |
-| wooden_lounge | Wooden Lounge | living | [Poly Haven](https://polyhaven.com/a/wooden_lounge) | Greg Zaal | CC0-1.0 |
 | blinds | Blinds | kitchen | [Poly Haven](https://polyhaven.com/a/blinds) | Greg Zaal | CC0-1.0 |
 | wm_bathroom_dass | Bathroom (28613007553) | bathroom | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bathroom_(28613007553).jpg) | Bob Dass | CC-BY-2.0 |
 | wm_motel_one_bathroom | Motel One Wien Hauptbahnhof - Badezimmer | bathroom | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Motel_One_Wien_Hauptbahnhof_-_Badezimmer.jpg) | 1971markus | CC-BY-SA-4.0 |
@@ -40,6 +39,7 @@ works are shared under CC BY-SA 4.0. The full record is in `data/panoramas.json`
 | wm_eso_suite_lounge | ESO Guesthouse (gh-direct-suite-pan) | living | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ESO_Guesthouse_(gh-direct-suite-pan).jpg) | ESO | CC-BY-4.0 |
 | wm_tartu_open_kitchen | Tartu loodusmaja köök ja koolitustuba | kitchen | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tartu_loodusmaja_k%C3%B6%C3%B6k_ja_koolitustuba.jpg) | Lauri Veerde | CC-BY-SA-4.0 |
 | wm_pachon_dormitory_room | Cerro Pachón Dormitory Room 360 Panorama (Pano360 Room Pachon Hotel1-CC) | bedroom | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cerro_Pach%C3%B3n_Dormitory_Room_360_Panorama_(Pano360_Room_Pachon_Hotel1-CC).jpg) | CTIO/NOIRLab/NSF/AURA/P. Horálek | CC-BY-4.0 |
+| acg_indoor_001 | Indoor Environment HDRI 001 | living | [ambientCG](https://ambientcg.com/view?id=IndoorEnvironmentHDRI001) | Lennart Demes | CC0-1.0 |
 
 ## Nearby places
 

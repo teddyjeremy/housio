@@ -7,7 +7,9 @@ data/panoramas.json.
 
 Usage: python3 scripts/build-panoramas.py   (RAW_DIR caches the downloads, default .cache/panos)
 """
-import json, os, re, urllib.parse, urllib.request
+import io
+import json
+import os, re, urllib.parse, urllib.request, zipfile
 from datetime import datetime, timezone
 import numpy as np
 from PIL import Image
@@ -24,7 +26,7 @@ POLYHAVEN = {
     "brown_photostudio_04": ("studio", 120), "kiara_interior": ("kitchen", 180), "studio_country_hall": ("dining", 0),
     "hotel_room": ("bedroom", 120), "relax_inn_seaview_suite": ("bedroom", 60), "lythwood_room": ("bedroom", 180),
     "glasshouse_interior": ("bedroom", 240), "en_suite": ("bathroom", 180), "modern_bathroom": ("bathroom", 0), "bathroom": ("bathroom", 300),
-    "wooden_lounge": ("living", 180), "blinds": ("kitchen", 90),
+    "blinds": ("kitchen", 90),
 }
 COMMONS = {
     "wm_bathroom_dass": ("File:Bathroom (28613007553).jpg", "bathroom", 0),
@@ -41,13 +43,17 @@ COMMONS = {
     "wm_tartu_open_kitchen": ("File:Tartu loodusmaja köök ja koolitustuba.jpg", "kitchen", 0),
     "wm_pachon_dormitory_room": ("File:Cerro Pachón Dormitory Room 360 Panorama (Pano360 Room Pachon Hotel1-CC).jpg", "bedroom", 0),
 }
-PANOS = {**POLYHAVEN, **{k: (v[1], v[2]) for k, v in COMMONS.items()}}
+# ambientCG CC0 HDRIs: id -> (asset id, room kind, still yaw). The tonemapped 4K JPG is lifted slightly for daylight.
+AMBIENTCG = {
+    "acg_indoor_001": ("IndoorEnvironmentHDRI001", "living", 300),
+}
+PANOS = {**POLYHAVEN, **{k: (v[1], v[2]) for k, v in COMMONS.items()}, **{k: (v[1], v[2]) for k, v in AMBIENTCG.items()}}
 
 # Listing -> ordered rooms (label, panorama id). No panorama appears twice.
 TOURS = {
     "westlands-parkside-residences": [("Living room", "wm_eso_suite_lounge"), ("Bedroom", "wm_tololo_hotel_room"), ("Bathroom", "wm_motel_one_bathroom")],
     "kilimani-arboretum-studio": [("Studio", "brown_photostudio_04"), ("Bathroom", "en_suite")],
-    "kilimani-family-apartment": [("Living room", "wooden_lounge"), ("Kitchen and lounge", "kiara_interior"), ("Main bedroom", "hotel_room"), ("Bathroom", "modern_bathroom")],
+    "kilimani-family-apartment": [("Living room", "acg_indoor_001"), ("Kitchen and lounge", "kiara_interior"), ("Main bedroom", "hotel_room"), ("Bathroom", "modern_bathroom")],
     "karen-garden-cottage": [("Lounge", "lythwood_lounge"), ("Kitchen", "blinds"), ("Dining room", "studio_country_hall"), ("Bedroom", "lythwood_room"), ("Bathroom", "bathroom")],
     "kitisuru-ridge-suite": [("Living room", "reading_room"), ("Garden-view bedroom", "glasshouse_interior")],
     "kitisuru-extended-stay-house": [("Dining room", "wm_eso_guesthouse_dining"), ("Kitchen", "wm_eso_guesthouse_kitchen"), ("Bedroom", "wm_pachon_dormitory_room")],
@@ -96,6 +102,15 @@ def main():
             original = files["tonemapped"]["url"]
             meta = {"name": info["name"], "source": "Poly Haven", "page_url": f"https://polyhaven.com/a/{pid}", "creator": ", ".join(info["authors"].keys()),
                     "licence": "CC0-1.0", "licence_url": "https://polyhaven.com/license", "attribution_required": False}
+        elif pid in AMBIENTCG:
+            asset = AMBIENTCG[pid][0]
+            original = f"https://ambientcg.com/get?file={asset}_4K.zip"
+            meta = {"name": f"Indoor Environment HDRI {asset[-3:]}", "source": "ambientCG", "page_url": f"https://ambientcg.com/view?id={asset}", "creator": "Lennart Demes",
+                    "licence": "CC0-1.0", "licence_url": "https://docs.ambientcg.com/license/", "attribution_required": False}
+            if not os.path.exists(raw):
+                with zipfile.ZipFile(io.BytesIO(get(original))) as z:
+                    a = np.asarray(Image.open(io.BytesIO(z.read(f"{asset}_4K_TONEMAPPED.jpg"))).convert("RGB")).astype(np.float32) / 255
+                Image.fromarray((np.clip(a ** 0.72 * 1.12, 0, 1) * 255).astype(np.uint8)).save(raw, quality=94)
         else:
             title = COMMONS[pid][0]
             q = urllib.parse.urlencode({"action": "query", "titles": title, "prop": "imageinfo", "iiprop": "url|extmetadata", "iiurlwidth": 4096, "format": "json"})

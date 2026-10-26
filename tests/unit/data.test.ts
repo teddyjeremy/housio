@@ -18,7 +18,7 @@ describe("room panoramas", () => {
   it("have permitted licences, exist on disk in full and preview sizes, and cover every listing", () => {
     for (const p of panos.panoramas) {
       expect(["CC0-1.0", "Public domain", "CC-BY-2.0", "CC-BY-4.0", "CC-BY-SA-4.0"], p.id).toContain(p.licence);
-      expect(p.page_url).toMatch(/^https:\/\/(polyhaven\.com\/a\/|commons\.wikimedia\.org\/wiki\/File:)/);
+      expect(p.page_url).toMatch(/^https:\/\/(polyhaven\.com\/a\/|commons\.wikimedia\.org\/wiki\/File:|ambientcg\.com\/view\?id=)/);
       if (p.attribution_required) expect(p.creator.length, p.id).toBeGreaterThan(1);
       expect(existsSync(`public${p.file}`)).toBe(true);
       expect(existsSync(`public${p.low}`)).toBe(true);
