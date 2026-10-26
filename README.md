@@ -2,6 +2,8 @@
 
 **Don't just see it. Experience it.**
 
+Live demo: https://housio-phi.vercel.app
+
 Housio is an accommodation booking platform for Nairobi. Guests can walk through an illustrative 3D interior, read a
 floor plan, compare up to three stays side by side, check what is nearby and book with clear pricing and refund rules.
 Owners manage listings in Owner Studio, and admins review listings, owners and reviews.
