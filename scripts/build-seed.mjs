@@ -1,6 +1,7 @@
 // Builds supabase/seed.sql from data/listings.mjs, data/pois.json and data/asset-manifest.json.
 // Usage: npm run seed:sql
 import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync as readPanos } from "node:fs";
 import { LISTINGS, LAYOUTS, NEIGHBOURHOODS, AMENITIES } from "../data/listings.mjs";
 
 const anchors = Object.fromEntries(JSON.parse(readFileSync("data/anchors.json", "utf8")).map((a) => [a.slug, a]));
@@ -48,15 +49,11 @@ select id, ${q(u.code)}, ${q(u.name)}, ${q(u.type)}, ${u.guests}, ${q(u.bedrooms
     out.push(`insert into app.unit_amenities(unit_id, amenity_code, value, info_source) values ${rows.map(([c, v]) => `(${uref}, ${q(c)}, ${q(v)}, 'owner')`).join(",")};`);
   }
   const pref = `(select id from app.properties where slug = ${q(L.slug)})`;
-  out.push(`insert into app.assets(property_id, kind, trust_label, url, caption, source, licence, sort) values
- (${pref}, 'render', 'illustrative_render', '/renders/${L.slug}-1.jpg', 'Illustrative render of a template-generated interior. Not a photograph of this property.', 'Housio room builder', 'Scene assets CC0 (see /licences)', 0),
- (${pref}, 'render', 'illustrative_render', '/renders/${L.slug}-2.jpg', 'Illustrative render of a template-generated interior. Not a photograph of this property.', 'Housio room builder', 'Scene assets CC0 (see /licences)', 1),
- (${pref}, 'model', 'illustrative_model', null, 'Template-generated illustrative 3D interior.', 'Housio room builder', 'Scene assets CC0 (see /licences)', 2);`);
-  out.push(`update app.assets set url = 'generated:' || id where property_id = ${pref} and kind = 'model' and url is null;`);
+  out.push(assetSql(L.slug, pref));
   out.push(`insert into app.verification_records(entity_type, entity_id, field, status, method, notes) values
  ('property', ${pref}, 'listing', 'demo', 'seed', 'Fictional demonstration listing. Not a real rental and not bookable for real.'),
  ('property', ${pref}, 'location', 'illustrative', 'seed', 'Representative point inside ${a.neighbourhood.replace(/'/g, "''")}; not a street address.'),
- ('property', ${pref}, 'interior', 'illustrative', 'room_builder', 'Interior and floor plan are generated from a template and do not depict a real unit.'),
+ ('property', ${pref}, 'interior', 'illustrative', 'room_builder', 'Room panoramas and photos are sample imagery (Poly Haven, CC0); the floor plan is a representative layout.'),
  ('property', ${pref}, 'nearby_places', 'verified', 'openstreetmap', 'Nearby places are real OpenStreetMap features; distances are straight-line from the representative point.');`);
   const P = pois.anchors[L.slug];
   if (!P || P.places.length === 0) throw new Error(`no POIs for ${L.slug}`);
@@ -74,3 +71,14 @@ insert into app.availability_blocks(unit_id, stay, reason) select id, daterange(
 out.push("commit;");
 writeFileSync("supabase/seed.sql", out.join("\n") + "\n");
 console.log("seed.sql written", out.length, "statements");
+
+// Sample room photography and 360-degree panoramas (see data/panoramas.json and LICENCES.md).
+function assetSql(slug, pref) {
+  const P = JSON.parse(readPanos(new URL("../data/panoramas.json", import.meta.url), "utf8"));
+  const q = (v) => `'${String(v).replace(/'/g, "''")}'`;
+  const byId = Object.fromEntries(P.panoramas.map((p) => [p.id, p]));
+  const rows = [];
+  P.stills[slug].forEach((s, i) => rows.push(`(${pref}, 'photo', 'sample_photo', ${q(s.file)}, ${q(s.room)}, 'Poly Haven', 'CC0-1.0', ${i})`));
+  P.tours[slug].forEach((r, i) => rows.push(`(${pref}, 'panorama', 'sample_photo', ${q(byId[r.panorama].file)}, ${q(r.room)}, 'Poly Haven', 'CC0-1.0', ${10 + i})`));
+  return `delete from app.assets where property_id = ${pref} and source <> 'owner';\ninsert into app.assets(property_id, kind, trust_label, url, caption, source, licence, sort) values\n ${rows.join(",\n ")};`;
+}
