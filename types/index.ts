@@ -1,6 +1,6 @@
 export type Role = "guest" | "owner" | "admin";
 export type AmenityValue = "yes" | "no" | "unknown";
-export type TrustLabel = "actual_photo" | "verified_model" | "illustrative_model" | "illustrative_render" | "owner_floor_plan";
+export type TrustLabel = "actual_photo" | "verified_model" | "illustrative_model" | "illustrative_render" | "owner_floor_plan" | "sample_photo";
 
 export interface CurrentUser {
   id: string;
@@ -98,7 +98,7 @@ export interface Space {
 export interface Asset {
   id: string;
   unit_id: string | null;
-  kind: "photo" | "model" | "floor_plan" | "texture" | "render";
+  kind: "photo" | "model" | "floor_plan" | "texture" | "render" | "panorama";
   trust_label: TrustLabel;
   url: string;
   caption: string;

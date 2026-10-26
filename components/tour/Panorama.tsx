@@ -27,14 +27,14 @@ export function prefetchRoom(room: TourRoom | undefined) {
 
 export interface View { yaw: number; pitch: number; fov: number }
 
-function Sphere({ room, onStage }: { room: TourRoom; onStage: (s: "low" | "full") => void }) {
+function Sphere({ room, onStage }: { room: TourRoom; onStage: (id: string, s: "low" | "full") => void }) {
   const [tex, setTex] = useState<THREE.Texture | null>(null);
   const invalidate = useThree((s) => s.invalidate);
   useEffect(() => {
     let live = true;
     const first = room.low ?? room.url;
-    load(first).then((t) => { if (live) { setTex(t); onStage(room.low ? "low" : "full"); invalidate(); } }).catch(() => {});
-    if (room.low) load(room.url).then((t) => { if (live) { setTex(t); onStage("full"); invalidate(); } }).catch(() => {});
+    load(first).then((t) => { if (live) { setTex(t); onStage(room.id, room.low ? "low" : "full"); invalidate(); } }).catch(() => {});
+    if (room.low) load(room.url).then((t) => { if (live) { setTex(t); onStage(room.id, "full"); invalidate(); } }).catch(() => {});
     return () => { live = false; };
   }, [room, onStage, invalidate]);
   if (!tex) return null;
@@ -46,21 +46,21 @@ function Sphere({ room, onStage }: { room: TourRoom; onStage: (s: "low" | "full"
   );
 }
 
-function Rig({ view, kick }: { view: React.RefObject<View>; kick: React.RefObject<(() => void) | null> }) {
-  const camera = useThree((s) => s.camera) as THREE.PerspectiveCamera;
+function Rig({ view, register }: { view: React.RefObject<View>; register: (fn: (() => void) | null) => void }) {
   const invalidate = useThree((s) => s.invalidate);
-  useEffect(() => { kick.current = () => invalidate(); return () => { kick.current = null; }; }, [kick, invalidate]);
+  useEffect(() => { register(() => invalidate()); return () => register(null); }, [register, invalidate]);
   const cur = useRef<View>({ ...view.current! });
-  const target = new THREE.Vector3();
+  const target = useRef(new THREE.Vector3());
   useFrame((state, dt) => {
+    const camera = state.camera as THREE.PerspectiveCamera;
     const v = view.current!;
     const k = 1 - Math.exp(-dt * 12);
     cur.current.yaw += (v.yaw - cur.current.yaw) * k;
     cur.current.pitch += (v.pitch - cur.current.pitch) * k;
     cur.current.fov += (v.fov - cur.current.fov) * k;
     const { yaw, pitch, fov } = cur.current;
-    target.set(-Math.cos(yaw) * Math.cos(pitch), Math.sin(pitch), -Math.sin(yaw) * Math.cos(pitch));
-    camera.lookAt(target);
+    target.current.set(-Math.cos(yaw) * Math.cos(pitch), Math.sin(pitch), -Math.sin(yaw) * Math.cos(pitch));
+    camera.lookAt(target.current);
     if (Math.abs(camera.fov - fov) > 0.01) { camera.fov = fov; camera.updateProjectionMatrix(); }
     const moving = Math.abs(v.yaw - yaw) + Math.abs(v.pitch - pitch) + Math.abs(v.fov - fov) > 0.0005;
     if (moving) state.invalidate();
@@ -68,11 +68,11 @@ function Rig({ view, kick }: { view: React.RefObject<View>; kick: React.RefObjec
   return null;
 }
 
-export default function Panorama({ room, view, kick, onStage, onInteract, preserveBuffer = false }: {
+export default function Panorama({ room, view, register, onStage, onInteract, preserveBuffer = false }: {
   room: TourRoom;
   view: React.RefObject<View>;
-  kick: React.RefObject<(() => void) | null>;
-  onStage: (s: "low" | "full") => void;
+  register: (fn: (() => void) | null) => void;
+  onStage: (id: string, s: "low" | "full") => void;
   onInteract: () => void;
   preserveBuffer?: boolean;
 }) {
@@ -81,7 +81,7 @@ export default function Panorama({ room, view, kick, onStage, onInteract, preser
       gl={{ antialias: false, preserveDrawingBuffer: preserveBuffer, powerPreference: "high-performance" }}
       onPointerDown={onInteract} data-testid="tour-canvas">
       <Sphere room={room} onStage={onStage} />
-      <Rig view={view} kick={kick} />
+      <Rig view={view} register={register} />
     </Canvas>
   );
 }

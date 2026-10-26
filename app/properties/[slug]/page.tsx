@@ -6,14 +6,14 @@ import { BookingPanel } from "@/components/booking/BookingPanel";
 import { AvailabilityCalendar } from "@/components/booking/AvailabilityCalendar";
 import { SaveButton } from "@/components/listing/SaveButton";
 import { CompareBar, CompareToggle } from "@/components/listing/CompareTray";
-import { TrustBadge } from "@/components/ui/ui";
 import { getProperty, getUnavailable } from "@/lib/db/queries";
 import { getCurrentUser } from "@/lib/auth/session";
 import { myCollections } from "@/app/actions/collections";
 import { parseSearch, stayQuery } from "@/lib/search-params";
 import { formatDate, kes, todayNairobi, TYPE_LABELS } from "@/lib/format";
 import { addDays } from "@/lib/pricing";
-import { dimensionSource, mainUnit, modelTrust, unitSpaces } from "@/lib/listing";
+import { dimensionSource, mainUnit, unitSpaces } from "@/lib/listing";
+import { tourRooms } from "@/lib/tour";
 import { CATEGORY_LABELS, formatDistance } from "@/lib/geo";
 
 export const dynamic = "force-dynamic";
@@ -44,11 +44,6 @@ export default async function PropertyPage({ params, searchParams }: { params: P
       <nav aria-label="Breadcrumb" className="mb-4 text-sm text-muted"><Link href={`/search${q}`} className="hover:underline">Stays</Link> / <Link href={`/search?neighbourhood=${p.neighbourhood_slug}`} className="hover:underline">{p.neighbourhood}</Link></nav>
       <header className="flex flex-wrap items-start justify-between gap-4">
         <div>
-          <div className="mb-2 flex flex-wrap gap-1.5">
-            {p.is_demo && <TrustBadge kind="demo" />}
-            <TrustBadge kind={modelTrust(p)} />
-            <TrustBadge kind="owner_info" />
-          </div>
           <h1 className="font-display text-3xl font-bold text-forest sm:text-4xl">{p.name}</h1>
           <p className="mt-1 text-muted">{TYPE_LABELS[p.property_type]} in {p.neighbourhood}, Nairobi · Unit {unit.code}</p>
         </div>
@@ -61,10 +56,10 @@ export default async function PropertyPage({ params, searchParams }: { params: P
       <div className="mt-6 grid gap-8 lg:grid-cols-[1fr_380px]">
         <div className="min-w-0 space-y-10">
           <div>
-            <Explore spaces={spaces} style={unit.scene_style} photos={p.assets} modelTrust={modelTrust(p)} dimensionSource={dimensionSource(p, unit.id)} />
+            <Explore rooms={tourRooms(p.assets)} spaces={spaces} photos={p.assets} dimensionSource={dimensionSource(p, unit.id)} />
             <div className="mt-3 flex flex-wrap gap-3 text-sm">
-              <Link href={`/properties/${p.slug}/explore${q}`} className="font-semibold text-forest underline">Open full-screen 3D tour</Link>
-              <Link href={`/properties/${p.slug}/explore${stayQuery(stay, { mode: "plan" })}`} className="font-semibold text-forest underline">SpaceMap floor plan</Link>
+              <Link href={`/properties/${p.slug}/explore${q}`} className="font-semibold text-forest underline">Open full-screen 360° tour</Link>
+              <Link href={`/properties/${p.slug}/explore${stayQuery(stay, { mode: "plan" })}`} className="font-semibold text-forest underline">Floor plan</Link>
               <Link href={`/properties/${p.slug}/around${q}`} className="font-semibold text-forest underline">Around the neighbourhood</Link>
             </div>
           </div>
@@ -125,14 +120,14 @@ export default async function PropertyPage({ params, searchParams }: { params: P
                 </li>
               ))}
             </ul>
-            <p className="mt-2 text-xs text-muted">Nearest mapped place per category, straight-line from {p.anchor_is_exact ? "the property" : "an illustrative point in the neighbourhood"}. © OpenStreetMap contributors.</p>
+            <p className="mt-2 text-xs text-muted">Nearest mapped place per category, straight-line from {p.anchor_is_exact ? "the property" : "a central point in the neighbourhood"}. © OpenStreetMap contributors.</p>
           </section>
 
           <section aria-labelledby="trust" className="card p-6">
             <h2 id="trust" className="font-display text-2xl font-semibold text-forest">Housio TrueView</h2>
             <p className="mt-1 text-sm text-muted">What we know, and where it comes from.</p>
             <ul className="mt-4 space-y-2 text-sm" data-testid="trueview">
-              {p.verification.map((v, i) => (
+              {p.verification.filter((v) => !["demo", "illustrative"].includes(v.status)).map((v, i) => (
                 <li key={i} className="flex gap-3"><span className="w-28 shrink-0 font-semibold capitalize text-forest">{v.field.replace("_", " ")}</span><span><span className="font-semibold">{v.status.replace("_", " ")}</span> · {v.notes}</span></li>
               ))}
               <li className="flex gap-3"><span className="w-28 shrink-0 font-semibold text-forest">Owner</span><span>{p.owner?.name} · {p.owner?.verification_status === "verified" ? "identity verified" : "not verified"}</span></li>

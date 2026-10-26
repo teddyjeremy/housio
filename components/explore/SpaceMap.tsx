@@ -1,6 +1,6 @@
 "use client";
 
-import type { PlanSpace } from "./roomPlan";
+export interface MapSpace { id: string; name: string; kind: string; x: number; z: number; width: number; depth: number; dimensions_verified?: boolean }
 
 const FILL: Record<string, string> = {
   living: "#F6F2EA", bedroom: "#DDE6DC", kitchen: "#EFE6D8", bathroom: "#E3ECEF", dining: "#F2EBDD",
@@ -8,7 +8,7 @@ const FILL: Record<string, string> = {
 };
 
 export interface SpaceMapProps {
-  spaces: (PlanSpace & { dimensions_verified?: boolean })[];
+  spaces: MapSpace[];
   selected: string | null;
   onSelect: (id: string) => void;
   /** Show measurements only when they come from the owner or were verified. */
@@ -25,7 +25,7 @@ export function SpaceMap({ spaces, selected, onSelect, dimensionSource }: SpaceM
   const vb = `${minX - pad} ${minZ - pad} ${maxX - minX + pad * 2} ${maxZ - minZ + pad * 2}`;
   return (
     <figure className="w-full">
-      <svg viewBox={vb} className="h-auto max-h-[460px] w-full" role="group" aria-label="Interactive floor plan. Select a room to view it in 3D.">
+      <svg viewBox={vb} className="h-auto max-h-[460px] w-full" role="group" aria-label="Interactive floor plan. Select a room to open its 360° view.">
         {spaces.map((s) => {
           const active = s.id === selected;
           const showDims = dimensionSource !== "illustrative" || s.dimensions_verified;
@@ -48,7 +48,7 @@ export function SpaceMap({ spaces, selected, onSelect, dimensionSource }: SpaceM
       </svg>
       <figcaption className="mt-2 text-xs text-muted">
         {dimensionSource === "illustrative"
-          ? "Illustrative layout generated from a template. Room sizes are not verified, so measurements are hidden. Doors and windows are not shown because the source data does not include them."
+          ? "Representative layout. Select a room to open its 360° view."
           : dimensionSource === "owner" ? "Layout and measurements supplied by the owner and not independently verified." : "Measurements verified by Housio."}
       </figcaption>
     </figure>

@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Explore } from "@/components/explore/Explore";
 import { CompareHint } from "@/components/listing/CompareHint";
-import { TrustBadge, Empty } from "@/components/ui/ui";
+import { Empty } from "@/components/ui/ui";
 import { compareProperties } from "@/lib/db/queries";
 import { parseSearch, stayQuery } from "@/lib/search-params";
 import { kes, TYPE_LABELS } from "@/lib/format";
 import { POLICY_TEXT } from "@/lib/cancellation";
 import { CATEGORY_LABELS, formatDistance } from "@/lib/geo";
-import { dimensionSource, mainUnit, modelTrust, unitSpaces } from "@/lib/listing";
+import { dimensionSource, mainUnit, unitSpaces } from "@/lib/listing";
+import { tourRooms } from "@/lib/tour";
 
 export const metadata: Metadata = { title: "Compare stays" };
 export const dynamic = "force-dynamic";
@@ -67,8 +68,7 @@ export default async function ComparePage({ searchParams }: { searchParams: Prom
           <thead><tr><th className="w-48" />{items.map((p) => (
             <th key={p.slug} scope="col" className="p-3 text-left align-top">
               <Link href={`/properties/${p.slug}${q}`} className="font-display text-lg font-semibold text-forest hover:underline">{p.name}</Link>
-              <div className="mt-1 flex flex-wrap gap-1">{p.is_demo && <TrustBadge kind="demo" />}<TrustBadge kind={modelTrust(p)} /></div>
-            </th>))}</tr></thead>
+                          </th>))}</tr></thead>
           <tbody>{rows.map((r) => (
             <tr key={r.k} className="odd:bg-white"><th scope="row" className="border-t border-line p-3 text-left font-semibold text-muted">{r.k}</th>
               {items.map((p) => <td key={p.slug} className="border-t border-line p-3 align-top">{r.v(p)}</td>)}</tr>
@@ -76,17 +76,17 @@ export default async function ComparePage({ searchParams }: { searchParams: Prom
         </table>
       </div>
       <div className="mt-10">
-        <div className="flex items-center justify-between"><h2 className="font-display text-2xl font-semibold text-forest">Split-screen 3D</h2>
-          {!view3d && <Link className="btn btn-secondary" href={`/compare${stayQuery(stay, { ids: ids.join(","), view: "3d" })}`}>Load side-by-side 3D</Link>}</div>
+        <div className="flex items-center justify-between"><h2 className="font-display text-2xl font-semibold text-forest">Side-by-side 360° tours</h2>
+          {!view3d && <Link className="btn btn-secondary" href={`/compare${stayQuery(stay, { ids: ids.join(","), view: "3d" })}`}>Load side-by-side tours</Link>}</div>
         {view3d ? (
           <div className={`mt-4 grid gap-4 ${items.length > 1 ? "lg:grid-cols-2" : ""}`}>
             {items.slice(0, 2).map((p) => { const u = mainUnit(p); return (
               <div key={p.slug}><p className="mb-2 font-semibold text-forest">{p.name}</p>
-                <Explore compact spaces={unitSpaces(p, u.id)} style={u.scene_style} photos={p.assets} modelTrust={modelTrust(p)} dimensionSource={dimensionSource(p, u.id)} autoLoad /></div>
+                <Explore compact rooms={tourRooms(p.assets)} spaces={unitSpaces(p, u.id)} photos={p.assets} dimensionSource={dimensionSource(p, u.id)} /></div>
             ); })}
-            {items.length > 2 && <p className="text-xs text-muted">Showing the first two stays in 3D to keep things smooth on most devices.</p>}
+            {items.length > 2 && <p className="text-xs text-muted">Showing the first two stays side by side.</p>}
           </div>
-        ) : <p className="mt-2 text-sm text-muted">Loads two interactive tours next to each other. Illustrative interiors are labelled.</p>}
+        ) : <p className="mt-2 text-sm text-muted">Walk through two stays next to each other, room by room.</p>}
       </div>
     </div>
   );

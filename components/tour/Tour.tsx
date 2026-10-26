@@ -8,6 +8,8 @@ import type { View } from "./Panorama";
 const Panorama = dynamic(() => import("./Panorama"), { ssr: false });
 
 const FOV = { min: 35, max: 95, start: 80 };
+type Stage = "none" | "low" | "full";
+const stageOf = (m: Record<string, "low" | "full">, id?: string): Stage => (id && m[id]) || "none";
 const clampPitch = (p: number) => Math.max(-1.35, Math.min(1.35, p));
 
 export function Tour({ rooms, index, onIndex, compact = false, preserveBuffer = false }: {
@@ -21,21 +23,22 @@ export function Tour({ rooms, index, onIndex, compact = false, preserveBuffer = 
   const view = useRef<View>({ yaw: ((room?.yaw ?? 0) * Math.PI) / 180, pitch: -0.05, fov: FOV.start });
   const kick = useRef<(() => void) | null>(null);
   const box = useRef<HTMLDivElement>(null);
-  const [stage, setStage] = useState<"none" | "low" | "full">("none");
+  const register = useCallback((fn: (() => void) | null) => { kick.current = fn; }, []);
+  const [loaded, setLoaded] = useState<Record<string, "low" | "full">>({});
   const [hint, setHint] = useState(true);
-  const [poster, setPoster] = useState(true);
+  const stage = stageOf(loaded, room?.id);
+  const poster = stage === "none";
 
   // Reset the view when moving to another room.
   useEffect(() => {
     if (!room) return;
     view.current = { yaw: (room.yaw * Math.PI) / 180, pitch: -0.05, fov: FOV.start };
-    setStage("none");
     kick.current?.();
     // Warm up the neighbouring rooms' previews.
     for (const n of [rooms[index + 1], rooms[index - 1]]) if (n?.low) { const img = new window.Image(); img.src = n.low; }
   }, [room, rooms, index]);
 
-  const onStage = useCallback((s: "low" | "full") => { setStage((cur) => (cur === "full" ? cur : s)); setPoster(false); }, []);
+  const onStage = useCallback((id: string, s: "low" | "full") => { setLoaded((cur) => (cur[id] === "full" ? cur : { ...cur, [id]: s })); }, []);
 
   const nudge = useCallback((dyaw: number, dpitch: number, dfov = 0) => {
     const v = view.current;
@@ -99,7 +102,7 @@ export function Tour({ rooms, index, onIndex, compact = false, preserveBuffer = 
       <div ref={box} tabIndex={0} onKeyDown={onKey} role="application"
         aria-label={`360° view of the ${room.label}. Drag or use arrow keys to look around, plus and minus to zoom, Page Up and Page Down to change room.`}
         className="absolute inset-0 cursor-grab touch-none outline-none focus-visible:ring-4 focus-visible:ring-champagne/70 active:cursor-grabbing">
-        <Panorama room={room} view={view} kick={kick} onStage={onStage} onInteract={() => setHint(false)} preserveBuffer={preserveBuffer} />
+        <Panorama room={room} view={view} register={register} onStage={onStage} onInteract={() => setHint(false)} preserveBuffer={preserveBuffer} />
       </div>
 
       <div className="pointer-events-none absolute left-3 top-3 rounded-full bg-forest/80 px-3 py-1 text-xs font-semibold text-ivory backdrop-blur">

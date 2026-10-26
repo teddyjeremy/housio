@@ -1,26 +1,12 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import Image from "next/image";
-import { Component, useCallback, useEffect, useState, type ReactNode } from "react";
-import { SpaceMap } from "./SpaceMap";
-import type { PlanSpace } from "./roomPlan";
-import type { SceneStats } from "./Scene";
+import { useCallback, useEffect, useState } from "react";
+import { SpaceMap, type MapSpace } from "./SpaceMap";
+import { Tour } from "@/components/tour/Tour";
 import { TrustBadge } from "@/components/ui/ui";
+import { roomForSpace, spaceForRoom, type TourRoom } from "@/lib/tour";
 import type { Asset } from "@/types";
-
-const Scene = dynamic(() => import("./Scene"), { ssr: false, loading: () => <Loading /> });
-
-function Loading() {
-  return <div className="flex h-full items-center justify-center text-sm text-muted" role="status">Loading 3D viewer…</div>;
-}
-
-class SceneBoundary extends Component<{ children: ReactNode; onError: () => void }, { failed: boolean }> {
-  state = { failed: false };
-  static getDerivedStateFromError() { return { failed: true }; }
-  componentDidCatch() { this.props.onError(); }
-  render() { return this.state.failed ? null : this.props.children; }
-}
 
 export function webglSupported(): boolean {
   if (typeof window === "undefined") return false;
@@ -32,105 +18,71 @@ export function webglSupported(): boolean {
   }
 }
 
-type Mode = "3d" | "plan" | "photos";
+type Mode = "tour" | "plan" | "photos";
 
 interface Props {
-  spaces: (PlanSpace & { dimensions_verified?: boolean })[];
-  style: string;
+  rooms: TourRoom[];
+  spaces: MapSpace[];
   photos: Asset[];
-  modelTrust: "illustrative_model" | "verified_model";
   dimensionSource: "verified" | "owner" | "illustrative";
   initialMode?: Mode;
-  initialSpace?: string | null;
-  autoLoad?: boolean;
+  initialRoom?: number;
   compact?: boolean;
   renderMode?: boolean;
 }
 
-export function Explore({ spaces, style, photos, modelTrust, dimensionSource, initialMode = "3d", initialSpace = null, autoLoad = false, compact = false, renderMode = false }: Props) {
-  const [mode, setMode] = useState<Mode>(initialMode);
-  const [selected, setSelected] = useState<string | null>(initialSpace);
-  const [load3d, setLoad3d] = useState(autoLoad);
+export function Explore({ rooms, spaces, photos, dimensionSource, initialMode = "tour", initialRoom = 0, compact = false, renderMode = false }: Props) {
+  const [mode, setMode] = useState<Mode>(rooms.length ? initialMode : spaces.length ? "plan" : "photos");
+  const [index, setIndex] = useState(Math.min(initialRoom, Math.max(0, rooms.length - 1)));
   const [support, setSupport] = useState<"unknown" | "yes" | "no">("unknown");
-  const [failed, setFailed] = useState(false);
-  const [stats, setStats] = useState<SceneStats | null>(null);
-  const [showStats, setShowStats] = useState(false);
-  const [ready, setReady] = useState(false);
-  const [quality, setQuality] = useState<"high" | "low">("high");
 
   useEffect(() => {
     const ok = webglSupported() && !new URLSearchParams(window.location.search).has("no3d");
-    const small = window.matchMedia("(max-width: 640px)").matches || (navigator.hardwareConcurrency ?? 8) <= 4;
-    // Deferred so the first paint stays light; this only reads device capabilities.
-    const id = requestAnimationFrame(() => {
-      setSupport(ok ? "yes" : "no");
-      if (small) setQuality("low");
-      if (!ok && initialMode === "3d") setMode(spaces.length ? "plan" : "photos");
-    });
+    const id = requestAnimationFrame(() => setSupport(ok ? "yes" : "no"));
     return () => cancelAnimationFrame(id);
-  }, [initialMode, spaces.length]);
+  }, []);
 
-  const onError = useCallback(() => { setFailed(true); setMode(spaces.length ? "plan" : "photos"); }, [spaces.length]);
-  const select = useCallback((id: string | null) => { setSelected(id); }, []);
-  const onReady = useCallback(() => setReady(true), []);
-  const can3d = support === "yes" && !failed && spaces.length > 0;
+  const pickSpace = useCallback((id: string) => {
+    const s = spaces.find((x) => x.id === id);
+    const i = s ? roomForSpace(rooms, s) : -1;
+    if (i >= 0) { setIndex(i); setMode("tour"); }
+  }, [spaces, rooms]);
+
+  const room = rooms[index];
+  const tabs: [Mode, string][] = [["tour", "360° tour"], ["plan", "Floor plan"], ["photos", "Photos"]];
 
   return (
-    <section aria-label="Housio Explore" className={`overflow-hidden rounded-3xl border border-line bg-white ${compact ? "" : "shadow-sm"}`} data-testid="explore">
+    <section aria-label="Room tour" className={`overflow-hidden rounded-3xl border border-line bg-white ${compact ? "" : "shadow-sm"}`} data-testid="explore">
       <div className="flex flex-wrap items-center justify-between gap-3 border-b border-line px-4 py-3">
         <div role="tablist" aria-label="View" className="flex gap-1 rounded-full bg-ivory p-1">
-          {([["3d", "3D view"], ["plan", "Floor plan"], ["photos", "Photos"]] as [Mode, string][]).map(([m, label]) => (
-            <button key={m} role="tab" aria-selected={mode === m} onClick={() => setMode(m)} disabled={m === "3d" && !can3d && support !== "unknown"}
+          {tabs.map(([m, label]) => (
+            <button key={m} role="tab" aria-selected={mode === m} onClick={() => setMode(m)}
+              disabled={(m === "tour" && !rooms.length) || (m === "plan" && !spaces.length)}
               className={`rounded-full px-3.5 py-1.5 text-xs font-semibold transition ${mode === m ? "bg-forest text-white" : "text-forest hover:bg-sage/70"} disabled:opacity-40`}>
               {label}
             </button>
           ))}
         </div>
-        <div className="flex items-center gap-2">
-          <TrustBadge kind={modelTrust} />
-          {mode === "3d" && load3d && can3d && !compact && (
-            <button className="text-xs text-muted underline" onClick={() => setShowStats((s) => !s)} aria-pressed={showStats}>Performance</button>
-          )}
-        </div>
       </div>
 
-      {mode !== "photos" && spaces.length > 0 && (
+      {mode === "tour" && rooms.length > 1 && (
         <nav aria-label="Rooms" className="flex gap-1.5 overflow-x-auto border-b border-line px-4 py-2.5">
-          <button onClick={() => select(null)} aria-pressed={selected === null} className={`chip shrink-0 ${selected === null ? "!border-forest !bg-forest !text-white" : ""}`}>Overview</button>
-          {spaces.map((s) => (
-            <button key={s.id} onClick={() => select(s.id)} aria-pressed={selected === s.id} className={`chip shrink-0 ${selected === s.id ? "!border-forest !bg-forest !text-white" : ""}`}>{s.name}</button>
+          {rooms.map((r, i) => (
+            <button key={r.id} onClick={() => setIndex(i)} aria-pressed={i === index}
+              className={`chip shrink-0 ${i === index ? "!border-forest !bg-forest !text-white" : ""}`}>{r.label}</button>
           ))}
         </nav>
       )}
 
-      <div className={`relative ${compact ? "h-[320px]" : "h-[420px] sm:h-[520px]"} bg-ivory`}>
-        {mode === "3d" && (
-          support === "unknown" ? <Loading /> :
-          !can3d ? (
-            <Fallback reason={failed ? "The 3D viewer could not start on this device." : spaces.length ? "3D isn't available on this device." : "No 3D scene for this unit."} onPlan={() => setMode("plan")} onPhotos={() => setMode("photos")} />
-          ) : !load3d ? (
-            <div className="flex h-full flex-col items-center justify-center gap-3 p-6 text-center">
-              <p className="font-display text-xl font-semibold text-forest">Step inside</p>
-              <p className="max-w-sm text-sm text-muted">Orbit, zoom and move room to room. This interior is {modelTrust === "verified_model" ? "a verified model of this unit" : "an illustrative template, not this exact property"}.</p>
-              <button className="btn btn-primary" onClick={() => setLoad3d(true)}>Load 3D tour</button>
-            </div>
-          ) : (
-            <SceneBoundary onError={onError}>
-              <Scene spaces={spaces} style={style} selected={selected} onSelect={select} onStats={setStats} onReady={onReady} quality={quality} preserveBuffer={renderMode} />
-              <p className="pointer-events-none absolute bottom-3 left-3 rounded-full bg-white/90 px-3 py-1 text-[11px] text-muted" data-ready={ready ? "1" : "0"} data-testid="scene-status">
-                {ready ? "Drag to orbit · scroll or pinch to zoom · tap furniture to inspect" : "Loading furniture…"}
-              </p>
-              {showStats && stats && (
-                <dl className="absolute right-3 top-3 grid grid-cols-2 gap-x-3 rounded-xl bg-forest/90 px-3 py-2 font-mono text-[11px] text-ivory" data-testid="perf">
-                  <dt>Frame</dt><dd>{stats.ms} ms</dd><dt>FPS</dt><dd>{stats.fps}</dd><dt>Draw calls</dt><dd>{stats.calls}</dd><dt>Triangles</dt><dd>{stats.triangles.toLocaleString()}</dd><dt>DPR</dt><dd>{stats.dpr}</dd>
-                </dl>
-              )}
-            </SceneBoundary>
-          )
+      <div className={`relative ${compact ? "h-[300px]" : "h-[440px] sm:h-[560px]"} bg-ivory`}>
+        {mode === "tour" && room && (
+          support === "no" ? <Fallback room={room} onPlan={spaces.length ? () => setMode("plan") : undefined} onPhotos={() => setMode("photos")} /> :
+          support === "unknown" ? <Poster room={room} /> :
+          <Tour rooms={rooms} index={index} onIndex={setIndex} compact={compact} preserveBuffer={renderMode} />
         )}
         {mode === "plan" && (
           <div className="h-full overflow-auto p-4">
-            <SpaceMap spaces={spaces} selected={selected} onSelect={(id) => { select(id); if (can3d) { setLoad3d(true); setMode("3d"); } }} dimensionSource={dimensionSource} />
+            <SpaceMap spaces={spaces} selected={spaceForRoom(spaces, room)} onSelect={pickSpace} dimensionSource={dimensionSource} />
           </div>
         )}
         {mode === "photos" && <Photos photos={photos} />}
@@ -139,12 +91,19 @@ export function Explore({ spaces, style, photos, modelTrust, dimensionSource, in
   );
 }
 
-function Fallback({ reason, onPlan, onPhotos }: { reason: string; onPlan: () => void; onPhotos: () => void }) {
+function Poster({ room }: { room: TourRoom }) {
+  // eslint-disable-next-line @next/next/no-img-element
+  return room.low ? <img src={room.low} alt="" aria-hidden className="h-full w-full scale-[1.6] object-cover" /> : <div className="h-full w-full bg-forest" />;
+}
+
+function Fallback({ room, onPlan, onPhotos }: { room: TourRoom; onPlan?: () => void; onPhotos: () => void }) {
   return (
-    <div className="flex h-full flex-col items-center justify-center gap-3 p-6 text-center" data-testid="explore-fallback">
-      <p className="font-display text-lg font-semibold text-forest">{reason}</p>
-      <p className="text-sm text-muted">You can still explore the layout and photos.</p>
-      <div className="flex gap-2"><button className="btn btn-secondary" onClick={onPlan}>Floor plan</button><button className="btn btn-secondary" onClick={onPhotos}>Photos</button></div>
+    <div className="relative h-full" data-testid="explore-fallback">
+      <Poster room={room} />
+      <div className="absolute inset-x-4 bottom-4 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-white/95 p-4 shadow">
+        <p className="text-sm text-forest"><strong>{room.label}.</strong> Interactive 360° viewing isn&apos;t available on this device.</p>
+        <div className="flex gap-2">{onPlan && <button className="btn btn-secondary" onClick={onPlan}>Floor plan</button>}<button className="btn btn-secondary" onClick={onPhotos}>Photos</button></div>
+      </div>
     </div>
   );
 }
@@ -157,7 +116,7 @@ function Photos({ photos }: { photos: Asset[] }) {
       {list.map((p) => (
         <figure key={p.id} className="relative overflow-hidden rounded-2xl bg-sage/40">
           <Image src={p.url} alt={p.caption || "Listing image"} width={960} height={600} className="h-full w-full object-cover" unoptimized={p.url.startsWith("/api/")} />
-          <figcaption className="absolute left-2 top-2"><TrustBadge kind={p.trust_label} /></figcaption>
+          {p.trust_label === "actual_photo" && p.source === "owner" && <figcaption className="absolute left-2 top-2"><TrustBadge kind="actual_photo" /></figcaption>}
         </figure>
       ))}
     </div>
