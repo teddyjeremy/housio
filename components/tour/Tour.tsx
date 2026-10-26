@@ -7,7 +7,7 @@ import type { View } from "./Panorama";
 
 const Panorama = dynamic(() => import("./Panorama"), { ssr: false });
 
-const FOV = { min: 35, max: 95, start: 75 };
+const FOV = { min: 40, max: 90, start: 72 };
 type Stage = "none" | "low" | "full";
 const stageOf = (m: Record<string, "low" | "full">, id?: string): Stage => (id && m[id]) || "none";
 const clampPitch = (p: number) => Math.max(-1.35, Math.min(1.35, p));

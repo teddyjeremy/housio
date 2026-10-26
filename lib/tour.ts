@@ -19,10 +19,12 @@ export function kindFromLabel(label: string): string {
   if (/bed/.test(l)) return "bedroom";
   if (/kitchen/.test(l)) return "kitchen";
   if (/studio/.test(l)) return "studio";
+  if (/living|lounge|drawing|family room|sitting/.test(l)) return "living";
+  if (/dining/.test(l)) return "dining";
   return "living";
 }
 
-const SPACE_KIND: Record<string, string> = { living: "living", lounge: "living", dining: "living", bedroom: "bedroom", bathroom: "bathroom", kitchen: "kitchen" };
+const SPACE_KIND: Record<string, string> = { living: "living", lounge: "living", dining: "dining", bedroom: "bedroom", bathroom: "bathroom", kitchen: "kitchen" };
 
 /** The tour room that best matches a floor-plan space, or -1. */
 export function roomForSpace(rooms: TourRoom[], space: { name: string; kind: string }): number {

@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 import { existsSync } from "node:fs";
 import { LISTINGS, LAYOUTS } from "../../data/listings.mjs";
 import panos from "@/data/panoramas.json";
-import { roomForSpace, spaceForRoom, tourRooms } from "@/lib/tour";
+import { kindFromLabel, roomForSpace, spaceForRoom, tourRooms } from "@/lib/tour";
 import type { Asset } from "@/types";
 
 describe("demo listings", () => {
@@ -15,10 +15,11 @@ describe("demo listings", () => {
 });
 
 describe("room panoramas", () => {
-  it("are CC0, exist on disk in full and preview sizes, and cover every listing", () => {
+  it("have permitted licences, exist on disk in full and preview sizes, and cover every listing", () => {
     for (const p of panos.panoramas) {
-      expect(p.licence, p.id).toBe("CC0-1.0");
-      expect(p.page_url).toMatch(/^https:\/\/polyhaven\.com\/a\//);
+      expect(["CC0-1.0", "Public domain", "CC-BY-2.0", "CC-BY-4.0", "CC-BY-SA-4.0"], p.id).toContain(p.licence);
+      expect(p.page_url).toMatch(/^https:\/\/(polyhaven\.com\/a\/|commons\.wikimedia\.org\/wiki\/File:)/);
+      if (p.attribution_required) expect(p.creator.length, p.id).toBeGreaterThan(1);
       expect(existsSync(`public${p.file}`)).toBe(true);
       expect(existsSync(`public${p.low}`)).toBe(true);
       expect(p.low_bytes).toBeLessThan(200_000);
@@ -41,5 +42,38 @@ describe("room panoramas", () => {
     const bath = spaces.find((s) => s.kind === "bathroom")!;
     expect(rooms[roomForSpace(rooms, bath)].kind).toBe("bathroom");
     expect(spaces.find((s) => s.id === spaceForRoom(spaces, rooms[2]))!.kind).toBe("bedroom");
+  });
+});
+
+describe("panorama audit", () => {
+  it("never reuses a panorama file or image across or within listings", async () => {
+    const { createHash } = await import("node:crypto");
+    const { readFileSync } = await import("node:fs");
+    const byFile = new Map(panos.panoramas.map((p) => [p.id, p.file]));
+    const files: string[] = [];
+    const hashes: string[] = [];
+    for (const rooms of Object.values(panos.tours as Record<string, { panorama: string }[]>)) {
+      for (const r of rooms) {
+        const file = byFile.get(r.panorama)!;
+        files.push(file);
+        hashes.push(createHash("sha256").update(readFileSync(`public${file}`)).digest("hex"));
+      }
+    }
+    expect(new Set(files).size).toBe(files.length);
+    expect(new Set(hashes).size).toBe(hashes.length);
+    const all = panos.panoramas.map((p) => createHash("sha256").update(readFileSync(`public${p.file}`)).digest("hex"));
+    expect(new Set(all).size).toBe(all.length);
+  });
+
+  it("labels every room with the room type its panorama is tagged as", () => {
+    const kinds = new Map(panos.panoramas.map((p) => [p.id, p.kind]));
+    for (const [slug, rooms] of Object.entries(panos.tours as Record<string, { room: string; panorama: string }[]>)) {
+      for (const r of rooms) {
+        const tagged = kinds.get(r.panorama);
+        const fromLabel = kindFromLabel(r.room);
+        const ok = tagged === fromLabel || (tagged === "kitchen" && /kitchen/i.test(r.room));
+        expect(ok, `${slug}: "${r.room}" uses a ${tagged} panorama`).toBe(true);
+      }
+    }
   });
 });

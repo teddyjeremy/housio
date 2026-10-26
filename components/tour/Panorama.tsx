@@ -13,6 +13,7 @@ function load(url: string): Promise<THREE.Texture> {
       t.colorSpace = THREE.SRGBColorSpace;
       t.minFilter = THREE.LinearFilter;
       t.generateMipmaps = false;
+      t.wrapS = t.wrapT = THREE.ClampToEdgeWrapping;
       return t;
     });
     p.catch(() => cache.delete(url));
@@ -80,7 +81,7 @@ export default function Panorama({ room, view, register, onStage, onInteract, pr
     <Canvas frameloop="demand" dpr={[1, 1.75]} camera={{ fov: view.current!.fov, near: 0.1, far: 200, position: [0, 0, 0] }}
       gl={{ antialias: false, preserveDrawingBuffer: preserveBuffer, powerPreference: "high-performance" }}
       onPointerDown={onInteract} data-testid="tour-canvas">
-      <Sphere room={room} onStage={onStage} />
+      <Sphere key={room.id} room={room} onStage={onStage} />
       <Rig view={view} register={register} />
     </Canvas>
   );
