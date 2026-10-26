@@ -41,7 +41,7 @@ function Sphere({ room, onStage }: { room: TourRoom; onStage: (id: string, s: "l
   return (
     <mesh scale={[-1, 1, 1]}>
       <sphereGeometry args={[50, 72, 36]} />
-      <meshBasicMaterial map={tex} toneMapped={false} />
+      <meshBasicMaterial map={tex} side={THREE.BackSide} toneMapped={false} />
     </mesh>
   );
 }
