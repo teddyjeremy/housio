@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
+    "test:db": "vitest run --config vitest.integration.config.mts",
     "e2e": "playwright test",
     "assets": "node scripts/build-assets.mjs",
     "pois": "python3 scripts/fetch-pois.py",
