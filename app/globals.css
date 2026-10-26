@@ -1,0 +1,41 @@
+@import "tailwindcss";
+
+@theme {
+  --color-forest: #193d35;
+  --color-forest-700: #12302a;
+  --color-forest-600: #22524a;
+  --color-ivory: #f6f2ea;
+  --color-champagne: #c7a775;
+  --color-champagne-600: #a88a5a;
+  --color-sage: #dde6dc;
+  --color-ink: #202823;
+  --color-muted: #69716b;
+  --color-line: #e4ded2;
+  --font-display: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+html { background: var(--color-ivory); color: var(--color-ink); }
+body { font-family: var(--font-sans); }
+h1, h2, h3, h4, .font-display { font-family: var(--font-display); letter-spacing: -0.015em; }
+
+@layer components {
+  .container-page { @apply mx-auto w-full max-w-7xl px-5 sm:px-8; }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-champagne disabled:cursor-not-allowed disabled:opacity-50; }
+  .btn-primary { @apply bg-forest text-white hover:bg-forest-600; }
+  .btn-secondary { @apply border border-forest/20 bg-white text-forest hover:border-forest/40; }
+  .btn-gold { @apply bg-champagne text-forest-700 hover:bg-champagne-600 hover:text-white; }
+  .btn-ghost { @apply text-forest hover:bg-sage/60; }
+  .card { @apply rounded-2xl border border-line bg-white; }
+  .input { @apply w-full rounded-xl border border-line bg-white px-3.5 py-2.5 text-sm text-ink placeholder:text-muted/70 focus:border-forest focus:outline-none focus:ring-2 focus:ring-forest/15; }
+  .label { @apply mb-1.5 block text-xs font-semibold uppercase tracking-wide text-muted; }
+  .chip { @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-white px-3 py-1 text-xs font-medium text-ink; }
+  .eyebrow { @apply text-xs font-semibold uppercase tracking-[0.18em] text-champagne-600; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+.fade-up { animation: fadeUp 0.7s ease both; }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.maplibregl-popup-content { border-radius: 12px; font-family: var(--font-sans); }
