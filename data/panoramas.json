@@ -1,292 +1,530 @@
 {
- "generated_at": "2026-10-26T10:22:07+00:00",
+ "generated_at": "2026-10-26T10:49:45+00:00",
  "panoramas": [
   {
    "id": "cayley_interior",
-   "name": "Cayley Interior",
    "kind": "living",
    "yaw": 240,
-   "file": "/panos/cayley_interior.webp",
-   "low": "/panos/cayley_interior-low.webp",
-   "bytes": 334486,
-   "low_bytes": 35628,
+   "name": "Cayley Interior",
    "source": "Poly Haven",
    "page_url": "https://polyhaven.com/a/cayley_interior",
    "creator": "Greg Zaal",
    "licence": "CC0-1.0",
    "licence_url": "https://polyhaven.com/license",
    "attribution_required": false,
+   "file": "/panos/cayley_interior.webp",
+   "low": "/panos/cayley_interior-low.webp",
+   "bytes": 334486,
+   "low_bytes": 35628,
    "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/cayley_interior.jpg"
   },
   {
    "id": "lythwood_lounge",
-   "name": "Lythwood Lounge",
    "kind": "living",
    "yaw": 60,
-   "file": "/panos/lythwood_lounge.webp",
-   "low": "/panos/lythwood_lounge-low.webp",
-   "bytes": 532992,
-   "low_bytes": 30794,
+   "name": "Lythwood Lounge",
    "source": "Poly Haven",
    "page_url": "https://polyhaven.com/a/lythwood_lounge",
    "creator": "Greg Zaal",
    "licence": "CC0-1.0",
    "licence_url": "https://polyhaven.com/license",
    "attribution_required": false,
+   "file": "/panos/lythwood_lounge.webp",
+   "low": "/panos/lythwood_lounge-low.webp",
+   "bytes": 532992,
+   "low_bytes": 30794,
    "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/lythwood_lounge.jpg"
   },
   {
    "id": "reading_room",
-   "name": "Reading Room",
    "kind": "living",
    "yaw": 60,
-   "file": "/panos/reading_room.webp",
-   "low": "/panos/reading_room-low.webp",
-   "bytes": 741948,
-   "low_bytes": 47732,
+   "name": "Reading Room",
    "source": "Poly Haven",
    "page_url": "https://polyhaven.com/a/reading_room",
    "creator": "Greg Zaal",
    "licence": "CC0-1.0",
    "licence_url": "https://polyhaven.com/license",
    "attribution_required": false,
+   "file": "/panos/reading_room.webp",
+   "low": "/panos/reading_room-low.webp",
+   "bytes": 741948,
+   "low_bytes": 47732,
    "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/reading_room.jpg"
   },
   {
    "id": "combination_room",
-   "name": "Combination Room",
    "kind": "living",
    "yaw": 300,
-   "file": "/panos/combination_room.webp",
-   "low": "/panos/combination_room-low.webp",
-   "bytes": 705126,
-   "low_bytes": 43360,
+   "name": "Combination Room",
    "source": "Poly Haven",
    "page_url": "https://polyhaven.com/a/combination_room",
    "creator": "Sergej Majboroda",
    "licence": "CC0-1.0",
    "licence_url": "https://polyhaven.com/license",
    "attribution_required": false,
+   "file": "/panos/combination_room.webp",
+   "low": "/panos/combination_room-low.webp",
+   "bytes": 705126,
+   "low_bytes": 43360,
    "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/combination_room.jpg"
   },
   {
-   "id": "wooden_lounge",
-   "name": "Wooden Lounge",
-   "kind": "living",
-   "yaw": 0,
-   "file": "/panos/wooden_lounge.webp",
-   "low": "/panos/wooden_lounge-low.webp",
-   "bytes": 363968,
-   "low_bytes": 28316,
-   "source": "Poly Haven",
-   "page_url": "https://polyhaven.com/a/wooden_lounge",
-   "creator": "Greg Zaal",
-   "licence": "CC0-1.0",
-   "licence_url": "https://polyhaven.com/license",
-   "attribution_required": false,
-   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/wooden_lounge.jpg"
-  },
-  {
    "id": "anniversary_lounge",
-   "name": "Anniversary Lounge",
    "kind": "living",
    "yaw": 120,
-   "file": "/panos/anniversary_lounge.webp",
-   "low": "/panos/anniversary_lounge-low.webp",
-   "bytes": 588428,
-   "low_bytes": 37554,
+   "name": "Anniversary Lounge",
    "source": "Poly Haven",
    "page_url": "https://polyhaven.com/a/anniversary_lounge",
    "creator": "Greg Zaal",
    "licence": "CC0-1.0",
    "licence_url": "https://polyhaven.com/license",
    "attribution_required": false,
+   "file": "/panos/anniversary_lounge.webp",
+   "low": "/panos/anniversary_lounge-low.webp",
+   "bytes": 588428,
+   "low_bytes": 37554,
    "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/anniversary_lounge.jpg"
   },
   {
+   "id": "brown_photostudio_02",
+   "kind": "living",
+   "yaw": 225,
+   "name": "Brown Photostudio 02",
+   "source": "Poly Haven",
+   "page_url": "https://polyhaven.com/a/brown_photostudio_02",
+   "creator": "Sergej Majboroda",
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "attribution_required": false,
+   "file": "/panos/brown_photostudio_02.webp",
+   "low": "/panos/brown_photostudio_02-low.webp",
+   "bytes": 324796,
+   "low_bytes": 28006,
+   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/brown_photostudio_02.jpg"
+  },
+  {
    "id": "brown_photostudio_04",
-   "name": "Brown Photostudio 04",
    "kind": "studio",
    "yaw": 120,
-   "file": "/panos/brown_photostudio_04.webp",
-   "low": "/panos/brown_photostudio_04-low.webp",
-   "bytes": 651596,
-   "low_bytes": 29602,
+   "name": "Brown Photostudio 04",
    "source": "Poly Haven",
    "page_url": "https://polyhaven.com/a/brown_photostudio_04",
    "creator": "Sergej Majboroda",
    "licence": "CC0-1.0",
    "licence_url": "https://polyhaven.com/license",
    "attribution_required": false,
+   "file": "/panos/brown_photostudio_04.webp",
+   "low": "/panos/brown_photostudio_04-low.webp",
+   "bytes": 651596,
+   "low_bytes": 29602,
    "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/brown_photostudio_04.jpg"
   },
   {
    "id": "kiara_interior",
-   "name": "Kiara Interior",
    "kind": "kitchen",
    "yaw": 180,
-   "file": "/panos/kiara_interior.webp",
-   "low": "/panos/kiara_interior-low.webp",
-   "bytes": 567494,
-   "low_bytes": 46272,
+   "name": "Kiara Interior",
    "source": "Poly Haven",
    "page_url": "https://polyhaven.com/a/kiara_interior",
    "creator": "Greg Zaal",
    "licence": "CC0-1.0",
    "licence_url": "https://polyhaven.com/license",
    "attribution_required": false,
+   "file": "/panos/kiara_interior.webp",
+   "low": "/panos/kiara_interior-low.webp",
+   "bytes": 567494,
+   "low_bytes": 46272,
    "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/kiara_interior.jpg"
   },
   {
    "id": "studio_country_hall",
-   "name": "Studio Country Hall",
    "kind": "kitchen",
    "yaw": 0,
-   "file": "/panos/studio_country_hall.webp",
-   "low": "/panos/studio_country_hall-low.webp",
-   "bytes": 879744,
-   "low_bytes": 47438,
+   "name": "Studio Country Hall",
    "source": "Poly Haven",
    "page_url": "https://polyhaven.com/a/studio_country_hall",
    "creator": "Sergej Majboroda",
    "licence": "CC0-1.0",
    "licence_url": "https://polyhaven.com/license",
    "attribution_required": false,
+   "file": "/panos/studio_country_hall.webp",
+   "low": "/panos/studio_country_hall-low.webp",
+   "bytes": 879744,
+   "low_bytes": 47438,
    "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/studio_country_hall.jpg"
   },
   {
    "id": "hotel_room",
-   "name": "Hotel Room",
    "kind": "bedroom",
    "yaw": 120,
-   "file": "/panos/hotel_room.webp",
-   "low": "/panos/hotel_room-low.webp",
-   "bytes": 225084,
-   "low_bytes": 25408,
+   "name": "Hotel Room",
    "source": "Poly Haven",
    "page_url": "https://polyhaven.com/a/hotel_room",
    "creator": "Greg Zaal",
    "licence": "CC0-1.0",
    "licence_url": "https://polyhaven.com/license",
    "attribution_required": false,
+   "file": "/panos/hotel_room.webp",
+   "low": "/panos/hotel_room-low.webp",
+   "bytes": 225084,
+   "low_bytes": 25408,
    "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/hotel_room.jpg"
   },
   {
    "id": "relax_inn_seaview_suite",
-   "name": "Relax Inn Seaview Suite",
    "kind": "bedroom",
    "yaw": 60,
-   "file": "/panos/relax_inn_seaview_suite.webp",
-   "low": "/panos/relax_inn_seaview_suite-low.webp",
-   "bytes": 334468,
-   "low_bytes": 26044,
+   "name": "Relax Inn Seaview Suite",
    "source": "Poly Haven",
    "page_url": "https://polyhaven.com/a/relax_inn_seaview_suite",
    "creator": "Dario Barresi, Jenelle van Heerden",
    "licence": "CC0-1.0",
    "licence_url": "https://polyhaven.com/license",
    "attribution_required": false,
+   "file": "/panos/relax_inn_seaview_suite.webp",
+   "low": "/panos/relax_inn_seaview_suite-low.webp",
+   "bytes": 334468,
+   "low_bytes": 26044,
    "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/relax_inn_seaview_suite.jpg"
   },
   {
    "id": "lythwood_room",
-   "name": "Lythwood Room",
    "kind": "bedroom",
    "yaw": 180,
-   "file": "/panos/lythwood_room.webp",
-   "low": "/panos/lythwood_room-low.webp",
-   "bytes": 412312,
-   "low_bytes": 28248,
+   "name": "Lythwood Room",
    "source": "Poly Haven",
    "page_url": "https://polyhaven.com/a/lythwood_room",
    "creator": "Greg Zaal",
    "licence": "CC0-1.0",
    "licence_url": "https://polyhaven.com/license",
    "attribution_required": false,
+   "file": "/panos/lythwood_room.webp",
+   "low": "/panos/lythwood_room-low.webp",
+   "bytes": 412312,
+   "low_bytes": 28248,
    "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/lythwood_room.jpg"
   },
   {
    "id": "glasshouse_interior",
-   "name": "Glasshouse Interior",
    "kind": "bedroom",
    "yaw": 240,
-   "file": "/panos/glasshouse_interior.webp",
-   "low": "/panos/glasshouse_interior-low.webp",
-   "bytes": 826574,
-   "low_bytes": 48602,
+   "name": "Glasshouse Interior",
    "source": "Poly Haven",
    "page_url": "https://polyhaven.com/a/glasshouse_interior",
    "creator": "Dario Barresi",
    "licence": "CC0-1.0",
    "licence_url": "https://polyhaven.com/license",
    "attribution_required": false,
+   "file": "/panos/glasshouse_interior.webp",
+   "low": "/panos/glasshouse_interior-low.webp",
+   "bytes": 826574,
+   "low_bytes": 48602,
    "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/glasshouse_interior.jpg"
   },
   {
    "id": "en_suite",
-   "name": "En Suite",
    "kind": "bathroom",
    "yaw": 180,
-   "file": "/panos/en_suite.webp",
-   "low": "/panos/en_suite-low.webp",
-   "bytes": 213738,
-   "low_bytes": 18968,
+   "name": "En Suite",
    "source": "Poly Haven",
    "page_url": "https://polyhaven.com/a/en_suite",
    "creator": "Greg Zaal",
    "licence": "CC0-1.0",
    "licence_url": "https://polyhaven.com/license",
    "attribution_required": false,
+   "file": "/panos/en_suite.webp",
+   "low": "/panos/en_suite-low.webp",
+   "bytes": 213738,
+   "low_bytes": 18968,
    "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/en_suite.jpg"
   },
   {
    "id": "modern_bathroom",
-   "name": "Modern Bathroom",
    "kind": "bathroom",
    "yaw": 0,
-   "file": "/panos/modern_bathroom.webp",
-   "low": "/panos/modern_bathroom-low.webp",
-   "bytes": 450912,
-   "low_bytes": 16712,
+   "name": "Modern Bathroom",
    "source": "Poly Haven",
    "page_url": "https://polyhaven.com/a/modern_bathroom",
    "creator": "Adrian Kubasa",
    "licence": "CC0-1.0",
    "licence_url": "https://polyhaven.com/license",
    "attribution_required": false,
+   "file": "/panos/modern_bathroom.webp",
+   "low": "/panos/modern_bathroom-low.webp",
+   "bytes": 450912,
+   "low_bytes": 16712,
    "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/modern_bathroom.jpg"
   },
   {
    "id": "bathroom",
-   "name": "Bathroom",
    "kind": "bathroom",
    "yaw": 300,
-   "file": "/panos/bathroom.webp",
-   "low": "/panos/bathroom-low.webp",
-   "bytes": 215776,
-   "low_bytes": 19610,
+   "name": "Bathroom",
    "source": "Poly Haven",
    "page_url": "https://polyhaven.com/a/bathroom",
    "creator": "Greg Zaal",
    "licence": "CC0-1.0",
    "licence_url": "https://polyhaven.com/license",
    "attribution_required": false,
+   "file": "/panos/bathroom.webp",
+   "low": "/panos/bathroom-low.webp",
+   "bytes": 215776,
+   "low_bytes": 19610,
    "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/bathroom.jpg"
+  },
+  {
+   "id": "wm_bathroom_dass",
+   "kind": "bathroom",
+   "yaw": 0,
+   "name": "Bathroom (28613007553)",
+   "source": "Wikimedia Commons",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Bathroom_(28613007553).jpg",
+   "creator": "Bob Dass",
+   "licence": "CC-BY-2.0",
+   "licence_url": "https://creativecommons.org/licenses/by/2.0",
+   "attribution_required": true,
+   "file": "/panos/wm_bathroom_dass.webp",
+   "low": "/panos/wm_bathroom_dass-low.webp",
+   "bytes": 430386,
+   "low_bytes": 31920,
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/Bathroom_%2828613007553%29.jpg/3840px-Bathroom_%2828613007553%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "id": "wm_motel_one_bathroom",
+   "kind": "bathroom",
+   "yaw": 0,
+   "name": "Motel One Wien Hauptbahnhof - Badezimmer",
+   "source": "Wikimedia Commons",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Motel_One_Wien_Hauptbahnhof_-_Badezimmer.jpg",
+   "creator": "1971markus",
+   "licence": "CC-BY-SA-4.0",
+   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "attribution_required": true,
+   "file": "/panos/wm_motel_one_bathroom.webp",
+   "low": "/panos/wm_motel_one_bathroom-low.webp",
+   "bytes": 349358,
+   "low_bytes": 22330,
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Motel_One_Wien_Hauptbahnhof_-_Badezimmer.jpg/3840px-Motel_One_Wien_Hauptbahnhof_-_Badezimmer.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "id": "wm_sandburg_kitchen",
+   "kind": "kitchen",
+   "yaw": 0,
+   "name": "360 view of the Sandburg Home Kitchen (d0da8053-8da5-4c70-8e49-281c084900ec)",
+   "source": "Wikimedia Commons",
+   "page_url": "https://commons.wikimedia.org/wiki/File:360_view_of_the_Sandburg_Home_Kitchen_(d0da8053-8da5-4c70-8e49-281c084900ec).jpg",
+   "creator": "NPS Photo",
+   "licence": "Public domain",
+   "licence_url": "https://commons.wikimedia.org/wiki/File:360_view_of_the_Sandburg_Home_Kitchen_(d0da8053-8da5-4c70-8e49-281c084900ec).jpg",
+   "attribution_required": false,
+   "file": "/panos/wm_sandburg_kitchen.webp",
+   "low": "/panos/wm_sandburg_kitchen-low.webp",
+   "bytes": 384178,
+   "low_bytes": 37262,
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/360_view_of_the_Sandburg_Home_Kitchen_%28d0da8053-8da5-4c70-8e49-281c084900ec%29.jpg/3840px-360_view_of_the_Sandburg_Home_Kitchen_%28d0da8053-8da5-4c70-8e49-281c084900ec%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "id": "wm_aura_kitchen",
+   "kind": "kitchen",
+   "yaw": 0,
+   "name": "AURA Recinto Kitchen 360 Panorama (2022 04 13 Pano360 Recinto Building C Kitchen-CC)",
+   "source": "Wikimedia Commons",
+   "page_url": "https://commons.wikimedia.org/wiki/File:AURA_Recinto_Kitchen_360_Panorama_(2022_04_13_Pano360_Recinto_Building_C_Kitchen-CC).jpg",
+   "creator": "NOIRLab/NSF/AURA/P. Hor\u00e1lek",
+   "licence": "CC-BY-4.0",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0",
+   "attribution_required": true,
+   "file": "/panos/wm_aura_kitchen.webp",
+   "low": "/panos/wm_aura_kitchen-low.webp",
+   "bytes": 704460,
+   "low_bytes": 43482,
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/AURA_Recinto_Kitchen_360_Panorama_%282022_04_13_Pano360_Recinto_Building_C_Kitchen-CC%29.jpg/3840px-AURA_Recinto_Kitchen_360_Panorama_%282022_04_13_Pano360_Recinto_Building_C_Kitchen-CC%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "id": "wm_eso_guesthouse_kitchen",
+   "kind": "kitchen",
+   "yaw": 0,
+   "name": "ESO Guesthouse (gh-kitchen-pano)",
+   "source": "Wikimedia Commons",
+   "page_url": "https://commons.wikimedia.org/wiki/File:ESO_Guesthouse_(gh-kitchen-pano).jpg",
+   "creator": "ESO",
+   "licence": "CC-BY-4.0",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0",
+   "attribution_required": true,
+   "file": "/panos/wm_eso_guesthouse_kitchen.webp",
+   "low": "/panos/wm_eso_guesthouse_kitchen-low.webp",
+   "bytes": 381428,
+   "low_bytes": 28102,
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/63/ESO_Guesthouse_%28gh-kitchen-pano%29.jpg/3840px-ESO_Guesthouse_%28gh-kitchen-pano%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "id": "wm_sandburg_bedroom",
+   "kind": "bedroom",
+   "yaw": 0,
+   "name": "360 view of Mrs. Sandburg's Bedroom (2a47eada-2d4c-4c54-8bce-8fe81c56e617)",
+   "source": "Wikimedia Commons",
+   "page_url": "https://commons.wikimedia.org/wiki/File:360_view_of_Mrs._Sandburg%27s_Bedroom_(2a47eada-2d4c-4c54-8bce-8fe81c56e617).jpg",
+   "creator": "NPS Photo",
+   "licence": "Public domain",
+   "licence_url": "https://commons.wikimedia.org/wiki/File:360_view_of_Mrs._Sandburg%27s_Bedroom_(2a47eada-2d4c-4c54-8bce-8fe81c56e617).jpg",
+   "attribution_required": false,
+   "file": "/panos/wm_sandburg_bedroom.webp",
+   "low": "/panos/wm_sandburg_bedroom-low.webp",
+   "bytes": 761958,
+   "low_bytes": 54224,
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/360_view_of_Mrs._Sandburg%27s_Bedroom_%282a47eada-2d4c-4c54-8bce-8fe81c56e617%29.jpg/3840px-360_view_of_Mrs._Sandburg%27s_Bedroom_%282a47eada-2d4c-4c54-8bce-8fe81c56e617%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "id": "wm_residencia_room",
+   "kind": "bedroom",
+   "yaw": 0,
+   "name": "La Residencia (residencia-room-pano)",
+   "source": "Wikimedia Commons",
+   "page_url": "https://commons.wikimedia.org/wiki/File:La_Residencia_(residencia-room-pano).jpg",
+   "creator": "ESO",
+   "licence": "CC-BY-4.0",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0",
+   "attribution_required": true,
+   "file": "/panos/wm_residencia_room.webp",
+   "low": "/panos/wm_residencia_room-low.webp",
+   "bytes": 445706,
+   "low_bytes": 27396,
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/La_Residencia_%28residencia-room-pano%29.jpg/3840px-La_Residencia_%28residencia-room-pano%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "id": "wm_pachon_hotel_room",
+   "kind": "studio",
+   "yaw": 0,
+   "name": "Cerro Pach\u00f3n Hotel Inside Panorama (2022 04 06 Pano360 Room Pachon Hotel2-CC)",
+   "source": "Wikimedia Commons",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Cerro_Pach%C3%B3n_Hotel_Inside_Panorama_(2022_04_06_Pano360_Room_Pachon_Hotel2-CC).jpg",
+   "creator": "NOIRLab/AURA/NSF/P. Hor\u00e1lek",
+   "licence": "CC-BY-4.0",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0",
+   "attribution_required": true,
+   "file": "/panos/wm_pachon_hotel_room.webp",
+   "low": "/panos/wm_pachon_hotel_room-low.webp",
+   "bytes": 464620,
+   "low_bytes": 17144,
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Cerro_Pach%C3%B3n_Hotel_Inside_Panorama_%282022_04_06_Pano360_Room_Pachon_Hotel2-CC%29.jpg/3840px-Cerro_Pach%C3%B3n_Hotel_Inside_Panorama_%282022_04_06_Pano360_Room_Pachon_Hotel2-CC%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "id": "wm_tololo_hotel_room",
+   "kind": "bedroom",
+   "yaw": 0,
+   "name": "Cerro Tololo Hotel Interior 360 Panorama (2022 04 08 Pano360 Tololo Hotel Room-CC)",
+   "source": "Wikimedia Commons",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Cerro_Tololo_Hotel_Interior_360_Panorama_(2022_04_08_Pano360_Tololo_Hotel_Room-CC).jpg",
+   "creator": "NOIRLab/NSF/AURA/P. Hor\u00e1lek",
+   "licence": "CC-BY-4.0",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0",
+   "attribution_required": true,
+   "file": "/panos/wm_tololo_hotel_room.webp",
+   "low": "/panos/wm_tololo_hotel_room-low.webp",
+   "bytes": 696562,
+   "low_bytes": 28194,
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Cerro_Tololo_Hotel_Interior_360_Panorama_%282022_04_08_Pano360_Tololo_Hotel_Room-CC%29.jpg/3840px-Cerro_Tololo_Hotel_Interior_360_Panorama_%282022_04_08_Pano360_Tololo_Hotel_Room-CC%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "id": "wm_eso_guesthouse_living",
+   "kind": "living",
+   "yaw": 0,
+   "name": "Guesthouse living room (gh-livingroom-pan)",
+   "source": "Wikimedia Commons",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Guesthouse_living_room_(gh-livingroom-pan).jpg",
+   "creator": "ESO",
+   "licence": "CC-BY-4.0",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0",
+   "attribution_required": true,
+   "file": "/panos/wm_eso_guesthouse_living.webp",
+   "low": "/panos/wm_eso_guesthouse_living-low.webp",
+   "bytes": 449386,
+   "low_bytes": 27512,
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Guesthouse_living_room_%28gh-livingroom-pan%29.jpg/3840px-Guesthouse_living_room_%28gh-livingroom-pan%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "id": "wm_sandburg_living",
+   "kind": "living",
+   "yaw": 0,
+   "name": "Sandburg Home Living Room (b7a0ca83-a5e6-41b5-bc4b-bd2f97ae97a2)",
+   "source": "Wikimedia Commons",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Sandburg_Home_Living_Room_(b7a0ca83-a5e6-41b5-bc4b-bd2f97ae97a2).jpg",
+   "creator": "NPS Photo",
+   "licence": "Public domain",
+   "licence_url": "https://commons.wikimedia.org/wiki/File:Sandburg_Home_Living_Room_(b7a0ca83-a5e6-41b5-bc4b-bd2f97ae97a2).jpg",
+   "attribution_required": false,
+   "file": "/panos/wm_sandburg_living.webp",
+   "low": "/panos/wm_sandburg_living-low.webp",
+   "bytes": 611310,
+   "low_bytes": 36048,
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/be/Sandburg_Home_Living_Room_%28b7a0ca83-a5e6-41b5-bc4b-bd2f97ae97a2%29.jpg/3840px-Sandburg_Home_Living_Room_%28b7a0ca83-a5e6-41b5-bc4b-bd2f97ae97a2%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "id": "wm_eso_guesthouse_dining",
+   "kind": "dining",
+   "yaw": 0,
+   "name": "ESO Guesthouse (gh-dining-room-pano)",
+   "source": "Wikimedia Commons",
+   "page_url": "https://commons.wikimedia.org/wiki/File:ESO_Guesthouse_(gh-dining-room-pano).jpg",
+   "creator": "ESO",
+   "licence": "CC-BY-4.0",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0",
+   "attribution_required": true,
+   "file": "/panos/wm_eso_guesthouse_dining.webp",
+   "low": "/panos/wm_eso_guesthouse_dining-low.webp",
+   "bytes": 419984,
+   "low_bytes": 24690,
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/ESO_Guesthouse_%28gh-dining-room-pano%29.jpg/3840px-ESO_Guesthouse_%28gh-dining-room-pano%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "id": "wm_eso_suite_lounge",
+   "kind": "living",
+   "yaw": 0,
+   "name": "ESO Guesthouse (gh-direct-suite-pan)",
+   "source": "Wikimedia Commons",
+   "page_url": "https://commons.wikimedia.org/wiki/File:ESO_Guesthouse_(gh-direct-suite-pan).jpg",
+   "creator": "ESO",
+   "licence": "CC-BY-4.0",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0",
+   "attribution_required": true,
+   "file": "/panos/wm_eso_suite_lounge.webp",
+   "low": "/panos/wm_eso_suite_lounge-low.webp",
+   "bytes": 262462,
+   "low_bytes": 23592,
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/ESO_Guesthouse_%28gh-direct-suite-pan%29.jpg/3840px-ESO_Guesthouse_%28gh-direct-suite-pan%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
+   "id": "wm_pachon_dormitory_room",
+   "kind": "bedroom",
+   "yaw": 0,
+   "name": "Cerro Pach\u00f3n Dormitory Room 360 Panorama (Pano360 Room Pachon Hotel1-CC)",
+   "source": "Wikimedia Commons",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Cerro_Pach%C3%B3n_Dormitory_Room_360_Panorama_(Pano360_Room_Pachon_Hotel1-CC).jpg",
+   "creator": "CTIO/NOIRLab/NSF/AURA/P. Hor\u00e1lek",
+   "licence": "CC-BY-4.0",
+   "licence_url": "https://creativecommons.org/licenses/by/4.0",
+   "attribution_required": true,
+   "file": "/panos/wm_pachon_dormitory_room.webp",
+   "low": "/panos/wm_pachon_dormitory_room-low.webp",
+   "bytes": 749870,
+   "low_bytes": 32930,
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fc/Cerro_Pach%C3%B3n_Dormitory_Room_360_Panorama_%28Pano360_Room_Pachon_Hotel1-CC%29.jpg/3840px-Cerro_Pach%C3%B3n_Dormitory_Room_360_Panorama_%28Pano360_Room_Pachon_Hotel1-CC%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
   }
  ],
  "tours": {
   "westlands-parkside-residences": [
    {
     "room": "Living room",
-    "panorama": "cayley_interior"
+    "panorama": "wm_eso_suite_lounge"
    },
    {
     "room": "Bedroom",
-    "panorama": "relax_inn_seaview_suite"
+    "panorama": "wm_tololo_hotel_room"
    },
    {
     "room": "Bathroom",
-    "panorama": "en_suite"
+    "panorama": "wm_motel_one_bathroom"
    }
   ],
   "kilimani-arboretum-studio": [
@@ -296,16 +534,16 @@
    },
    {
     "room": "Bathroom",
-    "panorama": "bathroom"
+    "panorama": "en_suite"
    }
   ],
   "kilimani-family-apartment": [
    {
     "room": "Living room",
-    "panorama": "wooden_lounge"
+    "panorama": "wm_eso_guesthouse_living"
    },
    {
-    "room": "Kitchen",
+    "room": "Kitchen and lounge",
     "panorama": "kiara_interior"
    },
    {
@@ -341,54 +579,46 @@
     "panorama": "reading_room"
    },
    {
-    "room": "Bedroom",
+    "room": "Garden-view bedroom",
     "panorama": "glasshouse_interior"
-   },
-   {
-    "room": "Bathroom",
-    "panorama": "en_suite"
    }
   ],
   "kitisuru-extended-stay-house": [
    {
-    "room": "Living room",
-    "panorama": "anniversary_lounge"
+    "room": "Dining room",
+    "panorama": "wm_eso_guesthouse_dining"
    },
    {
     "room": "Kitchen",
-    "panorama": "studio_country_hall"
+    "panorama": "wm_eso_guesthouse_kitchen"
    },
    {
     "room": "Bedroom",
-    "panorama": "glasshouse_interior"
-   },
-   {
-    "room": "Bathroom",
-    "panorama": "modern_bathroom"
+    "panorama": "wm_pachon_dormitory_room"
    }
   ],
   "south-b-business-studio": [
    {
     "room": "Studio",
-    "panorama": "hotel_room"
+    "panorama": "wm_pachon_hotel_room"
    },
    {
     "room": "Bathroom",
-    "panorama": "en_suite"
+    "panorama": "wm_bathroom_dass"
    }
   ],
   "langata-forest-edge-apartment": [
    {
-    "room": "Living room",
-    "panorama": "wooden_lounge"
+    "room": "Open-plan living space",
+    "panorama": "brown_photostudio_02"
+   },
+   {
+    "room": "Kitchen",
+    "panorama": "wm_aura_kitchen"
    },
    {
     "room": "Bedroom",
     "panorama": "relax_inn_seaview_suite"
-   },
-   {
-    "room": "Bathroom",
-    "panorama": "bathroom"
    }
   ],
   "gigiri-diplomatic-serviced-apartment": [
@@ -397,30 +627,30 @@
     "panorama": "anniversary_lounge"
    },
    {
-    "room": "Bedroom",
-    "panorama": "hotel_room"
+    "room": "Living and dining room",
+    "panorama": "cayley_interior"
    },
    {
-    "room": "Bathroom",
-    "panorama": "modern_bathroom"
+    "room": "Bedroom",
+    "panorama": "wm_residencia_room"
    }
   ],
   "runda-quiet-villa": [
    {
-    "room": "Living room",
+    "room": "Drawing room",
     "panorama": "combination_room"
    },
    {
+    "room": "Family room",
+    "panorama": "wm_sandburg_living"
+   },
+   {
     "room": "Kitchen",
-    "panorama": "kiara_interior"
+    "panorama": "wm_sandburg_kitchen"
    },
    {
-    "room": "Bedroom",
-    "panorama": "lythwood_room"
-   },
-   {
-    "room": "Bathroom",
-    "panorama": "en_suite"
+    "room": "Twin bedroom",
+    "panorama": "wm_sandburg_bedroom"
    }
   ]
  },
@@ -429,17 +659,17 @@
    {
     "file": "/stills/westlands-parkside-residences-1.jpg",
     "room": "Living room",
-    "panorama": "cayley_interior"
+    "panorama": "wm_eso_suite_lounge"
    },
    {
     "file": "/stills/westlands-parkside-residences-2.jpg",
     "room": "Bedroom",
-    "panorama": "relax_inn_seaview_suite"
+    "panorama": "wm_tololo_hotel_room"
    },
    {
     "file": "/stills/westlands-parkside-residences-3.jpg",
     "room": "Bathroom",
-    "panorama": "en_suite"
+    "panorama": "wm_motel_one_bathroom"
    }
   ],
   "kilimani-arboretum-studio": [
@@ -451,18 +681,18 @@
    {
     "file": "/stills/kilimani-arboretum-studio-2.jpg",
     "room": "Bathroom",
-    "panorama": "bathroom"
+    "panorama": "en_suite"
    }
   ],
   "kilimani-family-apartment": [
    {
     "file": "/stills/kilimani-family-apartment-1.jpg",
     "room": "Living room",
-    "panorama": "wooden_lounge"
+    "panorama": "wm_eso_guesthouse_living"
    },
    {
     "file": "/stills/kilimani-family-apartment-2.jpg",
-    "room": "Kitchen",
+    "room": "Kitchen and lounge",
     "panorama": "kiara_interior"
    },
    {
@@ -496,59 +726,54 @@
    },
    {
     "file": "/stills/kitisuru-ridge-suite-2.jpg",
-    "room": "Bedroom",
+    "room": "Garden-view bedroom",
     "panorama": "glasshouse_interior"
-   },
-   {
-    "file": "/stills/kitisuru-ridge-suite-3.jpg",
-    "room": "Bathroom",
-    "panorama": "en_suite"
    }
   ],
   "kitisuru-extended-stay-house": [
    {
     "file": "/stills/kitisuru-extended-stay-house-1.jpg",
-    "room": "Living room",
-    "panorama": "anniversary_lounge"
+    "room": "Dining room",
+    "panorama": "wm_eso_guesthouse_dining"
    },
    {
     "file": "/stills/kitisuru-extended-stay-house-2.jpg",
     "room": "Kitchen",
-    "panorama": "studio_country_hall"
+    "panorama": "wm_eso_guesthouse_kitchen"
    },
    {
     "file": "/stills/kitisuru-extended-stay-house-3.jpg",
     "room": "Bedroom",
-    "panorama": "glasshouse_interior"
+    "panorama": "wm_pachon_dormitory_room"
    }
   ],
   "south-b-business-studio": [
    {
     "file": "/stills/south-b-business-studio-1.jpg",
     "room": "Studio",
-    "panorama": "hotel_room"
+    "panorama": "wm_pachon_hotel_room"
    },
    {
     "file": "/stills/south-b-business-studio-2.jpg",
     "room": "Bathroom",
-    "panorama": "en_suite"
+    "panorama": "wm_bathroom_dass"
    }
   ],
   "langata-forest-edge-apartment": [
    {
     "file": "/stills/langata-forest-edge-apartment-1.jpg",
-    "room": "Living room",
-    "panorama": "wooden_lounge"
+    "room": "Open-plan living space",
+    "panorama": "brown_photostudio_02"
    },
    {
     "file": "/stills/langata-forest-edge-apartment-2.jpg",
-    "room": "Bedroom",
-    "panorama": "relax_inn_seaview_suite"
+    "room": "Kitchen",
+    "panorama": "wm_aura_kitchen"
    },
    {
     "file": "/stills/langata-forest-edge-apartment-3.jpg",
-    "room": "Bathroom",
-    "panorama": "bathroom"
+    "room": "Bedroom",
+    "panorama": "relax_inn_seaview_suite"
    }
   ],
   "gigiri-diplomatic-serviced-apartment": [
@@ -559,30 +784,30 @@
    },
    {
     "file": "/stills/gigiri-diplomatic-serviced-apartment-2.jpg",
-    "room": "Bedroom",
-    "panorama": "hotel_room"
+    "room": "Living and dining room",
+    "panorama": "cayley_interior"
    },
    {
     "file": "/stills/gigiri-diplomatic-serviced-apartment-3.jpg",
-    "room": "Bathroom",
-    "panorama": "modern_bathroom"
+    "room": "Bedroom",
+    "panorama": "wm_residencia_room"
    }
   ],
   "runda-quiet-villa": [
    {
     "file": "/stills/runda-quiet-villa-1.jpg",
-    "room": "Living room",
+    "room": "Drawing room",
     "panorama": "combination_room"
    },
    {
     "file": "/stills/runda-quiet-villa-2.jpg",
-    "room": "Kitchen",
-    "panorama": "kiara_interior"
+    "room": "Family room",
+    "panorama": "wm_sandburg_living"
    },
    {
     "file": "/stills/runda-quiet-villa-3.jpg",
-    "room": "Bedroom",
-    "panorama": "lythwood_room"
+    "room": "Kitchen",
+    "panorama": "wm_sandburg_kitchen"
    }
   ]
  }
