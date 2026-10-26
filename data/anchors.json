@@ -1,0 +1,12 @@
+[
+ {"slug":"westlands-parkside-residences","neighbourhood":"Westlands","lat":-1.2652,"lon":36.8040},
+ {"slug":"kilimani-arboretum-studio","neighbourhood":"Kilimani","lat":-1.2885,"lon":36.7870},
+ {"slug":"kilimani-family-apartment","neighbourhood":"Kilimani","lat":-1.2950,"lon":36.7835},
+ {"slug":"karen-garden-cottage","neighbourhood":"Karen","lat":-1.3190,"lon":36.7085},
+ {"slug":"kitisuru-ridge-suite","neighbourhood":"Kitisuru","lat":-1.2245,"lon":36.7800},
+ {"slug":"kitisuru-extended-stay-house","neighbourhood":"Kitisuru","lat":-1.2170,"lon":36.7715},
+ {"slug":"south-b-business-studio","neighbourhood":"South B","lat":-1.3110,"lon":36.8360},
+ {"slug":"langata-forest-edge-apartment","neighbourhood":"Lang'ata","lat":-1.3440,"lon":36.7650},
+ {"slug":"gigiri-diplomatic-serviced-apartment","neighbourhood":"Gigiri","lat":-1.2350,"lon":36.8070},
+ {"slug":"runda-quiet-villa","neighbourhood":"Runda","lat":-1.2190,"lon":36.8170}
+]
