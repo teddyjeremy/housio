@@ -1,13 +1,13 @@
 import { expect, test } from "@playwright/test";
 
-test("homepage shows brand, demo logins and featured stays", async ({ page }) => {
+test("homepage shows brand, one-click sign-in and featured stays", async ({ page }) => {
   await page.goto("/");
   await expect(page.getByText("Don't just see it. Experience it.").first()).toBeVisible();
   for (const role of ["guest", "owner", "admin"]) await expect(page.getByTestId(`demo-${role}`)).toBeVisible();
   await expect(page.getByTestId("property-card").first()).toBeVisible();
 });
 
-test("search lists all ten demo stays and filters by neighbourhood", async ({ page }) => {
+test("search lists all ten stays and filters by neighbourhood", async ({ page }) => {
   await page.goto("/search");
   await expect(page.getByTestId("property-card")).toHaveCount(10);
   expect(await page.locator("body").innerText()).not.toMatch(/\bdemo\b|illustrative/i);
@@ -44,13 +44,16 @@ test("360° tour loads progressively, switches rooms and falls back without WebG
 
 test("listing pages carry structured data and no internal labels", async ({ page }) => {
   await page.goto("/properties/runda-quiet-villa");
-  const ld = JSON.parse(await page.locator('script[type="application/ld+json"]').last().innerText());
+  const blocks = await page.locator('script[type="application/ld+json"]').allInnerTexts();
+  const ld = blocks.map((b) => JSON.parse(b)).find((d) => d.offers);
   expect(ld["@type"]).toBe("House");
   expect(ld.aggregateRating).toBeUndefined();
   expect(ld.address.streetAddress).toBeUndefined();
   await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", /\/properties\/runda-quiet-villa$/);
-  const text = await page.locator("body").innerText();
-  expect(text).not.toMatch(/\bdemo\b|illustrative|simulated|sample listing/i);
+  for (const url of ["/properties/runda-quiet-villa", "/compare?ids=runda-quiet-villa,karen-garden-cottage", "/fit?want=work"]) {
+    await page.goto(url);
+    expect(await page.locator("body").innerText(), url).not.toMatch(/\bdemo\b|illustrative|simulated|sample listing/i);
+  }
 });
 
 test("Around lists sourced nearby places", async ({ page }) => {

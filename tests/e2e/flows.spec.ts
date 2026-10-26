@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { demoSignIn, futureDate } from "./helpers";
 
-test("guest books, pays (simulated) and cancels", async ({ page }) => {
+test("guest books, pays and cancels", async ({ page }) => {
   await demoSignIn(page, "guest");
   const start = 120 + Math.floor(Math.random() * 100);
   await page.goto(`/properties/langata-forest-edge-apartment?checkin=${futureDate(start)}&checkout=${futureDate(start + 3)}&guests=2`);

@@ -92,7 +92,7 @@ export default async function PropertyPage({ params, searchParams }: { params: P
                     <li>Up to {u.max_guests} guests</li>
                     {u.bedrooms != null && <li>{u.bedrooms === 0 ? "Studio (no separate bedroom)" : `${u.bedrooms} bedroom${u.bedrooms > 1 ? "s" : ""}`} · {u.bathrooms} bathroom{Number(u.bathrooms) === 1 ? "" : "s"}</li>}
                     {u.sleeping.map((s, i) => <li key={i}>{s.room}: {s.beds}</li>)}
-                    <li>Floor area: {u.floor_area_m2 ? <>{u.floor_area_m2} m² <span className="text-xs">({u.floor_area_verified ? "verified" : p.is_demo ? "illustrative, not verified" : "owner-provided"})</span></> : "Unknown"}</li>
+                    <li>Floor area: {u.floor_area_m2 ? <>{u.floor_area_m2} m²{!p.is_demo && <span className="text-xs"> ({u.floor_area_verified ? "verified" : "owner-provided"})</span>}</> : "Unknown"}</li>
                     <li>{kes(u.nightly_rate)} / night · min {u.min_nights} night{u.min_nights > 1 ? "s" : ""}</li>
                   </ul>
                   <p className="mt-2 text-xs text-muted">Booked as one complete unit. Rooms inside a unit can&apos;t be booked separately.</p>

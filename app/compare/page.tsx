@@ -45,7 +45,7 @@ export default async function ComparePage({ searchParams }: { searchParams: Prom
     { k: "Bedrooms", v: (p) => { const u = mainUnit(p); return u.bedrooms === 0 ? "Studio" : `${u.bedrooms ?? "Unknown"}`; } },
     { k: "Beds", v: (p) => mainUnit(p).sleeping.map((s) => s.beds).join(", ") || "Unknown" },
     { k: "Bathrooms", v: (p) => `${mainUnit(p).bathrooms ?? "Unknown"}` },
-    { k: "Floor area", v: (p) => { const u = mainUnit(p); return u.floor_area_m2 ? `${u.floor_area_m2} m² (${u.floor_area_verified ? "verified" : p.is_demo ? "illustrative" : "owner-provided"})` : "Unknown"; } },
+    { k: "Floor area", v: (p) => { const u = mainUnit(p); return u.floor_area_m2 ? `${u.floor_area_m2} m²${p.is_demo ? "" : u.floor_area_verified ? " (verified)" : " (owner-provided)"}` : "Unknown"; } },
     ...amenityCodes.map((c) => ({ k: label(c), v: (p: (typeof items)[number]) => { const a = p.amenity_details.find((x) => x.code === c && x.unit_id === mainUnit(p).id); return a ? (a.value === "yes" ? "✓" : a.value === "no" ? "✕" : "Unknown") : "Unknown"; } })),
     ...["hospital", "shopping", "restaurant", "transport"].map((c) => ({ k: `Nearest ${CATEGORY_LABELS[c].toLowerCase()}`, v: (p: (typeof items)[number]) => { const n = p.nearby.filter((x) => x.category === c).sort((a, b) => a.distance_m - b.distance_m)[0]; return n ? `${n.name} · ${formatDistance(n.distance_m)}` : "None found nearby"; } })),
     { k: "Cancellation", v: (p) => <span title={POLICY_TEXT[p.cancellation_policy].summary}>{POLICY_TEXT[p.cancellation_policy].title}</span> },
