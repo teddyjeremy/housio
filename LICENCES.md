@@ -15,10 +15,9 @@ works are shared under CC BY-SA 4.0. The full record is in `data/panoramas.json`
 | reading_room | Reading Room | living | [Poly Haven](https://polyhaven.com/a/reading_room) | Greg Zaal | CC0-1.0 |
 | combination_room | Combination Room | living | [Poly Haven](https://polyhaven.com/a/combination_room) | Sergej Majboroda | CC0-1.0 |
 | anniversary_lounge | Anniversary Lounge | living | [Poly Haven](https://polyhaven.com/a/anniversary_lounge) | Greg Zaal | CC0-1.0 |
-| brown_photostudio_02 | Brown Photostudio 02 | living | [Poly Haven](https://polyhaven.com/a/brown_photostudio_02) | Sergej Majboroda | CC0-1.0 |
 | brown_photostudio_04 | Brown Photostudio 04 | studio | [Poly Haven](https://polyhaven.com/a/brown_photostudio_04) | Sergej Majboroda | CC0-1.0 |
 | kiara_interior | Kiara Interior | kitchen | [Poly Haven](https://polyhaven.com/a/kiara_interior) | Greg Zaal | CC0-1.0 |
-| studio_country_hall | Studio Country Hall | kitchen | [Poly Haven](https://polyhaven.com/a/studio_country_hall) | Sergej Majboroda | CC0-1.0 |
+| studio_country_hall | Studio Country Hall | dining | [Poly Haven](https://polyhaven.com/a/studio_country_hall) | Sergej Majboroda | CC0-1.0 |
 | hotel_room | Hotel Room | bedroom | [Poly Haven](https://polyhaven.com/a/hotel_room) | Greg Zaal | CC0-1.0 |
 | relax_inn_seaview_suite | Relax Inn Seaview Suite | bedroom | [Poly Haven](https://polyhaven.com/a/relax_inn_seaview_suite) | Dario Barresi, Jenelle van Heerden | CC0-1.0 |
 | lythwood_room | Lythwood Room | bedroom | [Poly Haven](https://polyhaven.com/a/lythwood_room) | Greg Zaal | CC0-1.0 |
@@ -26,19 +25,20 @@ works are shared under CC BY-SA 4.0. The full record is in `data/panoramas.json`
 | en_suite | En Suite | bathroom | [Poly Haven](https://polyhaven.com/a/en_suite) | Greg Zaal | CC0-1.0 |
 | modern_bathroom | Modern Bathroom | bathroom | [Poly Haven](https://polyhaven.com/a/modern_bathroom) | Adrian Kubasa | CC0-1.0 |
 | bathroom | Bathroom | bathroom | [Poly Haven](https://polyhaven.com/a/bathroom) | Greg Zaal | CC0-1.0 |
+| wooden_lounge | Wooden Lounge | living | [Poly Haven](https://polyhaven.com/a/wooden_lounge) | Greg Zaal | CC0-1.0 |
+| blinds | Blinds | kitchen | [Poly Haven](https://polyhaven.com/a/blinds) | Greg Zaal | CC0-1.0 |
 | wm_bathroom_dass | Bathroom (28613007553) | bathroom | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Bathroom_(28613007553).jpg) | Bob Dass | CC-BY-2.0 |
 | wm_motel_one_bathroom | Motel One Wien Hauptbahnhof - Badezimmer | bathroom | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Motel_One_Wien_Hauptbahnhof_-_Badezimmer.jpg) | 1971markus | CC-BY-SA-4.0 |
 | wm_sandburg_kitchen | 360 view of the Sandburg Home Kitchen (d0da8053-8da5-4c70-8e49-281c084900ec) | kitchen | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:360_view_of_the_Sandburg_Home_Kitchen_(d0da8053-8da5-4c70-8e49-281c084900ec).jpg) | NPS Photo | Public domain |
-| wm_aura_kitchen | AURA Recinto Kitchen 360 Panorama (2022 04 13 Pano360 Recinto Building C Kitchen-CC) | kitchen | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:AURA_Recinto_Kitchen_360_Panorama_(2022_04_13_Pano360_Recinto_Building_C_Kitchen-CC).jpg) | NOIRLab/NSF/AURA/P. Horálek | CC-BY-4.0 |
 | wm_eso_guesthouse_kitchen | ESO Guesthouse (gh-kitchen-pano) | kitchen | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ESO_Guesthouse_(gh-kitchen-pano).jpg) | ESO | CC-BY-4.0 |
 | wm_sandburg_bedroom | 360 view of Mrs. Sandburg's Bedroom (2a47eada-2d4c-4c54-8bce-8fe81c56e617) | bedroom | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:360_view_of_Mrs._Sandburg%27s_Bedroom_(2a47eada-2d4c-4c54-8bce-8fe81c56e617).jpg) | NPS Photo | Public domain |
 | wm_residencia_room | La Residencia (residencia-room-pano) | bedroom | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:La_Residencia_(residencia-room-pano).jpg) | ESO | CC-BY-4.0 |
 | wm_pachon_hotel_room | Cerro Pachón Hotel Inside Panorama (2022 04 06 Pano360 Room Pachon Hotel2-CC) | studio | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cerro_Pach%C3%B3n_Hotel_Inside_Panorama_(2022_04_06_Pano360_Room_Pachon_Hotel2-CC).jpg) | NOIRLab/AURA/NSF/P. Horálek | CC-BY-4.0 |
 | wm_tololo_hotel_room | Cerro Tololo Hotel Interior 360 Panorama (2022 04 08 Pano360 Tololo Hotel Room-CC) | bedroom | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cerro_Tololo_Hotel_Interior_360_Panorama_(2022_04_08_Pano360_Tololo_Hotel_Room-CC).jpg) | NOIRLab/NSF/AURA/P. Horálek | CC-BY-4.0 |
-| wm_eso_guesthouse_living | Guesthouse living room (gh-livingroom-pan) | living | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Guesthouse_living_room_(gh-livingroom-pan).jpg) | ESO | CC-BY-4.0 |
 | wm_sandburg_living | Sandburg Home Living Room (b7a0ca83-a5e6-41b5-bc4b-bd2f97ae97a2) | living | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sandburg_Home_Living_Room_(b7a0ca83-a5e6-41b5-bc4b-bd2f97ae97a2).jpg) | NPS Photo | Public domain |
 | wm_eso_guesthouse_dining | ESO Guesthouse (gh-dining-room-pano) | dining | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ESO_Guesthouse_(gh-dining-room-pano).jpg) | ESO | CC-BY-4.0 |
 | wm_eso_suite_lounge | ESO Guesthouse (gh-direct-suite-pan) | living | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:ESO_Guesthouse_(gh-direct-suite-pan).jpg) | ESO | CC-BY-4.0 |
+| wm_tartu_open_kitchen | Tartu loodusmaja köök ja koolitustuba | kitchen | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tartu_loodusmaja_k%C3%B6%C3%B6k_ja_koolitustuba.jpg) | Lauri Veerde | CC-BY-SA-4.0 |
 | wm_pachon_dormitory_room | Cerro Pachón Dormitory Room 360 Panorama (Pano360 Room Pachon Hotel1-CC) | bedroom | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cerro_Pach%C3%B3n_Dormitory_Room_360_Panorama_(Pano360_Room_Pachon_Hotel1-CC).jpg) | CTIO/NOIRLab/NSF/AURA/P. Horálek | CC-BY-4.0 |
 
 ## Nearby places

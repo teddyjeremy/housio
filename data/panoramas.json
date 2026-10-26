@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-26T11:01:02+00:00",
+ "generated_at": "2026-10-26T11:12:01+00:00",
  "panoramas": [
   {
    "id": "cayley_interior",
@@ -85,23 +85,6 @@
    "bytes": 588428,
    "low_bytes": 37554,
    "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/anniversary_lounge.jpg"
-  },
-  {
-   "id": "brown_photostudio_02",
-   "kind": "living",
-   "yaw": 225,
-   "name": "Brown Photostudio 02",
-   "source": "Poly Haven",
-   "page_url": "https://polyhaven.com/a/brown_photostudio_02",
-   "creator": "Sergej Majboroda",
-   "licence": "CC0-1.0",
-   "licence_url": "https://polyhaven.com/license",
-   "attribution_required": false,
-   "file": "/panos/brown_photostudio_02.webp",
-   "low": "/panos/brown_photostudio_02-low.webp",
-   "bytes": 324796,
-   "low_bytes": 28006,
-   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/brown_photostudio_02.jpg"
   },
   {
    "id": "brown_photostudio_04",
@@ -274,6 +257,40 @@
    "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/bathroom.jpg"
   },
   {
+   "id": "wooden_lounge",
+   "kind": "living",
+   "yaw": 180,
+   "name": "Wooden Lounge",
+   "source": "Poly Haven",
+   "page_url": "https://polyhaven.com/a/wooden_lounge",
+   "creator": "Greg Zaal",
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "attribution_required": false,
+   "file": "/panos/wooden_lounge.webp",
+   "low": "/panos/wooden_lounge-low.webp",
+   "bytes": 363968,
+   "low_bytes": 28316,
+   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/wooden_lounge.jpg"
+  },
+  {
+   "id": "blinds",
+   "kind": "kitchen",
+   "yaw": 90,
+   "name": "Blinds",
+   "source": "Poly Haven",
+   "page_url": "https://polyhaven.com/a/blinds",
+   "creator": "Greg Zaal",
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "attribution_required": false,
+   "file": "/panos/blinds.webp",
+   "low": "/panos/blinds-low.webp",
+   "bytes": 315360,
+   "low_bytes": 29558,
+   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/blinds.jpg"
+  },
+  {
    "id": "wm_bathroom_dass",
    "kind": "bathroom",
    "yaw": 0,
@@ -323,23 +340,6 @@
    "bytes": 384178,
    "low_bytes": 37262,
    "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/12/360_view_of_the_Sandburg_Home_Kitchen_%28d0da8053-8da5-4c70-8e49-281c084900ec%29.jpg/3840px-360_view_of_the_Sandburg_Home_Kitchen_%28d0da8053-8da5-4c70-8e49-281c084900ec%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
-  },
-  {
-   "id": "wm_aura_kitchen",
-   "kind": "kitchen",
-   "yaw": 0,
-   "name": "AURA Recinto Kitchen 360 Panorama (2022 04 13 Pano360 Recinto Building C Kitchen-CC)",
-   "source": "Wikimedia Commons",
-   "page_url": "https://commons.wikimedia.org/wiki/File:AURA_Recinto_Kitchen_360_Panorama_(2022_04_13_Pano360_Recinto_Building_C_Kitchen-CC).jpg",
-   "creator": "NOIRLab/NSF/AURA/P. Hor\u00e1lek",
-   "licence": "CC-BY-4.0",
-   "licence_url": "https://creativecommons.org/licenses/by/4.0",
-   "attribution_required": true,
-   "file": "/panos/wm_aura_kitchen.webp",
-   "low": "/panos/wm_aura_kitchen-low.webp",
-   "bytes": 704460,
-   "low_bytes": 43482,
-   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/AURA_Recinto_Kitchen_360_Panorama_%282022_04_13_Pano360_Recinto_Building_C_Kitchen-CC%29.jpg/3840px-AURA_Recinto_Kitchen_360_Panorama_%282022_04_13_Pano360_Recinto_Building_C_Kitchen-CC%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
   },
   {
    "id": "wm_eso_guesthouse_kitchen",
@@ -427,23 +427,6 @@
    "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d4/Cerro_Tololo_Hotel_Interior_360_Panorama_%282022_04_08_Pano360_Tololo_Hotel_Room-CC%29.jpg/3840px-Cerro_Tololo_Hotel_Interior_360_Panorama_%282022_04_08_Pano360_Tololo_Hotel_Room-CC%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
   },
   {
-   "id": "wm_eso_guesthouse_living",
-   "kind": "living",
-   "yaw": 0,
-   "name": "Guesthouse living room (gh-livingroom-pan)",
-   "source": "Wikimedia Commons",
-   "page_url": "https://commons.wikimedia.org/wiki/File:Guesthouse_living_room_(gh-livingroom-pan).jpg",
-   "creator": "ESO",
-   "licence": "CC-BY-4.0",
-   "licence_url": "https://creativecommons.org/licenses/by/4.0",
-   "attribution_required": true,
-   "file": "/panos/wm_eso_guesthouse_living.webp",
-   "low": "/panos/wm_eso_guesthouse_living-low.webp",
-   "bytes": 449386,
-   "low_bytes": 27512,
-   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Guesthouse_living_room_%28gh-livingroom-pan%29.jpg/3840px-Guesthouse_living_room_%28gh-livingroom-pan%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
-  },
-  {
    "id": "wm_sandburg_living",
    "kind": "living",
    "yaw": 0,
@@ -495,6 +478,23 @@
    "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/ESO_Guesthouse_%28gh-direct-suite-pan%29.jpg/3840px-ESO_Guesthouse_%28gh-direct-suite-pan%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
   },
   {
+   "id": "wm_tartu_open_kitchen",
+   "kind": "kitchen",
+   "yaw": 0,
+   "name": "Tartu loodusmaja k\u00f6\u00f6k ja koolitustuba",
+   "source": "Wikimedia Commons",
+   "page_url": "https://commons.wikimedia.org/wiki/File:Tartu_loodusmaja_k%C3%B6%C3%B6k_ja_koolitustuba.jpg",
+   "creator": "Lauri Veerde",
+   "licence": "CC-BY-SA-4.0",
+   "licence_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "attribution_required": true,
+   "file": "/panos/wm_tartu_open_kitchen.webp",
+   "low": "/panos/wm_tartu_open_kitchen-low.webp",
+   "bytes": 902892,
+   "low_bytes": 50168,
+   "original": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/80/Tartu_loodusmaja_k%C3%B6%C3%B6k_ja_koolitustuba.jpg/3840px-Tartu_loodusmaja_k%C3%B6%C3%B6k_ja_koolitustuba.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail"
+  },
+  {
    "id": "wm_pachon_dormitory_room",
    "kind": "bedroom",
    "yaw": 0,
@@ -540,7 +540,7 @@
   "kilimani-family-apartment": [
    {
     "room": "Living room",
-    "panorama": "wm_eso_guesthouse_living"
+    "panorama": "wooden_lounge"
    },
    {
     "room": "Kitchen and lounge",
@@ -559,6 +559,10 @@
    {
     "room": "Lounge",
     "panorama": "lythwood_lounge"
+   },
+   {
+    "room": "Kitchen",
+    "panorama": "blinds"
    },
    {
     "room": "Dining room",
@@ -609,12 +613,8 @@
   ],
   "langata-forest-edge-apartment": [
    {
-    "room": "Open-plan living space",
-    "panorama": "brown_photostudio_02"
-   },
-   {
-    "room": "Kitchen",
-    "panorama": "wm_aura_kitchen"
+    "room": "Open-plan living and kitchen",
+    "panorama": "wm_tartu_open_kitchen"
    },
    {
     "room": "Bedroom",
@@ -688,7 +688,7 @@
    {
     "file": "/stills/kilimani-family-apartment-1.jpg",
     "room": "Living room",
-    "panorama": "wm_eso_guesthouse_living"
+    "panorama": "wooden_lounge"
    },
    {
     "file": "/stills/kilimani-family-apartment-2.jpg",
@@ -709,13 +709,13 @@
    },
    {
     "file": "/stills/karen-garden-cottage-2.jpg",
-    "room": "Dining room",
-    "panorama": "studio_country_hall"
+    "room": "Kitchen",
+    "panorama": "blinds"
    },
    {
     "file": "/stills/karen-garden-cottage-3.jpg",
-    "room": "Bedroom",
-    "panorama": "lythwood_room"
+    "room": "Dining room",
+    "panorama": "studio_country_hall"
    }
   ],
   "kitisuru-ridge-suite": [
@@ -762,16 +762,11 @@
   "langata-forest-edge-apartment": [
    {
     "file": "/stills/langata-forest-edge-apartment-1.jpg",
-    "room": "Open-plan living space",
-    "panorama": "brown_photostudio_02"
+    "room": "Open-plan living and kitchen",
+    "panorama": "wm_tartu_open_kitchen"
    },
    {
     "file": "/stills/langata-forest-edge-apartment-2.jpg",
-    "room": "Kitchen",
-    "panorama": "wm_aura_kitchen"
-   },
-   {
-    "file": "/stills/langata-forest-edge-apartment-3.jpg",
     "room": "Bedroom",
     "panorama": "relax_inn_seaview_suite"
    }

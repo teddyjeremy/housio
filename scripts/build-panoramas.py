@@ -20,25 +20,25 @@ RAW = os.environ.get("RAW_DIR", ".cache/panos")
 # Poly Haven ids map to (room kind, still yaw). Wikimedia Commons entries carry their file title.
 POLYHAVEN = {
     "cayley_interior": ("living", 240), "lythwood_lounge": ("living", 60), "reading_room": ("living", 60),
-    "combination_room": ("living", 300), "anniversary_lounge": ("living", 120), "brown_photostudio_02": ("living", 225),
+    "combination_room": ("living", 300), "anniversary_lounge": ("living", 120),
     "brown_photostudio_04": ("studio", 120), "kiara_interior": ("kitchen", 180), "studio_country_hall": ("dining", 0),
     "hotel_room": ("bedroom", 120), "relax_inn_seaview_suite": ("bedroom", 60), "lythwood_room": ("bedroom", 180),
     "glasshouse_interior": ("bedroom", 240), "en_suite": ("bathroom", 180), "modern_bathroom": ("bathroom", 0), "bathroom": ("bathroom", 300),
+    "wooden_lounge": ("living", 180), "blinds": ("kitchen", 90),
 }
 COMMONS = {
     "wm_bathroom_dass": ("File:Bathroom (28613007553).jpg", "bathroom", 0),
     "wm_motel_one_bathroom": ("File:Motel One Wien Hauptbahnhof - Badezimmer.jpg", "bathroom", 0),
     "wm_sandburg_kitchen": ("File:360 view of the Sandburg Home Kitchen (d0da8053-8da5-4c70-8e49-281c084900ec).jpg", "kitchen", 0),
-    "wm_aura_kitchen": ("File:AURA Recinto Kitchen 360 Panorama (2022 04 13 Pano360 Recinto Building C Kitchen-CC).jpg", "kitchen", 0),
     "wm_eso_guesthouse_kitchen": ("File:ESO Guesthouse (gh-kitchen-pano).jpg", "kitchen", 0),
     "wm_sandburg_bedroom": ("File:360 view of Mrs. Sandburg's Bedroom (2a47eada-2d4c-4c54-8bce-8fe81c56e617).jpg", "bedroom", 0),
     "wm_residencia_room": ("File:La Residencia (residencia-room-pano).jpg", "bedroom", 0),
     "wm_pachon_hotel_room": ("File:Cerro Pachón Hotel Inside Panorama (2022 04 06 Pano360 Room Pachon Hotel2-CC).jpg", "studio", 0),
     "wm_tololo_hotel_room": ("File:Cerro Tololo Hotel Interior 360 Panorama (2022 04 08 Pano360 Tololo Hotel Room-CC).jpg", "bedroom", 0),
-    "wm_eso_guesthouse_living": ("File:Guesthouse living room (gh-livingroom-pan).jpg", "living", 0),
     "wm_sandburg_living": ("File:Sandburg Home Living Room (b7a0ca83-a5e6-41b5-bc4b-bd2f97ae97a2).jpg", "living", 0),
     "wm_eso_guesthouse_dining": ("File:ESO Guesthouse (gh-dining-room-pano).jpg", "dining", 0),
     "wm_eso_suite_lounge": ("File:ESO Guesthouse (gh-direct-suite-pan).jpg", "living", 0),
+    "wm_tartu_open_kitchen": ("File:Tartu loodusmaja köök ja koolitustuba.jpg", "kitchen", 0),
     "wm_pachon_dormitory_room": ("File:Cerro Pachón Dormitory Room 360 Panorama (Pano360 Room Pachon Hotel1-CC).jpg", "bedroom", 0),
 }
 PANOS = {**POLYHAVEN, **{k: (v[1], v[2]) for k, v in COMMONS.items()}}
@@ -47,12 +47,12 @@ PANOS = {**POLYHAVEN, **{k: (v[1], v[2]) for k, v in COMMONS.items()}}
 TOURS = {
     "westlands-parkside-residences": [("Living room", "wm_eso_suite_lounge"), ("Bedroom", "wm_tololo_hotel_room"), ("Bathroom", "wm_motel_one_bathroom")],
     "kilimani-arboretum-studio": [("Studio", "brown_photostudio_04"), ("Bathroom", "en_suite")],
-    "kilimani-family-apartment": [("Living room", "wm_eso_guesthouse_living"), ("Kitchen and lounge", "kiara_interior"), ("Main bedroom", "hotel_room"), ("Bathroom", "modern_bathroom")],
-    "karen-garden-cottage": [("Lounge", "lythwood_lounge"), ("Dining room", "studio_country_hall"), ("Bedroom", "lythwood_room"), ("Bathroom", "bathroom")],
+    "kilimani-family-apartment": [("Living room", "wooden_lounge"), ("Kitchen and lounge", "kiara_interior"), ("Main bedroom", "hotel_room"), ("Bathroom", "modern_bathroom")],
+    "karen-garden-cottage": [("Lounge", "lythwood_lounge"), ("Kitchen", "blinds"), ("Dining room", "studio_country_hall"), ("Bedroom", "lythwood_room"), ("Bathroom", "bathroom")],
     "kitisuru-ridge-suite": [("Living room", "reading_room"), ("Garden-view bedroom", "glasshouse_interior")],
     "kitisuru-extended-stay-house": [("Dining room", "wm_eso_guesthouse_dining"), ("Kitchen", "wm_eso_guesthouse_kitchen"), ("Bedroom", "wm_pachon_dormitory_room")],
     "south-b-business-studio": [("Studio", "wm_pachon_hotel_room"), ("Bathroom", "wm_bathroom_dass")],
-    "langata-forest-edge-apartment": [("Open-plan living space", "brown_photostudio_02"), ("Kitchen", "wm_aura_kitchen"), ("Bedroom", "relax_inn_seaview_suite")],
+    "langata-forest-edge-apartment": [("Open-plan living and kitchen", "wm_tartu_open_kitchen"), ("Bedroom", "relax_inn_seaview_suite")],
     "gigiri-diplomatic-serviced-apartment": [("Lounge", "anniversary_lounge"), ("Living and dining room", "cayley_interior"), ("Bedroom", "wm_residencia_room")],
     "runda-quiet-villa": [("Drawing room", "combination_room"), ("Family room", "wm_sandburg_living"), ("Kitchen", "wm_sandburg_kitchen"), ("Twin bedroom", "wm_sandburg_bedroom")],
 }
