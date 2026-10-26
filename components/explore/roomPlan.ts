@@ -9,11 +9,11 @@ export interface ScenePlan { placements: Placement[]; bounds: { minX: number; mi
 export type Surface = "wood" | "tiles" | "grass";
 
 export const STYLES: Record<string, { wall: string; accent: string; floorTint: string }> = {
-  warm: { wall: "#efe6d8", accent: "#C7A775", floorTint: "#d8c3a5" },
-  contemporary: { wall: "#eceeea", accent: "#193D35", floorTint: "#cdbfa8" },
-  garden: { wall: "#e7ecdf", accent: "#5d7a52", floorTint: "#d6c6a8" },
-  minimal: { wall: "#f3f1ec", accent: "#69716B", floorTint: "#e0d6c4" },
-  classic: { wall: "#ebe2d2", accent: "#7a5a3a", floorTint: "#c9ae8a" },
+  warm: { wall: "#efe6d8", accent: "#C7A775", floorTint: "#fff4e2" },
+  contemporary: { wall: "#eceeea", accent: "#193D35", floorTint: "#fbf0de" },
+  garden: { wall: "#e7ecdf", accent: "#5d7a52", floorTint: "#fff3e0" },
+  minimal: { wall: "#f3f1ec", accent: "#69716B", floorTint: "#fffaf0" },
+  classic: { wall: "#ebe2d2", accent: "#7a5a3a", floorTint: "#f7e6cc" },
 };
 
 const PI = Math.PI;

@@ -42,8 +42,8 @@ function Rooms({ plan, style, cutaway, onSelect }: { plan: ScenePlan; style: str
   const plaster = useSurface("plaster", 1);
   const palette = STYLES[style] ?? STYLES.warm;
   const floorMats = useMemo(() => ({
-    wood: new THREE.MeshStandardMaterial({ ...wood, color: palette.floorTint, roughness: 0.7 }),
-    tiles: new THREE.MeshStandardMaterial({ ...tiles, color: "#f2efe8", roughness: 0.4 }),
+    wood: new THREE.MeshStandardMaterial({ map: wood.map, normalMap: wood.normalMap, roughnessMap: wood.roughnessMap, color: palette.floorTint, roughness: 0.65 }),
+    tiles: new THREE.MeshStandardMaterial({ normalMap: tiles.normalMap, roughnessMap: tiles.roughnessMap, color: "#e9e4da", roughness: 0.35 }),
     grass: new THREE.MeshStandardMaterial({ ...grass, roughness: 1 }),
   }), [wood, tiles, grass, palette.floorTint]);
   const wallMat = useMemo(() => new THREE.MeshStandardMaterial({ ...plaster, color: palette.wall, roughness: 0.9 }), [plaster, palette.wall]);
@@ -98,6 +98,22 @@ function InstancedModel({ model, items, onPick }: { model: ModelKey; items: Plac
     const out: { geometry: THREE.BufferGeometry; material: THREE.Material | THREE.Material[]; matrices: THREE.Matrix4[] }[] = [];
     const meshes: THREE.Mesh[] = [];
     root.traverse((o) => { if ((o as THREE.Mesh).isMesh) meshes.push(o as THREE.Mesh); });
+    // Kenney's kit uses bright toy colours; soften saturated fabrics to fit the interior palette.
+    if (info.source.startsWith("Kenney")) {
+      for (const mesh of meshes) {
+        const mats = (Array.isArray(mesh.material) ? mesh.material : [mesh.material]).map((m) => {
+          const std = m as THREE.MeshStandardMaterial;
+          if (!std.color) return m;
+          const hsl = { h: 0, s: 0, l: 0 };
+          std.color.getHSL(hsl);
+          if (hsl.s < 0.25) return m;
+          const c = std.clone();
+          c.color.setHSL(0.08, 0.22, Math.min(0.68, Math.max(0.5, hsl.l * 0.85)));
+          return c;
+        });
+        mesh.material = Array.isArray(mesh.material) ? mats : mats[0];
+      }
+    }
     for (const mesh of meshes) {
       const matrices = items.map((p) => {
         const [tw, th, td] = p.size ?? modelSize(model);
@@ -155,11 +171,11 @@ function CameraRig({ plan, selected }: { plan: ScenePlan; selected: string | nul
     const room = plan.rooms.find((r) => r.id === selected);
     if (room) {
       const target = new THREE.Vector3(room.cx, 1.0, room.cz);
-      const pos = new THREE.Vector3(room.x + room.width * 0.92, Math.max(1.7, Math.max(room.width, room.depth) * 0.55), room.z + room.depth * 0.95 + 0.4);
+      const pos = new THREE.Vector3(room.x + room.width * 0.85, Math.min(2.4, Math.max(1.7, Math.max(room.width, room.depth) * 0.45)), room.z + room.depth * 0.88);
       goal.current = { pos, target };
     } else {
       const cx = (minX + maxX) / 2, cz = (minZ + maxZ) / 2, span = Math.max(maxX - minX, maxZ - minZ);
-      goal.current = { pos: new THREE.Vector3(cx + span * 0.35, span * 0.95 + 2, cz + span * 0.9), target: new THREE.Vector3(cx, 0, cz) };
+      goal.current = { pos: new THREE.Vector3(cx + span * 0.3, span * 0.75 + 1.5, cz + span * 0.7), target: new THREE.Vector3(cx, 0, cz) };
     }
     invalidate();
   }, [plan, selected, invalidate]);
@@ -224,7 +240,7 @@ export default function Scene({ spaces, style, selected, onSelect, onStats, onRe
       <ambientLight intensity={0.55} />
       <hemisphereLight args={["#fff8ee", "#c9bfa9", 0.6]} />
       <directionalLight position={[8, 14, 6]} intensity={1.6} castShadow={quality === "high"} shadow-mapSize={[1024, 1024]} shadow-camera-left={-14} shadow-camera-right={14} shadow-camera-top={14} shadow-camera-bottom={-14} />
-      <Suspense fallback={<Html center><span className="rounded-full bg-white px-3 py-1 text-xs text-forest shadow">Loading interior…</span></Html>}>
+      <Suspense fallback={null}>
         <Environment files="/assets/hdri/interior_1k.hdr" environmentIntensity={0.6} />
         <Rooms plan={plan} style={style} cutaway={!selected} onSelect={onSelect} />
         {groups.map(([model, items]) => <InstancedModel key={model} model={model} items={items} onPick={setPicked} />)}
