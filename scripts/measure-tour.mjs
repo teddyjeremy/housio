@@ -16,11 +16,17 @@ for (const slug of slugs) {
     const dcl = Date.now() - t0;
     await page.waitForSelector('[data-testid="scene-status"][data-ready="1"]', { timeout: 120000 });
     const ready = Date.now() - t0;
-    results.push({ slug, run, dcl, ready, kb: Math.round(bytes / 1024) });
+    let full = null;
+    if (await page.locator('[data-testid="tour"]').count()) {
+      await page.waitForSelector('[data-testid="tour"][data-stage="full"]', { timeout: 120000 });
+      full = Date.now() - t0;
+    }
+    results.push({ slug, run, dcl, ready, full, kb: Math.round(bytes / 1024) });
     await ctx.close();
   }
 }
 console.table(results);
 const median = (a) => a.sort((x, y) => x - y)[Math.floor(a.length / 2)];
+console.log("median full ms", median(results.map((r) => r.full ?? r.ready)));
 console.log("median ready ms", median(results.map((r) => r.ready)), "median transfer KB", median(results.map((r) => r.kb)));
 await browser.close();
