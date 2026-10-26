@@ -6,7 +6,7 @@ import { Empty } from "@/components/ui/ui";
 import { getAmenities, searchProperties } from "@/lib/db/queries";
 import { parseSearch, stayQuery, toQuery } from "@/lib/search-params";
 
-export const metadata: Metadata = { title: "Search stays" };
+export const metadata: Metadata = { title: "Search stays", alternates: { canonical: "/search" } };
 export const dynamic = "force-dynamic";
 
 export default async function SearchPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {

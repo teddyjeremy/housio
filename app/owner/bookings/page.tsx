@@ -4,7 +4,7 @@ import { ownerBookings } from "@/lib/db/owner";
 import { Empty, StatusPill } from "@/components/ui/ui";
 import { formatDate, kes } from "@/lib/format";
 
-export const metadata: Metadata = { title: "Reservations" };
+export const metadata: Metadata = { title: "Reservations", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 
 export default async function OwnerBookings() {

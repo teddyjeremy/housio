@@ -6,7 +6,7 @@ import { CollectionTools } from "@/components/account/CollectionTools";
 import { Empty } from "@/components/ui/ui";
 import { SITE_URL } from "@/lib/site";
 
-export const metadata: Metadata = { title: "Saved collections" };
+export const metadata: Metadata = { title: "Saved collections", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 
 export default async function CollectionsPage() {

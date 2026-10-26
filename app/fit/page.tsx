@@ -5,7 +5,7 @@ import { CRITERIA, rankFit } from "@/lib/fit";
 import { kes } from "@/lib/format";
 import { parseSearch, stayQuery } from "@/lib/search-params";
 
-export const metadata: Metadata = { title: "Housio Fit" };
+export const metadata: Metadata = { title: "Housio Fit", alternates: { canonical: "/fit" } };
 export const dynamic = "force-dynamic";
 
 export default async function FitPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {

@@ -6,7 +6,7 @@ import { BookingList } from "@/components/account/BookingList";
 import { Empty } from "@/components/ui/ui";
 import { formatDate } from "@/lib/format";
 
-export const metadata: Metadata = { title: "My account" };
+export const metadata: Metadata = { title: "My account", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 
 export default async function AccountPage() {

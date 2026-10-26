@@ -11,7 +11,7 @@ import { CATEGORY_LABELS, formatDistance } from "@/lib/geo";
 import { dimensionSource, mainUnit, unitSpaces } from "@/lib/listing";
 import { tourRooms } from "@/lib/tour";
 
-export const metadata: Metadata = { title: "Compare stays" };
+export const metadata: Metadata = { title: "Compare stays", alternates: { canonical: "/compare" } };
 export const dynamic = "force-dynamic";
 
 export default async function ComparePage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {

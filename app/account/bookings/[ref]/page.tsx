@@ -8,7 +8,7 @@ import { Notice, StatusPill } from "@/components/ui/ui";
 import { formatDate, kes } from "@/lib/format";
 import { POLICY_TEXT } from "@/lib/cancellation";
 
-export const metadata: Metadata = { title: "Booking" };
+export const metadata: Metadata = { title: "Booking", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 
 export default async function BookingPage({ params, searchParams }: { params: Promise<{ ref: string }>; searchParams: Promise<{ confirmed?: string }> }) {

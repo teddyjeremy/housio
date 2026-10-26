@@ -10,7 +10,7 @@ import { tourRooms } from "@/lib/tour";
 export const dynamic = "force-dynamic";
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const p = await getProperty((await params).slug).catch(() => null);
-  return { title: p ? `${p.name} · 360° tour` : "360° tour" };
+  return p ? { title: `${p.name} · 360° tour`, description: `Look around every room of ${p.name} in ${p.neighbourhood}, Nairobi.`, alternates: { canonical: `/properties/${p.slug}/explore` } } : { title: "360° tour" };
 }
 
 export default async function ExplorePage({ params, searchParams }: { params: Promise<{ slug: string }>; searchParams: Promise<Record<string, string | string[] | undefined>> }) {

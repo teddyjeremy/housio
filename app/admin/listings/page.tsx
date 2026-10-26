@@ -6,7 +6,7 @@ import { ReviewListing } from "@/components/admin/AdminTools";
 import { Empty } from "@/components/ui/ui";
 import { formatDate, kes, TYPE_LABELS } from "@/lib/format";
 
-export const metadata: Metadata = { title: "Listing review" };
+export const metadata: Metadata = { title: "Listing review", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 
 export default async function ListingReview() {

@@ -1,5 +1,5 @@
 import { Prose } from "@/components/ui/Prose";
-export const metadata = { title: "Terms" };
+export const metadata = { title: "Terms", alternates: { canonical: "/terms" } };
 export default function Page() {
   return (
     <Prose title="Terms of use">

@@ -14,13 +14,24 @@ import { formatDate, kes, todayNairobi, TYPE_LABELS } from "@/lib/format";
 import { addDays } from "@/lib/pricing";
 import { dimensionSource, mainUnit, unitSpaces } from "@/lib/listing";
 import { tourRooms } from "@/lib/tour";
+import { DEFAULT_IMAGE, listingJsonLd } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 import { CATEGORY_LABELS, formatDistance } from "@/lib/geo";
 
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const p = await getProperty((await params).slug).catch(() => null);
-  return p ? { title: p.name, description: p.summary } : { title: "Listing not found" };
+  if (!p) return { title: "Listing not found", robots: { index: false } };
+  const image = p.assets.find((a) => a.kind === "photo")?.url ?? DEFAULT_IMAGE;
+  const title = `${p.name} · ${p.neighbourhood}, Nairobi`;
+  return {
+    title, description: p.summary,
+    alternates: { canonical: `/properties/${p.slug}` },
+    robots: p.status === "published" ? undefined : { index: false, follow: false },
+    openGraph: { type: "website", title, description: p.summary, url: `/properties/${p.slug}`, images: [{ url: image, width: 1600, height: 1000, alt: p.name }] },
+    twitter: { card: "summary_large_image", title, description: p.summary, images: [image] },
+  };
 }
 
 export default async function PropertyPage({ params, searchParams }: { params: Promise<{ slug: string }>; searchParams: Promise<Record<string, string | string[] | undefined>> }) {
@@ -40,6 +51,7 @@ export default async function PropertyPage({ params, searchParams }: { params: P
 
   return (
     <div className="container-page py-8">
+      {p.status === "published" && <JsonLd data={listingJsonLd(p)} />}
       {p.status !== "published" && <p className="mb-4 rounded-xl bg-champagne/20 px-4 py-2 text-sm text-forest-700">Preview: this listing is <strong>{p.status.replace("_", " ")}</strong> and not visible to guests.</p>}
       <nav aria-label="Breadcrumb" className="mb-4 text-sm text-muted"><Link href={`/search${q}`} className="hover:underline">Stays</Link> / <Link href={`/search?neighbourhood=${p.neighbourhood_slug}`} className="hover:underline">{p.neighbourhood}</Link></nav>
       <header className="flex flex-wrap items-start justify-between gap-4">

@@ -5,7 +5,7 @@ import { ownerDashboard } from "@/lib/db/owner";
 import { Empty, Stat, StatusPill } from "@/components/ui/ui";
 import { kes } from "@/lib/format";
 
-export const metadata: Metadata = { title: "Owner Studio" };
+export const metadata: Metadata = { title: "Owner Studio", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 
 export default async function OwnerHome() {

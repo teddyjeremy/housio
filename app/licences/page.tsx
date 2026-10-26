@@ -1,7 +1,7 @@
 import panos from "@/data/panoramas.json";
 import pois from "@/data/pois.json";
 import { Prose } from "@/components/ui/Prose";
-export const metadata = { title: "Credits and licences" };
+export const metadata = { title: "Credits and licences", alternates: { canonical: "/licences" } };
 
 export default function Page() {
   return (

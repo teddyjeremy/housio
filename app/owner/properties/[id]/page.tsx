@@ -9,7 +9,7 @@ import { AvailabilityTools, ListingActions, SpacesEditor, UploadForm } from "@/c
 import { StatusPill } from "@/components/ui/ui";
 import { mainUnit } from "@/lib/listing";
 
-export const metadata: Metadata = { title: "Manage listing" };
+export const metadata: Metadata = { title: "Manage listing", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 
 export default async function ManageListing({ params }: { params: Promise<{ id: string }> }) {

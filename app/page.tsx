@@ -18,6 +18,8 @@ const FEATURES = [
   { name: "TrueView", title: "Know what you are booking", body: "Clear prices, refund rules, floor plans and owner-supplied details in one place." },
 ];
 
+export const metadata = { alternates: { canonical: "/" } };
+
 export default async function Home() {
   const listings = await searchProperties({}).catch(() => []);
   const hero = listings.find((l) => l.slug === "kilimani-family-apartment") ?? listings[0];

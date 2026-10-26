@@ -6,7 +6,7 @@ import { PayButtons } from "@/components/account/PayButtons";
 import { formatDate, kes } from "@/lib/format";
 import { POLICY_TEXT } from "@/lib/cancellation";
 
-export const metadata: Metadata = { title: "Checkout" };
+export const metadata: Metadata = { title: "Checkout", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 
 export default async function Checkout({ params }: { params: Promise<{ ref: string }> }) {

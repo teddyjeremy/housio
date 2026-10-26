@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PropertyForm } from "@/components/owner/PropertyForm";
 import { getAmenities, getNeighbourhoods } from "@/lib/db/queries";
 
-export const metadata: Metadata = { title: "New listing" };
+export const metadata: Metadata = { title: "New listing", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 
 export default async function NewListing() {

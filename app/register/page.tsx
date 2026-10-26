@@ -3,7 +3,7 @@ import Link from "next/link";
 import { LogoMark } from "@/components/ui/Logo";
 import { RegisterForm } from "@/components/forms/AuthForms";
 
-export const metadata: Metadata = { title: "Create an account" };
+export const metadata: Metadata = { title: "Create an account", alternates: { canonical: "/register" } };
 
 export default async function RegisterPage({ searchParams }: { searchParams: Promise<{ role?: string; next?: string }> }) {
   const sp = await searchParams;

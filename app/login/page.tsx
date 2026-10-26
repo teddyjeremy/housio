@@ -4,7 +4,7 @@ import { LogoMark } from "@/components/ui/Logo";
 import { LoginForm } from "@/components/forms/AuthForms";
 import { DemoLogins } from "@/components/DemoLogins";
 
-export const metadata: Metadata = { title: "Sign in" };
+export const metadata: Metadata = { title: "Sign in", alternates: { canonical: "/login" } };
 
 export default async function LoginPage({ searchParams }: { searchParams: Promise<{ next?: string; expired?: string; demo_failed?: string }> }) {
   const sp = await searchParams;

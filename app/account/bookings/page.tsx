@@ -4,7 +4,7 @@ import { myBookings } from "@/lib/db/account";
 import { BookingList } from "@/components/account/BookingList";
 import { Empty } from "@/components/ui/ui";
 
-export const metadata: Metadata = { title: "Bookings" };
+export const metadata: Metadata = { title: "Bookings", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 
 export default async function BookingsPage() {

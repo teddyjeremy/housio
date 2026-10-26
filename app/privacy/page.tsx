@@ -1,5 +1,5 @@
 import { Prose } from "@/components/ui/Prose";
-export const metadata = { title: "Privacy" };
+export const metadata = { title: "Privacy", alternates: { canonical: "/privacy" } };
 export default function Page() {
   return (
     <Prose title="Privacy notice">

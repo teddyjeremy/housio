@@ -5,7 +5,7 @@ import { ModerateReview, OwnerVerify } from "@/components/admin/AdminTools";
 import { Stat } from "@/components/ui/ui";
 import { formatDate } from "@/lib/format";
 
-export const metadata: Metadata = { title: "Admin" };
+export const metadata: Metadata = { title: "Admin", robots: { index: false, follow: false } };
 export const dynamic = "force-dynamic";
 
 export default async function AdminHome() {

@@ -1,5 +1,5 @@
 import { Prose } from "@/components/ui/Prose";
-export const metadata = { title: "Support" };
+export const metadata = { title: "Support", alternates: { canonical: "/support" } };
 export default function Page() {
   return (
     <Prose title="Support">

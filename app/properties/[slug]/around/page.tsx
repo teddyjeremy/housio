@@ -8,7 +8,7 @@ import { parseSearch, stayQuery } from "@/lib/search-params";
 export const dynamic = "force-dynamic";
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const p = await getProperty((await params).slug).catch(() => null);
-  return { title: p ? `Around ${p.name}` : "Around" };
+  return p ? { title: `Around ${p.name}`, description: `Restaurants, shops, schools, clinics and transport near ${p.name} in ${p.neighbourhood}.`, alternates: { canonical: `/properties/${p.slug}/around` } } : { title: "Around" };
 }
 
 export default async function AroundPage({ params, searchParams }: { params: Promise<{ slug: string }>; searchParams: Promise<Record<string, string | string[] | undefined>> }) {

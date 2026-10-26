@@ -1,6 +1,6 @@
 import { Prose } from "@/components/ui/Prose";
 import { POLICY_TEXT } from "@/lib/cancellation";
-export const metadata = { title: "Cancellation policies" };
+export const metadata = { title: "Cancellation policies", alternates: { canonical: "/cancellation" } };
 export default function Page() {
   return (
     <Prose title="Cancellation and refunds">
