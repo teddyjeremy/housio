@@ -2,7 +2,7 @@
 
 **Don't just see it. Experience it.**
 
-Live site: https://housio-phi.vercel.app
+Live site: https://housio.jeremyteddy.dev
 
 Housio is an accommodation booking platform for Nairobi. Guests can look around every room in a 360° panorama, read a
 floor plan, compare up to three stays side by side, check what is nearby and book with clear pricing and refund rules.
@@ -71,7 +71,7 @@ npm run dev
 |---|---|
 | `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL |
 | `SUPABASE_ANON_KEY` | Publishable key, used server-side only |
-| `NEXT_PUBLIC_SITE_URL` | Public base URL |
+| `NEXT_PUBLIC_SITE_URL` | Public base URL (production: https://housio.jeremyteddy.dev) |
 | `NEXT_PUBLIC_MAP_STYLE_URL` | Optional MapLibre style URL |
 
 ## Data pipelines

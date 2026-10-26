@@ -1,6 +1,6 @@
 export const SITE_NAME = "Housio";
 export const SITE_TAGLINE = "Don't just see it. Experience it.";
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "");
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://housio.jeremyteddy.dev").replace(/\/$/, "");
 export const DEMO_PASSWORD = "HousioDemo123!";
 export const DEMO_ACCOUNTS = [
   { role: "guest", label: "Guest", email: "guest@demo.housio.local", blurb: "Search, save, compare and book stays." },
