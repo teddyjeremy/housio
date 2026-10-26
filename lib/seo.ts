@@ -20,7 +20,7 @@ export function siteJsonLd() {
   };
 }
 
-const TYPE: Record<string, string> = { house: "House", villa: "House", cottage: "House", studio: "Apartment", apartment: "Apartment", serviced_apartment: "Apartment" };
+const TYPE: Record<string, string> = { furnished_home: "House", holiday_home: "House", house: "House", villa: "House", studio: "Apartment", apartment: "Apartment", serviced_apartment: "Apartment", suite: "Suite" };
 
 /** Accommodation markup built only from stored listing data: no ratings, no street address. */
 export function listingJsonLd(p: PropertyDetail) {

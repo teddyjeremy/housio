@@ -10,6 +10,7 @@ test("homepage shows brand, demo logins and featured stays", async ({ page }) =>
 test("search lists all ten demo stays and filters by neighbourhood", async ({ page }) => {
   await page.goto("/search");
   await expect(page.getByTestId("property-card")).toHaveCount(10);
+  expect(await page.locator("body").innerText()).not.toMatch(/\bdemo\b|illustrative/i);
   await page.goto("/search?neighbourhood=kitisuru");
   await expect(page.getByTestId("property-card")).toHaveCount(2);
   await page.goto("/search?neighbourhood=kilimani");
@@ -23,17 +24,33 @@ test("property page shows TrueView, amenities and a priced booking panel", async
   await expect(page.getByTestId("booking-panel")).toBeVisible();
 });
 
-test("Explore loads the 3D scene and falls back to the floor plan", async ({ page }) => {
+test("360° tour loads progressively, switches rooms and falls back without WebGL", async ({ page }) => {
   await page.goto("/properties/kilimani-family-apartment/explore");
-  await expect(page.getByTestId("scene-status")).toHaveAttribute("data-ready", "1", { timeout: 90_000 });
+  await expect(page.getByTestId("scene-status")).toHaveAttribute("data-ready", "1", { timeout: 30_000 });
+  await expect(page.getByTestId("tour")).toHaveAttribute("data-stage", "full", { timeout: 30_000 });
+  await page.getByRole("button", { name: "Kitchen" }).click();
+  await expect(page.getByTestId("tour")).toContainText("Kitchen");
+  const viewer = page.getByRole("application");
+  await viewer.focus();
+  await page.keyboard.press("ArrowRight");
+  await page.keyboard.press("PageDown");
+  await expect(page.getByTestId("tour")).toContainText("Main bedroom");
+  await page.getByRole("tab", { name: "Floor plan" }).click();
+  await page.locator("svg [data-space]").filter({ hasText: /bathroom/i }).first().click();
+  await expect(page.getByTestId("tour")).toContainText("Bathroom");
   await page.goto("/properties/kilimani-family-apartment/explore?no3d=1");
-  // Without 3D the viewer falls back to the floor plan, and the 3D tab explains why.
-  await expect(page.locator("svg").filter({ hasText: /bedroom/i }).first()).toBeVisible();
-  await expect(page.locator("canvas")).toHaveCount(0);
-  await expect(page.getByRole("tab", { name: "3D view" })).toBeDisabled();
-  await expect(page.getByRole("tab", { name: "Floor plan" })).toHaveAttribute("aria-selected", "true");
-  await page.goto("/properties/kilimani-family-apartment/explore?mode=plan");
-  await expect(page.locator("svg").filter({ hasText: /bedroom/i }).first()).toBeVisible();
+  await expect(page.getByTestId("explore-fallback")).toBeVisible();
+});
+
+test("listing pages carry structured data and no internal labels", async ({ page }) => {
+  await page.goto("/properties/runda-quiet-villa");
+  const ld = JSON.parse(await page.locator('script[type="application/ld+json"]').last().innerText());
+  expect(ld["@type"]).toBe("House");
+  expect(ld.aggregateRating).toBeUndefined();
+  expect(ld.address.streetAddress).toBeUndefined();
+  await expect(page.locator('link[rel="canonical"]')).toHaveAttribute("href", /\/properties\/runda-quiet-villa$/);
+  const text = await page.locator("body").innerText();
+  expect(text).not.toMatch(/\bdemo\b|illustrative|simulated|sample listing/i);
 });
 
 test("Around lists sourced nearby places", async ({ page }) => {
