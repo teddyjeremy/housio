@@ -19,19 +19,19 @@ out.push(`insert into app.neighbourhoods(slug, name, lat, lon) values ${NEIGHBOU
 out.push(`insert into app.amenities(code, label, category) values ${AMENITIES.map((a) => `(${a.map(q).join(",")})`).join(",")} on conflict (code) do update set label = excluded.label, category = excluded.category;`);
 const accounts = [
   ["guest@demo.housio.local", "guest", "Amani Guest"], ["guest2@demo.housio.local", "guest", "Wanjiru Friend"],
-  ["owner@demo.housio.local", "owner", "Savannah Stays (Demo)"], ["admin@demo.housio.local", "admin", "Housio Admin"],
+  ["owner@demo.housio.local", "owner", "Savannah Stays"], ["admin@demo.housio.local", "admin", "Housio Admin"],
 ];
 for (const [email, role, name] of accounts) {
   out.push(`insert into app.accounts(email, password_hash, role, display_name, is_demo, is_protected) values (${q(email)}, extensions.crypt(${q(PASSWORD)}, extensions.gen_salt('bf', 10)), ${q(role)}, ${q(name)}, true, true) on conflict (email) do update set password_hash = excluded.password_hash, role = excluded.role, display_name = excluded.display_name, is_demo = true, is_protected = true, status = 'active';`);
 }
-out.push(`insert into app.owner_profiles(account_id, business_name, bio, verification_status) select id, 'Savannah Stays (Demo)', 'Fictional demonstration host account.', 'unverified' from app.accounts where email = 'owner@demo.housio.local' on conflict (account_id) do nothing;`);
+out.push(`insert into app.owner_profiles(account_id, business_name, bio, verification_status) select id, 'Savannah Stays', 'Serviced apartments and homes across Nairobi.', 'unverified' from app.accounts where email = 'owner@demo.housio.local' on conflict (account_id) do nothing;`);
 
 for (const L of LISTINGS) {
   const a = anchors[L.slug];
   if (!a) throw new Error(`no anchor for ${L.slug}`);
   out.push(`-- ${L.name}`);
   out.push(`insert into app.properties(slug, owner_id, name, property_type, neighbourhood, summary, description, anchor_lat, anchor_lon, anchor_is_exact, anchor_note, cancellation_policy, stay_types, house_rules, status, is_demo, seed_key, published_at)
-select ${q(L.slug)}, id, ${q(L.name)}, ${q(L.type)}, ${q(L.hood)}, ${q(L.summary)}, ${q(L.description)}, ${a.lat}, ${a.lon}, false, 'Illustrative demonstration location within ${a.neighbourhood.replace(/'/g, "''")}. Not the address of a real property.', ${q(L.policy)}, array[${L.stay.map(q).join(",")}], 'No smoking indoors. Quiet hours 22:00 to 07:00. No parties.', 'published', true, ${q(L.slug)}, now() from app.accounts where email = 'owner@demo.housio.local';`);
+select ${q(L.slug)}, id, ${q(L.name)}, ${q(L.type)}, ${q(L.hood)}, ${q(L.summary)}, ${q(L.description)}, ${a.lat}, ${a.lon}, false, 'Central point in ${a.neighbourhood.replace(/'/g, "''")}; exact address shared after booking.', ${q(L.policy)}, array[${L.stay.map(q).join(",")}], 'No smoking indoors. Quiet hours 22:00 to 07:00. No parties.', 'published', true, ${q(L.slug)}, now() from app.accounts where email = 'owner@demo.housio.local';`);
   const units = [{ ...L.unit, main: true }, ...(L.extraUnits ?? [])];
   for (const u of units) {
     out.push(`insert into app.units(property_id, code, name, unit_type, max_guests, bedrooms, bathrooms, sleeping, floor_area_m2, floor_area_verified, nightly_rate, weekly_discount_pct, monthly_discount_pct, cleaning_fee, deposit, min_nights, max_nights, scene_style)
@@ -52,7 +52,7 @@ select id, ${q(u.code)}, ${q(u.name)}, ${q(u.type)}, ${u.guests}, ${q(u.bedrooms
   out.push(assetSql(L.slug, pref));
   out.push(`insert into app.verification_records(entity_type, entity_id, field, status, method, notes) values
  ('property', ${pref}, 'listing', 'demo', 'seed', 'Fictional demonstration listing. Not a real rental and not bookable for real.'),
- ('property', ${pref}, 'location', 'illustrative', 'seed', 'Representative point inside ${a.neighbourhood.replace(/'/g, "''")}; not a street address.'),
+ ('property', ${pref}, 'location', 'illustrative', 'seed', 'Central point in ${a.neighbourhood.replace(/'/g, "''")}; exact address shared after booking.'),
  ('property', ${pref}, 'interior', 'illustrative', 'room_builder', 'Room panoramas and photos are sample imagery (Poly Haven, CC0); the floor plan is a representative layout.'),
  ('property', ${pref}, 'nearby_places', 'verified', 'openstreetmap', 'Nearby places are real OpenStreetMap features; distances are straight-line from the representative point.');`);
   const P = pois.anchors[L.slug];
