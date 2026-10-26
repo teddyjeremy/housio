@@ -66,4 +66,24 @@ describe.skipIf(!url || !key)("database", () => {
     const r = await rpc("api_create_booking", { p_token: owner, p_unit: unitId, p_checkin: day(600), p_checkout: day(603), p_guests: 1, p_names: [] });
     expect(r.error).toBe("own_listing");
   });
+
+  it("runs the listing review workflow: draft, submit, reject, delete", async () => {
+    const data = { name: "Integration Test Flat", property_type: "serviced_apartment", neighbourhood: "kilimani", cancellation_policy: "flexible",
+      summary: "A test listing for review flow.", description: "Created by the integration suite and deleted at the end of the test.", stay_types: ["short"] };
+    const saved = await rpc("api_owner_save_property", { p_token: owner, p_property: null, p_data: data });
+    expect(saved.ok).toBe(true);
+    const id = (saved.property_id ?? saved.id) as string;
+    expect((await rpc("api_admin_review_listing", { p_token: admin, p_property: id, p_decision: "approve", p_note: null })).error).toBe("invalid_state");
+    expect((await rpc("api_owner_submit", { p_token: owner, p_property: id })).ok).toBe(true);
+    expect((await rpc("api_admin_review_listing", { p_token: owner, p_property: id, p_decision: "approve", p_note: null })).ok).not.toBe(true);
+    expect((await rpc("api_admin_review_listing", { p_token: admin, p_property: id, p_decision: "reject", p_note: "" })).error).toBe("note_required");
+    expect((await rpc("api_admin_review_listing", { p_token: admin, p_property: id, p_decision: "reject", p_note: "Add photos first." })).ok).toBe(true);
+    expect((await rpc("api_owner_delete_property", { p_token: owner, p_property: id })).ok).toBe(true);
+  });
+
+  it("stops protected demo accounts editing seeded listings", async () => {
+    const p = await rpc("api_property", { p_slug: "runda-quiet-villa" });
+    const r = await rpc("api_owner_save_property", { p_token: owner, p_property: p.id, p_data: { name: "x", neighbourhood: "runda" } });
+    expect(r.error).toBe("demo_restricted");
+  });
 });
