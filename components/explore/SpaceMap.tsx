@@ -48,7 +48,7 @@ export function SpaceMap({ spaces, selected, onSelect, dimensionSource }: SpaceM
       </svg>
       <figcaption className="mt-2 text-xs text-muted">
         {dimensionSource === "illustrative"
-          ? "Representative layout. Select a room to open its 360° view."
+          ? "Select a room to open its 360° view."
           : dimensionSource === "owner" ? "Layout and measurements supplied by the owner and not independently verified." : "Measurements verified by Housio."}
       </figcaption>
     </figure>

@@ -4,19 +4,18 @@ import { SearchBar } from "@/components/listing/SearchBar";
 import { PropertyCard } from "@/components/listing/PropertyCard";
 import { CompareBar } from "@/components/listing/CompareTray";
 import { DemoLogins } from "@/components/DemoLogins";
-import { TrustBadge } from "@/components/ui/ui";
 import { searchProperties } from "@/lib/db/queries";
 import { SITE_TAGLINE } from "@/lib/site";
 
 export const dynamic = "force-dynamic";
 
 const FEATURES = [
-  { name: "Explore", title: "Walk through in 3D", body: "Orbit, zoom and move room to room. Tap furniture to see what it is. Illustrative interiors are always labelled." },
+  { name: "Explore", title: "Step inside in 360°", body: "Look around every room in a full panorama, zoom in on details and move room to room." },
   { name: "SpaceMap", title: "Floor plans that connect", body: "Pick a room on the plan and jump straight to it in 3D. Measurements appear only when they are supplied or verified." },
   { name: "Around", title: "Know the neighbourhood", body: "Real cafés, clinics, pharmacies, shops and transport from OpenStreetMap, with straight-line distances and sources." },
   { name: "Compare", title: "Side by side", body: "Up to three stays with total price for your dates, availability, space, amenities and cancellation terms." },
   { name: "Fit", title: "Matched to how you live", body: "Tell us what matters, from a desk to step-free access. Rankings use listing data only, and unknowns stay unknown." },
-  { name: "TrueView", title: "Labels you can trust", body: "Owner photos, verified models, illustrative renders and owner-provided facts are clearly marked." },
+  { name: "TrueView", title: "Know what you are booking", body: "Clear prices, refund rules, floor plans and owner-supplied details in one place." },
 ];
 
 export default async function Home() {
@@ -27,20 +26,20 @@ export default async function Home() {
       <section className="relative overflow-hidden">
         <div className="container-page grid items-center gap-10 py-14 lg:grid-cols-[1.05fr_1fr] lg:py-20">
           <div className="fade-up">
-            <p className="eyebrow">Stays in Nairobi, in three dimensions</p>
+            <p className="eyebrow">Stays in Nairobi, room by room</p>
             <h1 className="mt-4 font-display text-4xl font-extrabold leading-[1.05] text-forest sm:text-6xl">{SITE_TAGLINE}</h1>
             <p className="mt-5 max-w-xl text-lg text-muted">Find serviced apartments, studios and homes, then step inside before you book. Every listing pairs a clear price with an interactive tour, a floor plan and the neighbourhood around it.</p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link href="/search" className="btn btn-primary px-6 py-3">Browse stays</Link>
-              {hero && <Link href={`/properties/${hero.slug}/explore`} className="btn btn-secondary px-6 py-3">Step inside a demo home</Link>}
+              {hero && <Link href={`/properties/${hero.slug}/explore`} className="btn btn-secondary px-6 py-3">Take a 360° tour</Link>}
             </div>
           </div>
           {hero?.cover && (
             <Link href={`/properties/${hero.slug}/explore`} className="group relative block aspect-[5/4] overflow-hidden rounded-[2rem] border border-line bg-sage/50 shadow-xl">
-              <Image src={hero.cover.url} alt="Illustrative 3D interior of a demonstration apartment" fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition duration-700 group-hover:scale-[1.02]" />
+              <Image src={hero.cover.url} alt={`Inside ${hero.name}`} fill priority sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover transition duration-700 group-hover:scale-[1.02]" />
               <div className="absolute inset-x-4 bottom-4 flex items-center justify-between rounded-2xl bg-white/90 px-4 py-3 backdrop-blur">
                 <div><p className="text-xs text-muted">{hero.neighbourhood}</p><p className="font-display font-semibold text-forest">{hero.name}</p></div>
-                <TrustBadge kind="illustrative_render" />
+                <span className="rounded-full bg-forest px-3 py-1 text-xs font-semibold text-ivory">360° tour</span>
               </div>
             </Link>
           )}
@@ -64,8 +63,8 @@ export default async function Home() {
       <section className="container-page py-6" aria-labelledby="featured">
         <div className="flex items-end justify-between">
           <div>
-            <h2 id="featured" className="font-display text-3xl font-bold text-forest">Nairobi demo collection</h2>
-            <p className="mt-1 text-sm text-muted">Ten fictional demonstration listings across eight neighbourhoods, with illustrative interiors and real nearby places.</p>
+            <h2 id="featured" className="font-display text-3xl font-bold text-forest">Featured stays in Nairobi</h2>
+            <p className="mt-1 text-sm text-muted">Serviced apartments, studios and homes across eight neighbourhoods, each with a 360° tour and nearby places.</p>
           </div>
           <Link href="/search" className="btn btn-secondary hidden sm:inline-flex">See all</Link>
         </div>

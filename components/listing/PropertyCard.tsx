@@ -16,8 +16,7 @@ export function PropertyCard({ p, stay = {} }: { p: Card; stay?: SearchParams })
         <div className="relative aspect-[4/3] bg-sage/50">
           {p.cover && <Image src={p.cover.url} alt={`${p.name}: ${p.cover.caption}`} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover" />}
           <div className="absolute left-3 top-3 flex flex-wrap gap-1.5">
-            {p.is_demo && <TrustBadge kind="demo" />}
-            {p.cover && <TrustBadge kind={p.cover.trust_label} />}
+            {p.cover?.trust_label === "actual_photo" && <TrustBadge kind="actual_photo" />}
           </div>
         </div>
       </Link>

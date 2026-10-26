@@ -18,7 +18,7 @@ export default async function BookingPage({ params, searchParams }: { params: Pr
   const sp = await searchParams;
   return (
     <div className="max-w-2xl space-y-6">
-      {sp.confirmed && b.status === "confirmed" && <Notice tone="success">Your booking is confirmed. Reference <strong>{b.reference}</strong>.{b.is_demo ? " (Demo booking, no money moved.)" : ""}</Notice>}
+      {sp.confirmed && b.status === "confirmed" && <Notice tone="success">Your booking is confirmed. Reference <strong>{b.reference}</strong>.</Notice>}
       <div className="flex items-center justify-between"><h1 className="font-display text-3xl font-bold text-forest" data-testid="booking-ref">{b.reference}</h1><StatusPill status={b.status} /></div>
       <div className="card p-5 text-sm">
         <p className="font-display text-lg font-semibold text-forest"><Link href={`/properties/${b.property.slug}`} className="hover:underline">{b.property.name}</Link></p>

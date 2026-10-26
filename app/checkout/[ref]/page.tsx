@@ -3,7 +3,6 @@ import { notFound, redirect } from "next/navigation";
 import { requireRole } from "@/lib/auth/session";
 import { myBooking } from "@/lib/db/account";
 import { PayButtons } from "@/components/account/PayButtons";
-import { TrustBadge } from "@/components/ui/ui";
 import { formatDate, kes } from "@/lib/format";
 import { POLICY_TEXT } from "@/lib/cancellation";
 
@@ -40,8 +39,6 @@ export default async function Checkout({ params }: { params: Promise<{ ref: stri
         </dl>
         {b.is_demo ? (
           <div className="mt-5 space-y-3">
-            <TrustBadge kind="demo" />
-            <p className="text-xs text-muted">This is a demonstration listing. Payment is simulated, no card is needed and no money moves.</p>
             <PayButtons id={b.id} reference={b.reference} />
           </div>
         ) : <p className="mt-5 text-sm text-muted">Online payment for this listing isn&apos;t enabled yet.</p>}

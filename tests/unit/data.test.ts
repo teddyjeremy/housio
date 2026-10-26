@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync } from "node:fs";
 import { LISTINGS, LAYOUTS } from "../../data/listings.mjs";
 import panos from "@/data/panoramas.json";
 import { roomForSpace, spaceForRoom, tourRooms } from "@/lib/tour";

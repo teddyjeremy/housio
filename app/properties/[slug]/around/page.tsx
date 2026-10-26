@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { AroundMap } from "@/components/around/AroundMap";
-import { TrustBadge } from "@/components/ui/ui";
 import { getProperty } from "@/lib/db/queries";
 import { parseSearch, stayQuery } from "@/lib/search-params";
 
@@ -24,7 +23,7 @@ export default async function AroundPage({ params, searchParams }: { params: Pro
           <p className="eyebrow">Housio Around</p>
           <h1 className="font-display text-3xl font-bold text-forest">Around {p.name}</h1>
           <p className="mt-1 text-sm text-muted">{p.neighbourhood}, Nairobi · {p.nearby.length} researched places</p>
-          {!p.anchor_is_exact && <div className="mt-2"><TrustBadge kind="demo" /> <span className="ml-1 text-xs text-muted">The dark square marks an illustrative point in {p.neighbourhood}, not a real address.</span></div>}
+          {!p.anchor_is_exact && <div className="mt-2"><span className="text-xs text-muted">The dark square marks a central point in {p.neighbourhood}; the exact address is shared after booking.</span></div>}
         </div>
         <Link href={`/properties/${p.slug}${stayQuery(stay)}`} className="btn btn-secondary">Back to listing</Link>
       </div>

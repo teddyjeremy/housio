@@ -10,7 +10,7 @@ import type { Quote, Unit } from "@/types";
 
 interface Props { units: Unit[]; checkin?: string; checkout?: string; guests?: number; today: string; policy: Policy; isDemo: boolean; back: string; unavailable: Record<string, string[]> }
 
-export function BookingPanel({ units, checkin, checkout, guests, today, policy, isDemo, back, unavailable }: Props) {
+export function BookingPanel({ units, checkin, checkout, guests, today, policy, back, unavailable }: Props) {
   const bookable = units.filter((u) => u.is_bookable);
   const [unitId, setUnitId] = useState(bookable[0]?.id ?? "");
   const [inDate, setIn] = useState(checkin ?? "");
@@ -83,7 +83,6 @@ export function BookingPanel({ units, checkin, checkout, guests, today, policy, 
       </form>
       <div className="mt-4 border-t border-line pt-4 text-xs text-muted">
         <p><strong className="text-ink">{POLICY_TEXT[policy].title} cancellation.</strong> {POLICY_TEXT[policy].summary}</p>
-        {isDemo && <p className="mt-2 rounded-xl bg-ink/5 p-2">Demo listing: bookings use a simulated payment and no money moves.</p>}
       </div>
     </aside>
   );

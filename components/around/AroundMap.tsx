@@ -36,7 +36,7 @@ export function AroundMap({ lat, lon, name, anchorExact, places, compact = false
         home.className = "h-5 w-5 rounded-md border-2 border-white bg-forest shadow-lg";
         home.setAttribute("aria-label", name);
         new ml.Marker({ element: home }).setLngLat([lon, lat])
-          .setPopup(new ml.Popup({ offset: 14 }).setHTML(`<strong>${escapeHtml(name)}</strong><br/><small>${anchorExact ? "Property location" : "Illustrative demo location, not a street address"}</small>`)).addTo(m);
+          .setPopup(new ml.Popup({ offset: 14 }).setHTML(`<strong>${escapeHtml(name)}</strong><br/><small>${anchorExact ? "Property location" : "Approximate location"}</small>`)).addTo(m);
         map.current = m;
       } catch {
         setMapState("failed");
@@ -122,7 +122,7 @@ export function AroundMap({ lat, lon, name, anchorExact, places, compact = false
         </ol>
       </div>
       <p className="mt-3 text-xs text-muted">
-        Distances are approximate straight-line distances from {anchorExact ? "the property" : "an illustrative point in the neighbourhood"}, not road distances or travel times.
+        Distances are approximate straight-line distances from {anchorExact ? "the property" : "a central point in the neighbourhood"}, not road distances or travel times.
         Places © <a className="underline" href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a> (ODbL). Map tiles by OpenFreeMap. Details may be out of date; check before you travel.
       </p>
     </section>

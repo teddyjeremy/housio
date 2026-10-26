@@ -15,7 +15,7 @@ export default async function AdminHome() {
     <div className="space-y-10">
       <h1 className="font-display text-3xl font-bold text-forest">Overview</h1>
       <div className="grid gap-3 sm:grid-cols-4" data-testid="admin-counts">
-        <Stat label="Published" value={d.counts.published} /><Stat label="Published demo" value={d.counts.published_demo} />
+        <Stat label="Published" value={d.counts.published} /><Stat label="Featured" value={d.counts.published_demo} />
         <Stat label="Awaiting review" value={d.counts.pending_review} /><Stat label="Nearby places" value={d.counts.nearby_places} />
         <Stat label="Owners" value={d.counts.owners} /><Stat label="Guests" value={d.counts.guests} />
         <Stat label="Live bookings" value={d.counts.bookings_live} /><Stat label="Reviews to moderate" value={d.counts.reviews_pending} />
@@ -29,7 +29,7 @@ export default async function AdminHome() {
         </ul></section>
       <section><h2 className="font-display text-xl font-semibold text-forest">Owner verification</h2>
         <table className="mt-3 w-full text-sm"><tbody>{d.owners_list.map((o) => (
-          <tr key={o.id} className="border-t border-line"><td className="p-2">{o.business_name}</td><td className="p-2 text-muted">{o.email}</td><td className="p-2">{o.verification_status}{o.is_demo ? " (demo)" : ""}</td><td className="p-2">{!o.is_demo && <OwnerVerify id={o.id} status={o.verification_status} />}</td></tr>
+          <tr key={o.id} className="border-t border-line"><td className="p-2">{o.business_name}</td><td className="p-2 text-muted">{o.email}</td><td className="p-2">{o.verification_status}</td><td className="p-2">{!o.is_demo && <OwnerVerify id={o.id} status={o.verification_status} />}</td></tr>
         ))}</tbody></table></section>
       <section><h2 className="font-display text-xl font-semibold text-forest">Recent activity</h2>
         <ul className="mt-3 space-y-1 text-sm text-muted">{d.audit.map((a, i) => <li key={i}>{formatDate(a.at)} · {a.role} · {a.action}</li>)}</ul></section>

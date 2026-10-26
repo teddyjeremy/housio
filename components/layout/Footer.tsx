@@ -8,10 +8,8 @@ export function Footer() {
       <div className="container-page grid gap-10 py-14 md:grid-cols-4">
         <div className="md:col-span-2">
           <Logo inverse />
-          <p className="mt-4 max-w-sm text-sm">{SITE_TAGLINE} Housio pairs conventional booking with interactive 3D tours, floor plans and real neighbourhood data.</p>
-          <p className="mt-4 max-w-md text-xs text-ivory/60">
-            The ten Nairobi listings shown are fictional demonstration listings with illustrative interiors. Map data and nearby places © OpenStreetMap contributors (ODbL).
-          </p>
+          <p className="mt-4 max-w-sm text-sm">{SITE_TAGLINE} Housio pairs conventional booking with 360° room tours, floor plans and real neighbourhood data.</p>
+          <p className="mt-4 max-w-md text-xs text-ivory/60">Map data and nearby places © OpenStreetMap contributors (ODbL). <Link href="/licences" className="underline">Credits</Link></p>
         </div>
         <nav aria-label="Explore" className="text-sm">
           <p className="mb-3 font-display font-semibold text-ivory">Explore</p>

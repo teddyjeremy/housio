@@ -25,7 +25,7 @@ export function PropertyForm({ id, initial, neighbourhoods, amenities, locked }:
   const err = (k: keyof PropertyInput) => errors[k] && <span role="alert" className="mt-1 block text-xs text-red-700">{String(errors[k]?.message)}</span>;
   return (
     <form onSubmit={onSubmit} className="space-y-6" noValidate data-testid="property-form">
-      {locked && <p className="rounded-xl bg-champagne/20 p-3 text-sm">This is a protected demo listing, so its details are read-only. Availability and prices below can still be managed, or create a new draft listing.</p>}
+      {locked && <p className="rounded-xl bg-champagne/20 p-3 text-sm">This is a featured listing, so its details are read-only. Availability and prices below can still be managed, or create a new draft listing.</p>}
       <fieldset disabled={locked} className="grid gap-4 sm:grid-cols-2">
         <label className="sm:col-span-2"><span className="label">Listing name</span><input className="input" {...register("name")} />{err("name")}</label>
         <label><span className="label">Property type</span><select className="input" {...register("property_type")}>{PROPERTY_TYPES.map((t) => <option key={t} value={t}>{TYPE_LABELS[t]}</option>)}</select></label>

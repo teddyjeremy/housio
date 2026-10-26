@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { TrustBadge } from "@/components/ui/ui";
 import { searchProperties } from "@/lib/db/queries";
 import { CRITERIA, rankFit } from "@/lib/fit";
 import { kes } from "@/lib/format";
@@ -49,7 +48,6 @@ export default async function FitPage({ searchParams }: { searchParams: Promise<
                 </div>
                 <div className="text-right">
                   <p className="font-display text-2xl font-bold text-forest" data-testid="fit-score">{r.score}/{r.max}</p>
-                  {r.property.is_demo && <TrustBadge kind="demo" />}
                 </div>
               </div>
               <ul className="mt-3 flex flex-wrap gap-1.5">

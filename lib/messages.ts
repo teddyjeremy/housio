@@ -2,7 +2,7 @@ export const DB_MESSAGES: Record<string, string> = {
   demo_restricted: "This is a protected demo record, so this change is switched off in the demo.",
   rate_limited: "Too many attempts. Please wait a few minutes and try again.",
   exists: "An account with that email already exists.",
-  reserved: "That email domain is reserved for demo accounts.",
+  reserved: "That email domain is reserved.",
   invalid: "Some details look incorrect. Please check and try again.",
   invalid_email: "Please enter a valid email address.",
   weak_password: "Please choose a password of at least 10 characters.",

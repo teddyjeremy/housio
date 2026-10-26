@@ -31,7 +31,7 @@ export default async function OwnerHome() {
           <li key={p.id} className="card flex flex-wrap items-center justify-between gap-3 p-4">
             <div>
               <p className="font-semibold text-forest">{p.name}</p>
-              <p className="text-sm text-muted">{p.neighbourhood} · {p.units.length} unit{p.units.length > 1 ? "s" : ""}{p.is_demo ? " · demo" : ""}</p>
+              <p className="text-sm text-muted">{p.neighbourhood} · {p.units.length} unit{p.units.length > 1 ? "s" : ""}</p>
               {p.review_note && p.status === "rejected" && <p className="mt-1 text-xs text-red-700">Reviewer note: {p.review_note}</p>}
             </div>
             <div className="flex items-center gap-2">
