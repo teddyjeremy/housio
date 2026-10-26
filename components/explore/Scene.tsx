@@ -128,7 +128,7 @@ function InstancedModel({ model, items, onPick }: { model: ModelKey; items: Plac
       out.push({ geometry: mesh.geometry, material: mesh.material, matrices });
     }
     return out;
-  }, [scene, items, model]);
+  }, [scene, items, model, info.source]);
   return (
     <group>
       {parts.map((part, i) => (
