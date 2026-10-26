@@ -23,16 +23,16 @@ interface Props {
 const WALL_T = 0.08;
 
 function useSurface(name: "wood_floor" | "tiles" | "plaster" | "grass", repeat: number) {
-  const maps = useTexture({ map: `/assets/textures/${name}_color.jpg`, normalMap: `/assets/textures/${name}_normal.jpg`, roughnessMap: `/assets/textures/${name}_rough.jpg` });
-  return useMemo(() => {
-    for (const t of Object.values(maps)) {
+  // Texture settings are applied in the loader callback, before the textures are handed back.
+  return useTexture({ map: `/assets/textures/${name}_color.jpg`, normalMap: `/assets/textures/${name}_normal.jpg`, roughnessMap: `/assets/textures/${name}_rough.jpg` }, (loaded) => {
+    const list = Array.isArray(loaded) ? loaded : Object.values(loaded as Record<string, THREE.Texture>);
+    list.forEach((t, i) => {
       t.wrapS = t.wrapT = THREE.RepeatWrapping;
       t.repeat.set(repeat, repeat);
       t.anisotropy = 4;
-    }
-    maps.map.colorSpace = THREE.SRGBColorSpace;
-    return maps;
-  }, [maps, repeat]);
+      if (i === 0) t.colorSpace = THREE.SRGBColorSpace;
+    });
+  });
 }
 
 function Rooms({ plan, style, cutaway, onSelect }: { plan: ScenePlan; style: string; cutaway: boolean; onSelect: (id: string) => void }) {

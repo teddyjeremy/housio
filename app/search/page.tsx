@@ -11,11 +11,12 @@ export const dynamic = "force-dynamic";
 
 export default async function SearchPage({ searchParams }: { searchParams: Promise<Record<string, string | string[] | undefined>> }) {
   const params = parseSearch(await searchParams);
-  let error = false;
-  const [results, amenities] = await Promise.all([
-    searchProperties(params).catch(() => { error = true; return []; }),
+  const [found, amenities] = await Promise.all([
+    searchProperties(params).then((r) => ({ r, failed: false })).catch(() => ({ r: [], failed: true })),
     getAmenities().catch(() => []),
   ]);
+  const results = found.r;
+  const error = found.failed;
   const amen = new Set(params.amenities ?? []);
   return (
     <div className="container-page py-10">
