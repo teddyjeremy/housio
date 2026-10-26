@@ -45,3 +45,4 @@ next-env.d.ts
 /test-results/
 /playwright-report/
 /public/assets/_raw/
+.cache/

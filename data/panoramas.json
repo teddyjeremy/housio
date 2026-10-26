@@ -1,0 +1,589 @@
+{
+ "generated_at": "2026-10-26T10:22:07+00:00",
+ "panoramas": [
+  {
+   "id": "cayley_interior",
+   "name": "Cayley Interior",
+   "kind": "living",
+   "yaw": 240,
+   "file": "/panos/cayley_interior.webp",
+   "low": "/panos/cayley_interior-low.webp",
+   "bytes": 334486,
+   "low_bytes": 35628,
+   "source": "Poly Haven",
+   "page_url": "https://polyhaven.com/a/cayley_interior",
+   "creator": "Greg Zaal",
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "attribution_required": false,
+   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/cayley_interior.jpg"
+  },
+  {
+   "id": "lythwood_lounge",
+   "name": "Lythwood Lounge",
+   "kind": "living",
+   "yaw": 60,
+   "file": "/panos/lythwood_lounge.webp",
+   "low": "/panos/lythwood_lounge-low.webp",
+   "bytes": 532992,
+   "low_bytes": 30794,
+   "source": "Poly Haven",
+   "page_url": "https://polyhaven.com/a/lythwood_lounge",
+   "creator": "Greg Zaal",
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "attribution_required": false,
+   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/lythwood_lounge.jpg"
+  },
+  {
+   "id": "reading_room",
+   "name": "Reading Room",
+   "kind": "living",
+   "yaw": 60,
+   "file": "/panos/reading_room.webp",
+   "low": "/panos/reading_room-low.webp",
+   "bytes": 741948,
+   "low_bytes": 47732,
+   "source": "Poly Haven",
+   "page_url": "https://polyhaven.com/a/reading_room",
+   "creator": "Greg Zaal",
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "attribution_required": false,
+   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/reading_room.jpg"
+  },
+  {
+   "id": "combination_room",
+   "name": "Combination Room",
+   "kind": "living",
+   "yaw": 300,
+   "file": "/panos/combination_room.webp",
+   "low": "/panos/combination_room-low.webp",
+   "bytes": 705126,
+   "low_bytes": 43360,
+   "source": "Poly Haven",
+   "page_url": "https://polyhaven.com/a/combination_room",
+   "creator": "Sergej Majboroda",
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "attribution_required": false,
+   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/combination_room.jpg"
+  },
+  {
+   "id": "wooden_lounge",
+   "name": "Wooden Lounge",
+   "kind": "living",
+   "yaw": 0,
+   "file": "/panos/wooden_lounge.webp",
+   "low": "/panos/wooden_lounge-low.webp",
+   "bytes": 363968,
+   "low_bytes": 28316,
+   "source": "Poly Haven",
+   "page_url": "https://polyhaven.com/a/wooden_lounge",
+   "creator": "Greg Zaal",
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "attribution_required": false,
+   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/wooden_lounge.jpg"
+  },
+  {
+   "id": "anniversary_lounge",
+   "name": "Anniversary Lounge",
+   "kind": "living",
+   "yaw": 120,
+   "file": "/panos/anniversary_lounge.webp",
+   "low": "/panos/anniversary_lounge-low.webp",
+   "bytes": 588428,
+   "low_bytes": 37554,
+   "source": "Poly Haven",
+   "page_url": "https://polyhaven.com/a/anniversary_lounge",
+   "creator": "Greg Zaal",
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "attribution_required": false,
+   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/anniversary_lounge.jpg"
+  },
+  {
+   "id": "brown_photostudio_04",
+   "name": "Brown Photostudio 04",
+   "kind": "studio",
+   "yaw": 120,
+   "file": "/panos/brown_photostudio_04.webp",
+   "low": "/panos/brown_photostudio_04-low.webp",
+   "bytes": 651596,
+   "low_bytes": 29602,
+   "source": "Poly Haven",
+   "page_url": "https://polyhaven.com/a/brown_photostudio_04",
+   "creator": "Sergej Majboroda",
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "attribution_required": false,
+   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/brown_photostudio_04.jpg"
+  },
+  {
+   "id": "kiara_interior",
+   "name": "Kiara Interior",
+   "kind": "kitchen",
+   "yaw": 180,
+   "file": "/panos/kiara_interior.webp",
+   "low": "/panos/kiara_interior-low.webp",
+   "bytes": 567494,
+   "low_bytes": 46272,
+   "source": "Poly Haven",
+   "page_url": "https://polyhaven.com/a/kiara_interior",
+   "creator": "Greg Zaal",
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "attribution_required": false,
+   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/kiara_interior.jpg"
+  },
+  {
+   "id": "studio_country_hall",
+   "name": "Studio Country Hall",
+   "kind": "kitchen",
+   "yaw": 0,
+   "file": "/panos/studio_country_hall.webp",
+   "low": "/panos/studio_country_hall-low.webp",
+   "bytes": 879744,
+   "low_bytes": 47438,
+   "source": "Poly Haven",
+   "page_url": "https://polyhaven.com/a/studio_country_hall",
+   "creator": "Sergej Majboroda",
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "attribution_required": false,
+   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/studio_country_hall.jpg"
+  },
+  {
+   "id": "hotel_room",
+   "name": "Hotel Room",
+   "kind": "bedroom",
+   "yaw": 120,
+   "file": "/panos/hotel_room.webp",
+   "low": "/panos/hotel_room-low.webp",
+   "bytes": 225084,
+   "low_bytes": 25408,
+   "source": "Poly Haven",
+   "page_url": "https://polyhaven.com/a/hotel_room",
+   "creator": "Greg Zaal",
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "attribution_required": false,
+   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/hotel_room.jpg"
+  },
+  {
+   "id": "relax_inn_seaview_suite",
+   "name": "Relax Inn Seaview Suite",
+   "kind": "bedroom",
+   "yaw": 60,
+   "file": "/panos/relax_inn_seaview_suite.webp",
+   "low": "/panos/relax_inn_seaview_suite-low.webp",
+   "bytes": 334468,
+   "low_bytes": 26044,
+   "source": "Poly Haven",
+   "page_url": "https://polyhaven.com/a/relax_inn_seaview_suite",
+   "creator": "Dario Barresi, Jenelle van Heerden",
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "attribution_required": false,
+   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/relax_inn_seaview_suite.jpg"
+  },
+  {
+   "id": "lythwood_room",
+   "name": "Lythwood Room",
+   "kind": "bedroom",
+   "yaw": 180,
+   "file": "/panos/lythwood_room.webp",
+   "low": "/panos/lythwood_room-low.webp",
+   "bytes": 412312,
+   "low_bytes": 28248,
+   "source": "Poly Haven",
+   "page_url": "https://polyhaven.com/a/lythwood_room",
+   "creator": "Greg Zaal",
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "attribution_required": false,
+   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/lythwood_room.jpg"
+  },
+  {
+   "id": "glasshouse_interior",
+   "name": "Glasshouse Interior",
+   "kind": "bedroom",
+   "yaw": 240,
+   "file": "/panos/glasshouse_interior.webp",
+   "low": "/panos/glasshouse_interior-low.webp",
+   "bytes": 826574,
+   "low_bytes": 48602,
+   "source": "Poly Haven",
+   "page_url": "https://polyhaven.com/a/glasshouse_interior",
+   "creator": "Dario Barresi",
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "attribution_required": false,
+   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/glasshouse_interior.jpg"
+  },
+  {
+   "id": "en_suite",
+   "name": "En Suite",
+   "kind": "bathroom",
+   "yaw": 180,
+   "file": "/panos/en_suite.webp",
+   "low": "/panos/en_suite-low.webp",
+   "bytes": 213738,
+   "low_bytes": 18968,
+   "source": "Poly Haven",
+   "page_url": "https://polyhaven.com/a/en_suite",
+   "creator": "Greg Zaal",
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "attribution_required": false,
+   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/en_suite.jpg"
+  },
+  {
+   "id": "modern_bathroom",
+   "name": "Modern Bathroom",
+   "kind": "bathroom",
+   "yaw": 0,
+   "file": "/panos/modern_bathroom.webp",
+   "low": "/panos/modern_bathroom-low.webp",
+   "bytes": 450912,
+   "low_bytes": 16712,
+   "source": "Poly Haven",
+   "page_url": "https://polyhaven.com/a/modern_bathroom",
+   "creator": "Adrian Kubasa",
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "attribution_required": false,
+   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/modern_bathroom.jpg"
+  },
+  {
+   "id": "bathroom",
+   "name": "Bathroom",
+   "kind": "bathroom",
+   "yaw": 300,
+   "file": "/panos/bathroom.webp",
+   "low": "/panos/bathroom-low.webp",
+   "bytes": 215776,
+   "low_bytes": 19610,
+   "source": "Poly Haven",
+   "page_url": "https://polyhaven.com/a/bathroom",
+   "creator": "Greg Zaal",
+   "licence": "CC0-1.0",
+   "licence_url": "https://polyhaven.com/license",
+   "attribution_required": false,
+   "original": "https://dl.polyhaven.org/file/ph-assets/HDRIs/extra/Tonemapped%20JPG/bathroom.jpg"
+  }
+ ],
+ "tours": {
+  "westlands-parkside-residences": [
+   {
+    "room": "Living room",
+    "panorama": "cayley_interior"
+   },
+   {
+    "room": "Bedroom",
+    "panorama": "relax_inn_seaview_suite"
+   },
+   {
+    "room": "Bathroom",
+    "panorama": "en_suite"
+   }
+  ],
+  "kilimani-arboretum-studio": [
+   {
+    "room": "Studio",
+    "panorama": "brown_photostudio_04"
+   },
+   {
+    "room": "Bathroom",
+    "panorama": "bathroom"
+   }
+  ],
+  "kilimani-family-apartment": [
+   {
+    "room": "Living room",
+    "panorama": "wooden_lounge"
+   },
+   {
+    "room": "Kitchen",
+    "panorama": "kiara_interior"
+   },
+   {
+    "room": "Main bedroom",
+    "panorama": "hotel_room"
+   },
+   {
+    "room": "Bathroom",
+    "panorama": "modern_bathroom"
+   }
+  ],
+  "karen-garden-cottage": [
+   {
+    "room": "Lounge",
+    "panorama": "lythwood_lounge"
+   },
+   {
+    "room": "Kitchen",
+    "panorama": "studio_country_hall"
+   },
+   {
+    "room": "Bedroom",
+    "panorama": "lythwood_room"
+   },
+   {
+    "room": "Bathroom",
+    "panorama": "bathroom"
+   }
+  ],
+  "kitisuru-ridge-suite": [
+   {
+    "room": "Living room",
+    "panorama": "reading_room"
+   },
+   {
+    "room": "Bedroom",
+    "panorama": "glasshouse_interior"
+   },
+   {
+    "room": "Bathroom",
+    "panorama": "en_suite"
+   }
+  ],
+  "kitisuru-extended-stay-house": [
+   {
+    "room": "Living room",
+    "panorama": "anniversary_lounge"
+   },
+   {
+    "room": "Kitchen",
+    "panorama": "studio_country_hall"
+   },
+   {
+    "room": "Bedroom",
+    "panorama": "glasshouse_interior"
+   },
+   {
+    "room": "Bathroom",
+    "panorama": "modern_bathroom"
+   }
+  ],
+  "south-b-business-studio": [
+   {
+    "room": "Studio",
+    "panorama": "hotel_room"
+   },
+   {
+    "room": "Bathroom",
+    "panorama": "en_suite"
+   }
+  ],
+  "langata-forest-edge-apartment": [
+   {
+    "room": "Living room",
+    "panorama": "wooden_lounge"
+   },
+   {
+    "room": "Bedroom",
+    "panorama": "relax_inn_seaview_suite"
+   },
+   {
+    "room": "Bathroom",
+    "panorama": "bathroom"
+   }
+  ],
+  "gigiri-diplomatic-serviced-apartment": [
+   {
+    "room": "Lounge",
+    "panorama": "anniversary_lounge"
+   },
+   {
+    "room": "Bedroom",
+    "panorama": "hotel_room"
+   },
+   {
+    "room": "Bathroom",
+    "panorama": "modern_bathroom"
+   }
+  ],
+  "runda-quiet-villa": [
+   {
+    "room": "Living room",
+    "panorama": "combination_room"
+   },
+   {
+    "room": "Kitchen",
+    "panorama": "kiara_interior"
+   },
+   {
+    "room": "Bedroom",
+    "panorama": "lythwood_room"
+   },
+   {
+    "room": "Bathroom",
+    "panorama": "en_suite"
+   }
+  ]
+ },
+ "stills": {
+  "westlands-parkside-residences": [
+   {
+    "file": "/stills/westlands-parkside-residences-1.jpg",
+    "room": "Living room",
+    "panorama": "cayley_interior"
+   },
+   {
+    "file": "/stills/westlands-parkside-residences-2.jpg",
+    "room": "Bedroom",
+    "panorama": "relax_inn_seaview_suite"
+   },
+   {
+    "file": "/stills/westlands-parkside-residences-3.jpg",
+    "room": "Bathroom",
+    "panorama": "en_suite"
+   }
+  ],
+  "kilimani-arboretum-studio": [
+   {
+    "file": "/stills/kilimani-arboretum-studio-1.jpg",
+    "room": "Studio",
+    "panorama": "brown_photostudio_04"
+   },
+   {
+    "file": "/stills/kilimani-arboretum-studio-2.jpg",
+    "room": "Bathroom",
+    "panorama": "bathroom"
+   }
+  ],
+  "kilimani-family-apartment": [
+   {
+    "file": "/stills/kilimani-family-apartment-1.jpg",
+    "room": "Living room",
+    "panorama": "wooden_lounge"
+   },
+   {
+    "file": "/stills/kilimani-family-apartment-2.jpg",
+    "room": "Kitchen",
+    "panorama": "kiara_interior"
+   },
+   {
+    "file": "/stills/kilimani-family-apartment-3.jpg",
+    "room": "Main bedroom",
+    "panorama": "hotel_room"
+   }
+  ],
+  "karen-garden-cottage": [
+   {
+    "file": "/stills/karen-garden-cottage-1.jpg",
+    "room": "Lounge",
+    "panorama": "lythwood_lounge"
+   },
+   {
+    "file": "/stills/karen-garden-cottage-2.jpg",
+    "room": "Kitchen",
+    "panorama": "studio_country_hall"
+   },
+   {
+    "file": "/stills/karen-garden-cottage-3.jpg",
+    "room": "Bedroom",
+    "panorama": "lythwood_room"
+   }
+  ],
+  "kitisuru-ridge-suite": [
+   {
+    "file": "/stills/kitisuru-ridge-suite-1.jpg",
+    "room": "Living room",
+    "panorama": "reading_room"
+   },
+   {
+    "file": "/stills/kitisuru-ridge-suite-2.jpg",
+    "room": "Bedroom",
+    "panorama": "glasshouse_interior"
+   },
+   {
+    "file": "/stills/kitisuru-ridge-suite-3.jpg",
+    "room": "Bathroom",
+    "panorama": "en_suite"
+   }
+  ],
+  "kitisuru-extended-stay-house": [
+   {
+    "file": "/stills/kitisuru-extended-stay-house-1.jpg",
+    "room": "Living room",
+    "panorama": "anniversary_lounge"
+   },
+   {
+    "file": "/stills/kitisuru-extended-stay-house-2.jpg",
+    "room": "Kitchen",
+    "panorama": "studio_country_hall"
+   },
+   {
+    "file": "/stills/kitisuru-extended-stay-house-3.jpg",
+    "room": "Bedroom",
+    "panorama": "glasshouse_interior"
+   }
+  ],
+  "south-b-business-studio": [
+   {
+    "file": "/stills/south-b-business-studio-1.jpg",
+    "room": "Studio",
+    "panorama": "hotel_room"
+   },
+   {
+    "file": "/stills/south-b-business-studio-2.jpg",
+    "room": "Bathroom",
+    "panorama": "en_suite"
+   }
+  ],
+  "langata-forest-edge-apartment": [
+   {
+    "file": "/stills/langata-forest-edge-apartment-1.jpg",
+    "room": "Living room",
+    "panorama": "wooden_lounge"
+   },
+   {
+    "file": "/stills/langata-forest-edge-apartment-2.jpg",
+    "room": "Bedroom",
+    "panorama": "relax_inn_seaview_suite"
+   },
+   {
+    "file": "/stills/langata-forest-edge-apartment-3.jpg",
+    "room": "Bathroom",
+    "panorama": "bathroom"
+   }
+  ],
+  "gigiri-diplomatic-serviced-apartment": [
+   {
+    "file": "/stills/gigiri-diplomatic-serviced-apartment-1.jpg",
+    "room": "Lounge",
+    "panorama": "anniversary_lounge"
+   },
+   {
+    "file": "/stills/gigiri-diplomatic-serviced-apartment-2.jpg",
+    "room": "Bedroom",
+    "panorama": "hotel_room"
+   },
+   {
+    "file": "/stills/gigiri-diplomatic-serviced-apartment-3.jpg",
+    "room": "Bathroom",
+    "panorama": "modern_bathroom"
+   }
+  ],
+  "runda-quiet-villa": [
+   {
+    "file": "/stills/runda-quiet-villa-1.jpg",
+    "room": "Living room",
+    "panorama": "combination_room"
+   },
+   {
+    "file": "/stills/runda-quiet-villa-2.jpg",
+    "room": "Kitchen",
+    "panorama": "kiara_interior"
+   },
+   {
+    "file": "/stills/runda-quiet-villa-3.jpg",
+    "room": "Bedroom",
+    "panorama": "lythwood_room"
+   }
+  ]
+ }
+}
